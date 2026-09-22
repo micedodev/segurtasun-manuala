@@ -19,6 +19,9 @@ export default {
         humo: '#6E6C68',
         rojo: '#D94848',
         rojovivo: '#FF6B6B',
+        // granate: rojo oscurecido para texto pequeño sobre papel claro.
+        // #D94848 sobre #D8D4CB = 2,86:1 (falla AA); #A12E2E = ~4,8:1 (pasa).
+        granate: '#A12E2E',
       },
       fontFamily: {
         display: ['Roboto', 'system-ui', 'sans-serif'],
