@@ -1,0 +1,64 @@
+---
+import { PADLOCK } from '../lib/ascii-art.mjs';
+
+interface Props {
+  caption?: string;
+  live?: string;
+}
+const { caption = 'FIG. 01 — CANDADO', live = 'SEÑAL' } = Astro.props;
+
+// Precalcula los segmentos (piedra / rojo) de cada fila.
+const rendered = PADLOCK.lines.map((line, r) => {
+  if (PADLOCK.redRows.includes(r)) return [{ t: line, red: true }];
+  const spans = (PADLOCK.redSpans[r] ?? []) as [number, number][];
+  if (!spans.length) return [{ t: line, red: false }];
+  const segs: { t: string; red: boolean }[] = [];
+  let i = 0;
+  const ordered = [...spans].sort((a, b) => a[0] - b[0]);
+  for (const [a, b] of ordered) {
+    if (a > i) segs.push({ t: line.slice(i, a), red: false });
+    segs.push({ t: line.slice(a, b), red: true });
+    i = b;
+  }
+  if (i < line.length) segs.push({ t: line.slice(i), red: false });
+  return segs;
+});
+---
+<figure class="ascii-box velo relative overflow-hidden rounded-[3px] p-4" aria-label={caption}>
+  <span class="ascii-scan" aria-hidden="true"></span>
+  <pre class="ascii-art relative font-mono text-piedra" aria-hidden="true">{rendered.map((segs) => <span class="block">{segs.map((s) => <span class={s.red ? 'text-rojo' : undefined}>{s.t}</span>)}</span>)}</pre>
+  <figcaption class="relative mt-3 flex items-center gap-2 border-t border-white/10 pt-2 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-humo">
+    <span class="inline-block h-1.5 w-1.5 bg-rojo" aria-hidden="true"></span>
+    <span>{caption}</span>
+    <span class="ml-auto flex items-center gap-1.5"><span class="ascii-blink inline-block h-1.5 w-1.5 rounded-full bg-rojo" aria-hidden="true"></span>{live}</span>
+  </figcaption>
+</figure>
+<style>
+  .ascii-box .ascii-art {
+    font-size: 8.5px;
+    line-height: 1.35;
+    white-space: pre;
+    transition: color 0.4s ease;
+  }
+  .ascii-box:hover .ascii-art { color: #ece9e2; }
+  .ascii-scan {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    height: 26px;
+    top: 4%;
+    background: linear-gradient(to bottom, transparent, rgba(217, 72, 72, 0.13), transparent);
+    pointer-events: none;
+    animation: asciiScan 7s ease-in-out infinite alternate;
+  }
+  @keyframes asciiScan {
+    from { top: 4%; }
+    to { top: calc(100% - 70px); }
+  }
+  .ascii-blink { animation: asciiBlink 1.6s steps(2, start) infinite; }
+  @keyframes asciiBlink { to { visibility: hidden; } }
+  @media (prefers-reduced-motion: reduce) {
+    .ascii-scan, .ascii-blink { animation: none; }
+    .ascii-scan { display: none; }
+  }
+</style>

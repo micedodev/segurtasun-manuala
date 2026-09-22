@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EpNum from '../../components/EpNum.astro';
+import AsciiLock from '../../components/AsciiLock.astro';
 import { T, type Lang } from '../../lib/i18n';
 import { CAPITULOS } from '../../lib/content';
 const lang: Lang = 'eu';
@@ -18,18 +19,28 @@ const ep = ['01', '02', '03', '04', '05'];
         <span class="chip border-white/20 text-piedra">ES / EU</span>
         <span class="chip border-white/20 text-piedra">17 fitxa · 4 kontrol · 2 kasu</span>
       </div>
-      <h1 class="reveal font-display mt-6 max-w-5xl text-[12vw] font-extralight uppercase leading-[0.95] tracking-tight text-hueso md:text-[96px]">
-        Segurtasuna<br /><span class="pencil-u font-light italic normal-case text-hueso">eskura</span><span class="text-rojo">.</span>
+      <h1 id="hero-title" class="reveal font-display mt-6 max-w-5xl text-[12vw] font-extralight uppercase leading-[0.95] tracking-tight text-hueso md:text-[96px]">
+        Segurtasuna<br /><span id="hero-key" class="pencil-u font-light italic normal-case text-hueso">eskura</span><span class="text-rojo">.</span>
       </h1>
       <div class="mt-8 grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-end">
         <p class="reveal max-w-2xl text-[16px] font-light leading-relaxed text-piedra md:text-lg">
           <strong class="font-medium text-hueso">Segurtasun eta Erabilgarritasun Handiko</strong> web-dokumentala: phishing, botnet, ransomware, rootkit, VPN, DMZ… Bost atal; mehatxu bakoitzak bere fitxa du, CIA taularekin, fikziozko kasuarekin eta defentsarekin.
         </p>
-        <div class="reveal flex flex-wrap gap-3">
-          <a href={`/${lang}/ud1`} class="btn-rojo">{t.leer} <span aria-hidden="true">→</span></a>
-          <a href={`/${lang}/glosario`} class="btn-line">{t.glosario}</a>
+        <div class="flex flex-col gap-4">
+          <div class="reveal hidden md:block"><AsciiLock caption="IRUD. 01 — GILTZARRA" live="SEINALEA" /></div>
+          <div class="reveal flex flex-wrap gap-3">
+            <a href={`/${lang}/ud1`} class="btn-rojo">{t.leer} <span aria-hidden="true">→</span></a>
+            <a href={`/${lang}/glosario`} class="btn-line">{t.glosario}</a>
+          </div>
         </div>
       </div>
+      <script>
+        import { scrambleIn, scrambleHover } from '../../scripts/scramble.ts';
+        const h1 = document.getElementById('hero-title');
+        if (h1) setTimeout(() => scrambleIn(h1, 1200), 400);
+        const key = document.getElementById('hero-key');
+        if (key) scrambleHover(key, 500);
+      </script>
       <div class="reveal mt-10 grid grid-cols-2 border-y border-hueso/20 md:grid-cols-4">
         {[['08', 'mehatxu · ❶'], ['05', 'teknika · ❷'], ['04', 'malware · ❸'], ['02', 'benetako kasu · ❹']].map(([n, l], i) => (
           <div class={`px-5 py-5 ${i > 0 ? 'border-l border-hueso/15' : ''} ${i >= 2 ? 'max-md:border-t max-md:border-hueso/15' : ''} ${i === 2 ? 'max-md:border-l-0' : ''}`}>
