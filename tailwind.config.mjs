@@ -28,4 +28,7 @@ export default {
     },
   },
   plugins: [],
+  // La integración @astrojs/tailwind usaba applyBaseStyles:false (sin preflight).
+  // Al ir por PostCSS directo se conserva el mismo render desactivándolo aquí.
+  corePlugins: { preflight: false },
 };
