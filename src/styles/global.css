@@ -8,6 +8,11 @@
 @layer base {
   body { @apply bg-[#0e0e10] text-hueso font-sans antialiased; font-weight: 300; text-rendering: optimizeLegibility; }
   h1, h2, h3 { font-family: 'Roboto', system-ui, sans-serif; }
+  /* Sin el preflight hay que resetear los enlaces a mano: si no, el navegador
+     los pinta en azul/morado y subrayados (incluido el logo, que hereda
+     currentColor del <a>, y los :visited en morado). */
+  a { color: inherit; text-decoration: none; }
+  a:visited { color: inherit; }
 }
 @layer components {
   .etiqueta { @apply font-mono text-[11px] font-medium uppercase tracking-[0.22em]; }
