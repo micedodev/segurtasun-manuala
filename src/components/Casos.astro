@@ -1,0 +1,136 @@
+---
+import EpNum from './EpNum.astro';
+import EpOpen from './EpOpen.astro';
+import { T, type Lang } from '../lib/i18n';
+import type { CasoEstudio } from '../lib/content';
+interface Props { lang: Lang; casos: CasoEstudio[]; titulo: string; lema: string; num: string; prevHref?: string; nextHref?: string }
+const { lang, casos, titulo, lema, num, prevHref, nextHref } = Astro.props;
+const t = T[lang];
+const bg = '#100F12';
+const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
+const ctx = lang === 'es'
+  ? { contexto: 'Contexto', cifras: 'Impacto en cifras', vector: 'Vector técnico', crono: 'Cronología', alcance: 'Alcance real', respuesta: 'Respuesta', lecciones: 'Tres lecciones', caso: 'Caso' }
+  : { contexto: 'Testuingurua', cifras: 'Eragina zenbakitan', vector: 'Bektore teknikoa', crono: 'Kronologia', alcance: 'Benetako irismena', respuesta: 'Erantzuna', lecciones: 'Hiru ikasgai', caso: 'Kasua' };
+---
+<script define:vars={{ bg }}>
+  document.documentElement.style.background = bg;
+  document.body.style.background = bg;
+</script>
+
+<EpOpen lang={lang} num={num} kick={epKick} title={titulo} lema={lema} bg={bg} />
+
+<div style={`background:${bg}`}>
+<section class="mx-auto max-w-[1024px] px-4 pt-10 md:px-8 md:pt-14">
+  <div class="reveal flex items-center gap-4 md:gap-5">
+    <span class="text-rojo"><EpNum n={num} size="lg" /></span>
+    <div>
+      <p class="etiqueta text-rojo">{epKick} · {casos.length} {lang === 'es' ? 'casos' : 'kasu'}</p>
+      <h1 class="font-display text-4xl font-light tracking-tight text-hueso md:text-6xl">{titulo}</h1>
+      <p class="font-display mt-1 text-lg font-light italic text-piedra">“{lema}”</p>
+    </div>
+  </div>
+  <nav class="reveal mt-6 flex flex-wrap gap-2">
+    {casos.map((c, i) => (
+      <a href={`#caso-${c.id}`} class="chip border-white/20 !px-4 !py-2 text-piedra transition hover:border-rojo hover:text-rojo">{ctx.caso} 0{i + 1} · {c.titulo}</a>
+    ))}
+  </nav>
+</section>
+
+<div class="mx-auto max-w-[1024px] space-y-8 px-4 py-8 md:px-8">
+  {casos.map((c, idx) => (
+    <article id={`caso-${c.id}`} class="reveal scroll-mt-36 overflow-hidden rounded-[3px] border border-white/10 bg-carbon-800 md:scroll-mt-24">
+      <div class="bg-carbon-900 px-5 pb-5 pt-5 md:px-7 md:pb-6 md:pt-6">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-rojo">{ctx.caso} 0{idx + 1}</span>
+          {c.tipo && <span class="chip border-white/20 normal-case tracking-normal text-piedra">{c.tipo}</span>}
+        </div>
+        <h2 class="font-display mt-1 text-2xl font-light leading-tight tracking-tight text-hueso md:text-4xl">{c.titulo}</h2>
+        {c.subtitulo && <p class="font-display mt-1 font-light italic text-piedra">{c.subtitulo}</p>}
+      </div>
+      <div class="sticky top-[104px] z-20 border-y border-solid border-t-white/10 border-b-rojo/50 bg-carbon-900 px-5 py-2 shadow-md md:top-[60px] md:px-7">
+        <p class="font-mono truncate text-[10px] font-medium uppercase tracking-[0.24em] text-piedra"><span class="text-rojo">{ctx.caso} 0{idx + 1}</span><span class="mx-2 text-humo">—</span>{c.titulo}</p>
+      </div>
+      <div class="grid gap-6 p-5 md:grid-cols-2 md:gap-0 md:p-0 md:divide-x md:divide-white/10">
+        <div class="space-y-5 md:p-7 md:pr-6">
+          {c.contexto.length > 0 && (
+            <div>
+              <p class="etiqueta text-rojo">— {ctx.contexto}</p>
+              {c.contexto.map((p) => <p class="mt-2 text-[14px] font-light leading-relaxed text-hueso/85">{p}</p>)}
+            </div>
+          )}
+          {c.vectores.length > 0 && (
+            <div>
+              <p class="etiqueta text-rojo">— {ctx.vector}</p>
+              <div class="mt-2 space-y-2">
+                {c.vectores.map((v) => (
+                  <div class="rounded-[2px] border border-white/10 bg-white/[0.03] p-3">
+                    <p class="text-sm font-medium text-hueso">{v.t}</p>
+                    <p class="mt-0.5 text-[13px] font-light leading-relaxed text-piedra">{v.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          {c.alcance.length > 0 && (
+            <div>
+              <p class="etiqueta text-rojo">— {ctx.alcance}</p>
+              {c.alcance.map((p) => <p class="mt-2 text-[14px] font-light leading-relaxed text-hueso/85">{p}</p>)}
+            </div>
+          )}
+        </div>
+        <div class="space-y-5 md:p-7 md:pl-6">
+          {c.cifras.length > 0 && (
+            <div class="grid grid-cols-2 gap-px bg-white/10">
+              {c.cifras.map((z) => (
+                <div class="bg-carbon-800 p-4">
+                  <p class="font-display text-3xl font-thin tabular-nums text-hueso">{z.cifra}</p>
+                  <p class="mt-1 text-[12px] font-light leading-snug text-piedra">{z.concepto}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {c.cronologia.length > 0 && (
+            <div>
+              <p class="etiqueta text-rojo">— {ctx.crono}</p>
+              <ol class="relative mt-3 space-y-4 border-l border-rojo/50 pl-5">
+                {c.cronologia.map((k) => (
+                  <li class="relative">
+                    <span class="absolute -left-[25px] top-1 h-2 w-2 rounded-full bg-rojo"></span>
+                    <p class="font-mono text-[10.5px] font-medium uppercase tracking-[0.2em] text-rojo">{k.fecha}</p>
+                    <p class="text-[13.5px] font-medium text-hueso">{k.hito}</p>
+                    <p class="text-[13px] font-light leading-relaxed text-piedra">{k.detalle}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+          {c.respuesta.length > 0 && (
+            <div>
+              <p class="etiqueta text-rojo">— {ctx.respuesta}</p>
+              <ul class="mt-2 space-y-1.5">
+                {c.respuesta.map((r) => <li class="flex gap-2 text-[13px] font-light leading-relaxed text-hueso/85"><span class="text-rojo">—</span><span>{r}</span></li>)}
+              </ul>
+            </div>
+          )}
+          {c.lecciones.length > 0 && (
+            <div>
+              <p class="etiqueta text-rojo">— {ctx.lecciones}</p>
+              {c.lecciones.map((l, i) => (
+                <div class="mt-2 border-l-2 border-rojo bg-white/[0.03] p-3">
+                  <p class="text-[13.5px] font-medium text-hueso">{i + 1}. {l.t}</p>
+                  <p class="text-[13px] font-light leading-relaxed text-piedra">{l.d}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </article>
+  ))}
+  <div class="flex flex-wrap items-center gap-2 pb-4">
+    {prevHref && <a href={prevHref} class="btn-line !px-4 !py-2 !text-[11px]">← {t.anterior}</a>}
+    {nextHref && <a href={nextHref} class="btn-rojo !px-4 !py-2 !text-[11px]">{t.siguiente} →</a>}
+    <a href={`/${lang}`} class="font-mono ml-auto self-center text-[10px] font-medium uppercase tracking-[0.2em] text-humo underline underline-offset-4 hover:text-hueso">{t.volver_indice}</a>
+  </div>
+</div>
+</div>

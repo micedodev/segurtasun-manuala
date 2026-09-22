@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import Casos from '../../components/Casos.astro';
+import { loadCasos, slugMeta } from '../../lib/content';
+const lang = 'eu' as const;
+const slug = 'ciberataques';
+const meta = slugMeta(lang, slug);
+const casos = loadCasos(lang, meta.file);
+---
+<Base lang={lang} title={`${meta.titulo} — SegurtasunManuala EU`} description={meta.lema} active={slug}>
+  <Casos lang={lang} casos={casos} titulo={meta.titulo} lema={meta.lema} num="04" prevHref={`/${lang}/ud3`} nextHref={`/${lang}/perimetral`} />
+</Base>

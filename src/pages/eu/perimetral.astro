@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import Horizontal from '../../components/Horizontal.astro';
+import Drawer from '../../components/Drawer.astro';
+import { loadCapitulo, slugMeta } from '../../lib/content';
+const lang = 'eu' as const;
+const slug = 'perimetral';
+const meta = slugMeta(lang, slug);
+const cap = loadCapitulo(lang, meta.file, meta);
+const order = ['ud1','ud2','ud3','ciberataques','perimetral','glosario'];
+const i = order.indexOf(slug);
+const prev = `/${lang}/${order[i-1]}`;
+const next = `/${lang}/${order[i+1]}`;
+---
+<Base lang={lang} title={`${cap.titulo} — SegurtasunManuala EU`} description={cap.lema} active={slug}>
+  <Horizontal lang={lang} cap={cap} num="05" prevHref={prev} nextHref={next} />
+  <Drawer lang={lang} />
+</Base>

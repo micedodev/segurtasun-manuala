@@ -1,0 +1,60 @@
+---
+import { T, type Lang } from '../lib/i18n';
+import type { Ficha } from '../lib/content';
+interface Props { lang: Lang; ficha: Ficha; index: number; total: number }
+const { lang, ficha, index, total } = Astro.props;
+const t = T[lang];
+const crit = /cr[ií]tica|kritiko/i.test(ficha.severidad);
+const alta = /alta|altua/i.test(ficha.severidad);
+const num = String(index + 1).padStart(2, '0');
+---
+<article class="hpanel flex h-full w-[80vw] max-w-[400px] shrink-0 snap-center flex-col overflow-hidden rounded-[3px] border border-white/10 bg-carbon-800 md:w-[370px] md:snap-align-none" data-ficha={ficha.id}>
+  <div class="h-[3px] w-full shrink-0 bg-white/10">{(crit || alta) && <div class="h-full w-full bg-rojo"></div>}</div>
+  <div class="flex shrink-0 items-center justify-between gap-2 px-4 pt-3">
+    <span class="font-mono shrink-0 text-[11px] font-medium tabular-nums tracking-[0.2em] text-humo">{num} <span class="text-white/20">/</span> {String(total).padStart(2,'0')}</span>
+    {ficha.severidad !== '—' ? (
+      <span class={`chip !border-0 !px-0 ${crit || alta ? 'text-rojo' : 'text-piedra'}`}>{(crit || alta) ? '● ' : '○ '}{ficha.severidad}</span>
+    ) : ficha.koka ? (
+      <span class="chip !border-0 !px-0 normal-case tracking-normal text-piedra">◉ {ficha.koka}</span>
+    ) : null}
+  </div>
+  <div class="flex min-h-0 flex-1 flex-col gap-2 px-4 pb-3 pt-1 md:px-5">
+    <div class="shrink-0">
+      {ficha.subtitulo && <p class="etiqueta !text-[10px] !text-piedra/80">{ficha.subtitulo}</p>}
+      <h3 class="font-display mt-1 text-[22px] font-light leading-[1.1] tracking-tight text-hueso">{ficha.titulo}</h3>
+      {ficha.cita && <p class="font-display mt-1 line-clamp-2 text-[13px] font-light italic leading-snug text-piedra">“{ficha.cita}”</p>}
+    </div>
+    <div class="min-h-0 flex-1 overflow-y-auto pr-1">
+      <p class="text-[13px] font-light leading-relaxed text-hueso/80">{ficha.definicion}</p>
+      {ficha.vector.length > 0 && (
+        <ul class="mt-2 space-y-1">
+          {ficha.vector.slice(0,3).map((v) => (
+            <li class="flex gap-2 text-[12px] font-light leading-snug text-piedra"><span class="mt-[7px] inline-block h-1 w-1 shrink-0 rounded-full bg-rojo"></span><span>{v}</span></li>
+          ))}
+        </ul>
+      )}
+    </div>
+    {ficha.impacto.length > 0 && (
+      <div class="grid shrink-0 grid-cols-5 gap-1 border-t border-white/10 pt-2">
+        {ficha.impacto.slice(0,5).map((r) => (
+          <div class="text-center" title={`${r.prop}: ${r.por}`}>
+            <div class={`mx-auto grid h-6 w-6 place-items-center rounded-full text-[11px] font-bold ${r.si ? 'bg-rojo text-carbon-950' : 'border border-white/20 text-humo'}`}>
+              <span aria-hidden="true">{r.si ? '×' : '·'}</span>
+              {/* El símbolo es visual; el lector de pantalla necesita el veredicto. */}
+              <span class="sr-only">{r.prop}: {r.si ? t.comprometida : t.no_comprometida}</span>
+            </div>
+            <div class="font-mono mt-1 text-[8px] font-medium uppercase leading-tight tracking-wide text-humo" aria-hidden="true">{r.prop.slice(0,10)}</div>
+          </div>
+        ))}
+      </div>
+    )}
+    <button
+      type="button"
+      data-open={ficha.id}
+      aria-haspopup="dialog"
+      class="btn-line mt-1 w-full shrink-0 justify-center !py-2 !text-[11px] hover:!border-rojo hover:!bg-rojo hover:!text-carbon-950"
+    >
+      {t.ficha_completa} <span aria-hidden="true">→</span>
+    </button>
+  </div>
+</article>

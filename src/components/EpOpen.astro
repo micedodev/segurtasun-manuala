@@ -1,0 +1,38 @@
+---
+import EpNum from './EpNum.astro';
+import { T, type Lang } from '../lib/i18n';
+interface Props { lang: Lang; num: string; kick: string; title: string; lema?: string; bg?: string }
+const { lang, num, kick, title, lema = '', bg = '#0e0e10' } = Astro.props;
+const t = T[lang];
+---
+{/* Cortinilla decorativa: se retira sola y duplica el título que ya está en
+    la página, así que se oculta a los lectores de pantalla. */}
+<div id="ep-open" class="fixed inset-0 z-[90] grid place-items-center" style={`background:${bg}`} aria-hidden="true">
+  <div class="ep-inner px-6 text-center">
+    <p class="etiqueta text-rojo">{kick}</p>
+    <div class="mt-5 flex justify-center text-hueso"><EpNum n={num} size="xl" /></div>
+    <h2 class="font-display mx-auto mt-5 max-w-3xl text-4xl font-extralight leading-[1.05] tracking-tight text-hueso md:text-6xl">{title}</h2>
+    {lema && <p class="font-display mx-auto mt-3 max-w-xl text-lg font-light italic text-piedra">“{lema}”</p>}
+    <p class="font-mono mt-8 text-[10px] uppercase tracking-[0.3em] text-humo">{t.continuar}</p>
+  </div>
+</div>
+<script>
+  const ov = document.getElementById('ep-open');
+  let done = false;
+  function close() {
+    if (done || !ov) return;
+    done = true;
+    ov.classList.add('done');
+    setTimeout(() => ov.remove(), 700);
+    window.removeEventListener('keydown', onKey);
+  }
+  function onKey() { close(); }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    close();
+  } else {
+    ov?.addEventListener('click', close);
+    // Cualquier tecla la retira: quien navega con teclado no queda esperando.
+    window.addEventListener('keydown', onKey);
+    setTimeout(close, 1600);
+  }
+</script>

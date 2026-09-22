@@ -1,0 +1,172 @@
+---
+import ThreatCard from './ThreatCard.astro';
+import EpNum from './EpNum.astro';
+import EpOpen from './EpOpen.astro';
+import { T, type Lang } from '../lib/i18n';
+import type { Capitulo } from '../lib/content';
+interface Props { lang: Lang; cap: Capitulo; num: string; prevHref?: string; nextHref?: string; prevLabel?: string; nextLabel?: string }
+const { lang, cap, num, prevHref, nextHref, prevLabel, nextLabel } = Astro.props;
+const t = T[lang];
+// grises cinematográficos: cada episodio respira en un tono distinto
+const CHAP_BG: Record<string, string> = {
+  ud1: '#101013',
+  ud2: '#141417',
+  ud3: '#0D0D0F',
+  perimetral: '#121417',
+};
+const bg = CHAP_BG[cap.slug] ?? '#0e0e10';
+const nextLabel_ = nextLabel ?? t.siguiente;
+const prevLabel_ = prevLabel ?? t.anterior;
+const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
+---
+<style>
+  html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+  #chapter-fit { height: 100dvh; background: var(--bg); }
+  .hviewport { scrollbar-width: none; cursor: grab; }
+  .hviewport::-webkit-scrollbar { display: none; }
+  .hviewport.dragging { cursor: grabbing; }
+  @media (prefers-reduced-motion: reduce) {
+    .hviewport { scroll-behavior: auto !important; }
+  }
+</style>
+
+<EpOpen lang={lang} num={num} kick={epKick} title={cap.titulo} lema={cap.lema} bg={bg} />
+
+<div id="chapter-fit" class="flex flex-col overflow-hidden">
+  <!-- cabecera compacta del episodio -->
+  <section class="mx-auto w-full max-w-[1280px] shrink-0 px-4 pt-3 md:px-8 md:pt-4">
+    <div class="flex items-center gap-3 md:gap-4">
+      <span class="text-rojo"><EpNum n={num} size="md" /></span>
+      <div class="min-w-0">
+        <p class="etiqueta !text-piedra/70">{epKick} · {cap.fichas.length} {lang === 'es' ? 'fichas' : 'fitxa'}</p>
+        <h1 class="font-display truncate text-xl font-light tracking-tight text-hueso md:text-2xl">{cap.titulo}</h1>
+      </div>
+      <div class="ml-auto flex shrink-0 items-center gap-1.5">
+        <span id="hcount" class="font-mono hidden text-[11px] font-medium tabular-nums text-humo sm:block" aria-live="polite">01 / {String(cap.fichas.length + 2).padStart(2,'0')}</span>
+        <button type="button" id="hprev" class="grid h-9 w-9 place-items-center rounded-[2px] border border-white/20 text-lg text-piedra transition hover:border-hueso hover:text-hueso" aria-label={t.anterior} aria-controls="hviewport"><span aria-hidden="true">←</span></button>
+        <button type="button" id="hnext" class="grid h-9 w-9 place-items-center rounded-[2px] bg-rojo text-lg text-carbon-950 transition hover:bg-rojovivo" aria-label={t.siguiente} aria-controls="hviewport"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <div
+      class="mt-2 h-px overflow-hidden bg-white/10"
+      role="progressbar"
+      aria-label={t.progreso_capitulo}
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      id="hprogwrap"
+    >
+      <div id="hprog" class="h-full w-0 bg-rojo"></div>
+    </div>
+  </section>
+
+  <!-- viewport horizontal: un frame, sin scroll vertical -->
+  <div class="relative min-h-0 flex-1">
+    <div
+      id="hviewport"
+      class="hviewport flex h-full snap-x snap-mandatory items-stretch gap-4 overflow-x-auto overflow-y-hidden px-4 py-3 md:snap-none md:gap-5 md:px-8"
+      tabindex="0"
+      role="group"
+      aria-label={t.carrusel}
+    >
+      <!-- panel 0: portada + intro en papel de archivo -->
+      <div class="paper-tex grid h-full w-[78vw] max-w-[360px] shrink-0 snap-center place-items-center overflow-hidden rounded-[3px] p-5 text-center md:w-[340px] md:snap-align-none">
+        <div class="flex min-h-0 max-h-full flex-col">
+          <div class="flex shrink-0 justify-center text-rojo"><EpNum n={num} size="md" /></div>
+          <p class="font-display mt-3 shrink-0 text-2xl font-normal leading-tight tracking-tight text-espresso">{cap.titulo}</p>
+          <p class="font-display mt-1 shrink-0 text-[14px] font-light italic text-espresso/70">“{cap.lema}”</p>
+          <div class="mt-3 min-h-0 flex-1 overflow-y-auto pr-1 text-left">
+            {cap.intro.map((p) => <p class="mb-2 border-l-2 border-rojo/60 pl-2 text-[12.5px] font-normal leading-relaxed text-espresso/85">{p}</p>)}
+          </div>
+          <span class="btn-circle mx-auto mt-2" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      {cap.fichas.map((f, i) => <ThreatCard lang={lang} ficha={f} index={i} total={cap.fichas.length} />)}
+
+      <!-- panel final: idea en papel de archivo -->
+      <div class="paper-tex grid h-full w-[78vw] max-w-[360px] shrink-0 snap-center place-items-center rounded-[3px] p-5 text-center md:w-[340px] md:snap-align-none">
+        <div>
+          <p class="etiqueta text-rojo">{lang === 'es' ? 'Idea para llevarte' : 'Ideia nagusia'}</p>
+          <p class="font-display mt-3 text-lg font-normal italic leading-snug text-espresso">“{cap.idea || cap.lema}”</p>
+          <div class="mt-5 flex justify-center gap-2">
+            {prevHref && <a href={prevHref} class="btn-line-os !px-4 !py-2 !text-[11px]">← {prevLabel_}</a>}
+            {nextHref && <a href={nextHref} class="btn-rojo !px-4 !py-2 !text-[11px]">{nextLabel_} →</a>}
+          </div>
+          <a href={`/${lang}`} class="font-mono mt-4 inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60 underline underline-offset-4 hover:text-espresso">{t.volver_indice}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="fichas-data" set:html={JSON.stringify(Object.fromEntries(cap.fichas.map((f) => [f.id, f])))} />
+
+<script define:vars={{ bg }}>
+  document.documentElement.style.background = bg;
+  document.body.style.background = bg;
+</script>
+
+<script>
+  const fit = document.getElementById('chapter-fit');
+  const header = document.querySelector('header');
+  const vp = document.getElementById('hviewport');
+  const bar = document.getElementById('hprog');
+  const count = document.getElementById('hcount');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1 frame exacto: la página no hace scroll vertical jamás
+  function size() {
+    if (fit && header) fit.style.height = Math.max(320, window.innerHeight - header.offsetHeight) + 'px';
+  }
+  window.addEventListener('resize', size);
+  window.addEventListener('orientationchange', size);
+  size();
+
+  function panels() { return vp.children.length; }
+  function step() {
+    const card = vp.querySelector('article');
+    return card ? card.offsetWidth + 20 : Math.max(280, vp.clientWidth * 0.8);
+  }
+  function metrics() {
+    const max = Math.max(1, vp.scrollWidth - vp.clientWidth);
+    const p = Math.min(1, Math.max(0, vp.scrollLeft / max));
+    if (bar) bar.style.width = (p * 100).toFixed(1) + '%';
+    if (count) {
+      const idx = Math.min(panels(), Math.round(p * (panels() - 1)) + 1);
+      count.textContent = String(idx).padStart(2, '0') + ' / ' + String(panels()).padStart(2, '0');
+    }
+  }
+  vp.addEventListener('scroll', () => requestAnimationFrame(metrics), { passive: true });
+  metrics();
+
+  // rueda vertical -> horizontal (solo si queda recorrido)
+  vp.addEventListener('wheel', (e) => {
+    const dy = e.deltaY, dx = e.deltaX;
+    if (Math.abs(dy) <= Math.abs(dx)) return;
+    const max = vp.scrollWidth - vp.clientWidth;
+    const atStart = vp.scrollLeft <= 1, atEnd = vp.scrollLeft >= max - 1;
+    if ((dy > 0 && !atEnd) || (dy < 0 && !atStart)) {
+      e.preventDefault();
+      vp.scrollLeft = vp.scrollLeft + dy;
+    }
+  }, { passive: false });
+
+  // botones
+  const go = (dir) => vp.scrollBy({ left: dir * step(), behavior: reduce ? 'auto' : 'smooth' });
+  document.getElementById('hprev')?.addEventListener('click', () => go(-1));
+  document.getElementById('hnext')?.addEventListener('click', () => go(1));
+
+  // teclado
+  window.addEventListener('keydown', (e) => {
+    if (!document.getElementById('drawer')?.classList.contains('hidden')) return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+  });
+
+  // arrastre con ratón (no interfiere con botones ni selección)
+  let drag = null;
+  vp.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    if (e.target.closest('button, a')) return;
+ 
