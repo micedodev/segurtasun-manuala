@@ -75,10 +75,10 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
       <div class="paper-tex grid h-full w-[78vw] max-w-[360px] shrink-0 snap-center place-items-center overflow-hidden rounded-[3px] p-5 text-center md:w-[340px] md:snap-align-none">
         <div class="flex min-h-0 max-h-full flex-col">
           <div class="flex shrink-0 justify-center text-rojo"><EpNum n={num} size="md" /></div>
-          <p class="font-display mt-3 shrink-0 text-2xl font-normal leading-tight tracking-tight text-hueso">{cap.titulo}</p>
-          <p class="font-display mt-1 shrink-0 text-[14px] font-light italic text-piedra">“{cap.lema}”</p>
+          <p class="font-display mt-3 shrink-0 text-2xl font-normal leading-tight tracking-tight text-espresso">{cap.titulo}</p>
+          <p class="font-display mt-1 shrink-0 text-[14px] font-light italic text-espresso/70">“{cap.lema}”</p>
           <div class="mt-3 min-h-0 flex-1 overflow-y-auto pr-1 text-left">
-            {cap.intro.map((p) => <p class="mb-2 border-l-2 border-rojo/60 pl-2 text-[12.5px] font-light leading-relaxed text-hueso/80">{p}</p>)}
+            {cap.intro.map((p) => <p class="mb-2 border-l-2 border-rojo/60 pl-2 text-[12.5px] font-normal leading-relaxed text-espresso/85">{p}</p>)}
           </div>
           <span class="btn-circle mx-auto mt-2" aria-hidden="true">→</span>
         </div>
@@ -89,13 +89,13 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
       <!-- panel final: idea en papel de archivo -->
       <div class="paper-tex grid h-full w-[78vw] max-w-[360px] shrink-0 snap-center place-items-center rounded-[3px] p-5 text-center md:w-[340px] md:snap-align-none">
         <div>
-          <p class="etiqueta text-rojovivo">{lang === 'es' ? 'Idea para llevarte' : 'Ideia nagusia'}</p>
-          <p class="font-display mt-3 text-lg font-light italic leading-snug text-hueso">“{cap.idea || cap.lema}”</p>
+          <p class="etiqueta text-rojo">{lang === 'es' ? 'Idea para llevarte' : 'Ideia nagusia'}</p>
+          <p class="font-display mt-3 text-lg font-normal italic leading-snug text-espresso">“{cap.idea || cap.lema}”</p>
           <div class="mt-5 flex justify-center gap-2">
-            {prevHref && <a href={prevHref} class="btn-line !px-4 !py-2 !text-[11px]"><span aria-hidden="true">←</span> {prevLabel_}</a>}
+            {prevHref && <a href={prevHref} class="btn-line-os !px-4 !py-2 !text-[11px]"><span aria-hidden="true">←</span> {prevLabel_}</a>}
             {nextHref && <a href={nextHref} class="btn-rojo !px-4 !py-2 !text-[11px]">{nextLabel_} <span aria-hidden="true">→</span></a>}
           </div>
-          <a href={`/${lang}`} class="font-mono mt-4 inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-piedra underline underline-offset-4 hover:text-hueso">{t.volver_indice}</a>
+          <a href={`/${lang}`} class="font-mono mt-4 inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60 underline underline-offset-4 hover:text-espresso">{t.volver_indice}</a>
         </div>
       </div>
     </div>

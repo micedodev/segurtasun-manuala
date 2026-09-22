@@ -108,7 +108,14 @@ export function loadCapitulo(lang: Lang, file: string, meta: { slug: string; tit
   const md = readFileSync(join(ROOT, lang, file), 'utf-8');
   const parts = md.split(/^##\s+\d+\.\s+/m);
   const head = parts[0] ?? '';
-  const introParas = head.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#') && !l.startsWith('>') && !l.startsWith('---') && !l.startsWith('**La idea') && !l.startsWith('**Ideia') && !/^\d+\./.test(l) && !l.startsWith('###') && !l.startsWith('Los ') && !l.startsWith('Las ') && !l.startsWith('Conviene') && !l.startsWith('Para ') === false);
+  const introParas = head.split('\n')
+    .map((l) => l.trim())
+    .filter((l) => l.length > 0
+      && !l.startsWith('#')
+      && !l.startsWith('>')
+      && !l.startsWith('---')
+      && !l.startsWith('**')
+      && !/^\d+\./.test(l));
   const ideaMatch = head.match(/\*\*(?:La idea que hay que llevarse|Eraman beharreko ideia|Ideia nagusia):\*\*\s*([^\n*]+)/);
   const fichas: Ficha[] = [];
 

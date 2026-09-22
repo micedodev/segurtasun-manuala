@@ -4,11 +4,11 @@
   --piedra: #a3a09a;
   --rojo: #d94848;
   --linea: rgba(255, 255, 255, 0.1);
-  /* Panel de archivo. Súbelo hacia #201d19 para más presencia,
-     bájalo hacia #141210 para fundirlo más con el fondo. */
-  --papel: #1a1815;
-  --papel-filo: rgba(236, 233, 226, 0.14);
-  --papel-regla: rgba(236, 233, 226, 0.5);
+  /* Panel de archivo CLARO (aprobado): papel cálido que dialoga con el hueso.
+     Mantenerlo claro: los paneles usan tinta espresso encima. */
+  --papel: #D8D4CB;
+  --papel-filo: rgba(46, 42, 38, 0.3);
+  --papel-regla: rgba(46, 42, 38, 0.22);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
