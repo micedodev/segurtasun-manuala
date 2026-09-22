@@ -17,6 +17,11 @@ html {
   /* barras de scroll, <select> y campos nativos en oscuro */
   color-scheme: dark;
 }
+/* Sin el preflight hay que fijarlo a mano: todas las clases de Tailwind
+   están escritas suponiendo border-box. Con content-box, cada padding/borde
+   suma a las alturas fijas y el frame de 1 pantalla desborda (~24px que
+   recortaban el botón inferior). */
+*, *::before, *::after { box-sizing: border-box; }
 html, body { background: #0e0e10; color: var(--hueso); }
 
 ::selection { background: #d94848; color: #0e0e10; }
