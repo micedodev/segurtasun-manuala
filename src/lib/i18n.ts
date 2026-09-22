@@ -49,7 +49,7 @@ export const T: Record<Lang, Record<string, string>> = {
   },
   eu: {
     manual: 'Landa-eskuliburua',
-    subtitulo: 'Segurtasuna eta Disponibilitate Handia · LH',
+    subtitulo: 'Segurtasuna eta Erabilgarritasun Handia · LH',
     leer: 'Irakurtzen hasi',
     indice: 'Aurkibidea',
     capitulos: 'Kapituluak',

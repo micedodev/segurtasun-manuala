@@ -21,7 +21,8 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
 ---
 <style>
   html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
-  #chapter-fit { height: 100dvh; background: var(--bg); }
+  #chapter-fit { height: calc(100dvh - 120px); background: var(--bg); }
+  @media (min-width: 768px) { #chapter-fit { height: calc(100dvh - 70px); } }
   /* `contain`: al llegar al final del carril, el gesto no se propaga al
      navegador (nada de «volver atrás» accidental al deslizar). */
   .hviewport { scrollbar-width: none; cursor: grab; overscroll-behavior: contain; }
@@ -117,12 +118,20 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
   const count = document.getElementById('hcount');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 1 frame exacto: la página no hace scroll vertical jamás
+  // 1 frame exacto: la página no hace scroll vertical jamás.
+  // Se mide con margen de seguridad y se re-mide cuando el layout se asienta
+  // (el script diferido puede ejecutarse antes de que cargue el CSS y medir
+  // un header sin estilos, lo que recortaba ~20px del botón inferior).
   function size() {
-    if (fit && header) fit.style.height = Math.max(320, window.innerHeight - header.offsetHeight) + 'px';
+    if (!fit) return;
+    const hh = header ? header.offsetHeight : 61;
+    fit.style.height = Math.max(320, window.innerHeight - hh - 6) + 'px';
   }
   window.addEventListener('resize', size);
   window.addEventListener('orientationchange', size);
+  window.addEventListener('load', size);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
+  if ('ResizeObserver' in window && header) new ResizeObserver(size).observe(header);
   size();
 
   function panels() { return vp.children.length; }
