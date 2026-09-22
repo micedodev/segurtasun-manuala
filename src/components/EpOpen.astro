@@ -11,7 +11,8 @@ const t = T[lang];
   <div class="ep-inner px-6 text-center">
     <p class="etiqueta text-rojo">{kick}</p>
     <div class="mt-5 flex justify-center text-hueso"><EpNum n={num} size="xl" /></div>
-    <h2 class="font-display mx-auto mt-5 max-w-3xl text-4xl font-extralight leading-[1.05] tracking-tight text-hueso md:text-6xl">{title}</h2>
+    {/* <p> y no <h2>: la cortinilla es decorativa y repite el h1 de la página. */}
+    <p class="font-display mx-auto mt-5 max-w-3xl text-4xl font-extralight leading-[1.05] tracking-tight text-hueso md:text-6xl">{title}</p>
     {lema && <p class="font-display mx-auto mt-3 max-w-xl text-lg font-light italic text-piedra">“{lema}”</p>}
     <p class="font-mono mt-8 text-[10px] uppercase tracking-[0.3em] text-humo">{t.continuar}</p>
   </div>

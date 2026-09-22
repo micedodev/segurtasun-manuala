@@ -26,20 +26,20 @@ const ep = ['01', '02', '03', '04', '05'];
           <strong class="font-medium text-hueso">Segurtasun eta Disponibilitate Handiko</strong> web-dokumentala: phishing, botnet, ransomware, rootkit, VPN, DMZ… Bost atal; mehatxu bakoitzak bere fitxa du, CIA taularekin, fikziozko kasuarekin eta defentsarekin.
         </p>
         <div class="reveal flex flex-wrap gap-3">
-          <a href={`/${lang}/ud1`} class="btn-rojo">{t.leer} →</a>
+          <a href={`/${lang}/ud1`} class="btn-rojo">{t.leer} <span aria-hidden="true">→</span></a>
           <a href={`/${lang}/glosario`} class="btn-line">{t.glosario}</a>
         </div>
       </div>
       <div class="reveal paper-tex mt-10 grid grid-cols-2 md:grid-cols-4">
         {[['08', 'mehatxu · ❶'], ['05', 'teknika · ❷'], ['04', 'malware · ❸'], ['02', 'benetako kasu · ❹']].map(([n, l], i) => (
-          <div class={`px-5 py-5 ${i > 0 ? 'border-l border-espresso/15' : ''} ${i >= 2 ? 'max-md:border-t max-md:border-espresso/15' : ''} ${i === 2 ? 'max-md:border-l-0' : ''}`}>
-            <p class="font-display text-5xl font-thin tabular-nums text-espresso">{n}</p>
-            <p class="font-mono mt-1 text-[10px] font-medium uppercase tracking-[0.22em] text-espresso/60">{l}</p>
+          <div class={`px-5 py-5 ${i > 0 ? 'border-l border-white/10' : ''} ${i >= 2 ? 'max-md:border-t max-md:border-white/10' : ''} ${i === 2 ? 'max-md:border-l-0' : ''}`}>
+            <p class="font-display text-5xl font-thin tabular-nums text-hueso">{n}</p>
+            <p class="font-mono mt-1 text-[10px] font-medium uppercase tracking-[0.22em] text-piedra">{l}</p>
           </div>
         ))}
       </div>
     </div>
-    <div class="relative overflow-hidden border-t border-white/10 py-2.5">
+    <div class="relative overflow-hidden border-t border-white/10 py-2.5" aria-hidden="true">
       <div class="marquee-track flex w-max gap-0 whitespace-nowrap font-mono text-[11px] font-medium uppercase tracking-[0.24em] text-humo">
         {[0,1].map(() => <span>Phishing <span class="mx-4 text-rojo">/</span> MITM <span class="mx-4 text-rojo">/</span> Trojan <span class="mx-4 text-rojo">/</span> Backdoor <span class="mx-4 text-rojo">/</span> Spyware <span class="mx-4 text-rojo">/</span> Stealer <span class="mx-4 text-rojo">/</span> Ransomware <span class="mx-4 text-rojo">/</span> Exploit <span class="mx-4 text-rojo">/</span> Botnet <span class="mx-4 text-rojo">/</span> DDoS <span class="mx-4 text-rojo">/</span> Rootkit <span class="mx-4 text-rojo">/</span> RAT <span class="mx-4 text-rojo">/</span> VPN <span class="mx-4 text-rojo">/</span> DMZ <span class="mx-4 text-rojo">/</span> Proxy <span class="mx-4 text-rojo">/</span> Firewall <span class="mx-4 text-rojo">/</span>&nbsp;</span>)}
       </div>
@@ -60,7 +60,7 @@ const ep = ['01', '02', '03', '04', '05'];
             <span class="font-display block truncate text-2xl font-light tracking-tight text-hueso md:text-4xl">{c.titulo}</span>
             <span class="block truncate text-sm font-light italic text-piedra">“{c.lema}”</span>
           </span>
-          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-rojo/70 text-lg text-rojo transition group-hover:translate-x-1 group-hover:bg-rojo group-hover:text-carbon-950">→</span>
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-rojo/70 text-lg text-rojo transition group-hover:translate-x-1 group-hover:bg-rojo group-hover:text-carbon-950" aria-hidden="true">→</span>
         </a>
       ))}
       <a href={`/${lang}/glosario`} class="reveal group grid grid-cols-[auto_1fr_auto] items-center gap-4 px-1 py-6 md:gap-6 md:px-2" style="transition-delay:300ms">
@@ -70,7 +70,7 @@ const ep = ['01', '02', '03', '04', '05'];
           <span class="font-display block text-2xl font-light tracking-tight text-hueso md:text-4xl">{t.glosario} ES–EU</span>
           <span class="block text-sm font-light italic text-piedra">Termino guztiak, berehala bilagarri</span>
         </span>
-        <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-rojo/70 text-lg text-rojo transition group-hover:translate-x-1 group-hover:bg-rojo group-hover:text-carbon-950">→</span>
+        <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-rojo/70 text-lg text-rojo transition group-hover:translate-x-1 group-hover:bg-rojo group-hover:text-carbon-950" aria-hidden="true">→</span>
       </a>
     </div>
   </section>

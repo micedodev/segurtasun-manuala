@@ -21,7 +21,9 @@ const num = String(index + 1).padStart(2, '0');
   <div class="flex min-h-0 flex-1 flex-col gap-2 px-4 pb-3 pt-1 md:px-5">
     <div class="shrink-0">
       {ficha.subtitulo && <p class="etiqueta !text-[10px] !text-piedra/80">{ficha.subtitulo}</p>}
-      <h3 class="font-display mt-1 text-[22px] font-light leading-[1.1] tracking-tight text-hueso">{ficha.titulo}</h3>
+      {/* h2: el h1 de la página es el título del capítulo, así que la ficha
+          es el nivel inmediatamente inferior. Saltar a h3 rompía la jerarquía. */}
+      <h2 class="font-display mt-1 text-[22px] font-light leading-[1.1] tracking-tight text-hueso">{ficha.titulo}</h2>
       {ficha.cita && <p class="font-display mt-1 line-clamp-2 text-[13px] font-light italic leading-snug text-piedra">“{ficha.cita}”</p>}
     </div>
     <div class="min-h-0 flex-1 overflow-y-auto pr-1">

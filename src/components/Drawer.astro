@@ -5,12 +5,12 @@ const { lang } = Astro.props;
 const t = T[lang];
 ---
 <div id="drawer-veil" class="fixed inset-0 z-[70] hidden bg-black/70 backdrop-blur-sm"></div>
-<aside id="drawer" class="fixed right-0 top-0 z-[71] hidden h-full w-full max-w-[620px] flex-col overflow-hidden border-l border-white/10 bg-carbon-900 shadow-2xl" role="dialog" aria-modal="true">
+<aside id="drawer" class="fixed right-0 top-0 z-[71] hidden h-full w-full max-w-[620px] flex-col overflow-hidden border-l border-white/10 bg-carbon-900 shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
   <div class="flex items-center justify-between border-b border-white/10 px-5 py-3 md:px-7">
     <p class="etiqueta !text-rojo" id="drawer-kicker">FICHA</p>
-    <button id="drawer-close" class="grid h-9 w-9 place-items-center rounded-[2px] border border-white/20 text-lg text-hueso transition hover:border-rojo hover:bg-rojo hover:text-carbon-950" aria-label={t.cerrar}>×</button>
+    <button type="button" id="drawer-close" class="grid h-9 w-9 place-items-center rounded-[2px] border border-white/20 text-lg text-hueso transition hover:border-rojo hover:bg-rojo hover:text-carbon-950" aria-label={t.cerrar}><span aria-hidden="true">×</span></button>
   </div>
-  <div id="drawer-body" class="flex-1 overflow-y-auto px-5 py-5 md:px-7"></div>
+  <div id="drawer-body" class="flex-1 overflow-y-auto overscroll-contain px-5 py-5 md:px-7"></div>
 </aside>
 <script define:vars={{ t }}>
   const veil = document.getElementById('drawer-veil');
@@ -25,33 +25,56 @@ const t = T[lang];
     if (!f) return;
     kicker.textContent = f.subtitulo || 'FICHA / FITXA';
     body.innerHTML = `
-      <h2 class="font-display text-3xl font-light tracking-tight text-hueso leading-tight">${f.titulo}</h2>
+      <h2 id="drawer-title" class="font-display text-3xl font-light tracking-tight text-hueso leading-tight">${f.titulo}</h2>
       ${f.cita ? `<p class="font-display font-light italic text-piedra mt-1">“${f.cita}”</p>` : ''}
       ${f.severidad && f.severidad !== '—' ? `<p class="chip mt-3 border-rojo/60 text-rojo">${t.severidad}: ${f.severidad}</p>` : f.koka ? `<p class="chip mt-3 border-white/20 normal-case tracking-normal text-piedra">◉ ${f.koka}</p>` : ''}
       <h3 class="etiqueta text-rojo mt-7 mb-2">— ${t.definicion}</h3>
       <p class="text-[15px] font-light leading-relaxed text-hueso/85">${f.definicion}</p>
       ${f.como?.length ? `<h3 class="etiqueta text-rojo mt-7 mb-2">— ${t.como_funciona}</h3><ol class="space-y-2">${f.como.map((c,i) => `<li class="flex gap-3 text-sm font-light leading-relaxed text-hueso/85"><span class="font-mono font-medium text-rojo">${String(i+1).padStart(2,'0')}</span><span>${c}</span></li>`).join('')}</ol>` : ''}
       ${f.vector?.length ? `<h3 class="etiqueta text-rojo mt-7 mb-2">— ${t.vector}</h3><ul class="space-y-1.5">${f.vector.map((c) => `<li class="flex gap-2 text-sm font-light text-hueso/85"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-rojo"></span><span>${c}</span></li>`).join('')}</ul>` : ''}
-      ${f.casoTexto?.length ? `<div class="paper-tex mt-7 p-4"><p class="etiqueta text-rojo">◉ ${t.caso}${f.casoTitulo ? ` — ${f.casoTitulo}` : ''}</p>${f.casoMeta ? `<p class="font-mono text-[11px] text-espresso/60 mt-1">${f.casoMeta}</p>` : ''}${f.casoTexto.map((p) => `<p class="mt-2 text-sm font-normal leading-relaxed text-espresso/90">${p}</p>`).join('')}<p class="font-mono mt-3 text-[11px] italic text-espresso/60">${t.ficticio}</p></div>` : ''}
+      ${f.casoTexto?.length ? `<div class="paper-tex mt-7 p-4"><p class="etiqueta text-rojovivo">◉ ${t.caso}${f.casoTitulo ? ` — ${f.casoTitulo}` : ''}</p>${f.casoMeta ? `<p class="font-mono text-[11px] text-piedra mt-1">${f.casoMeta}</p>` : ''}${f.casoTexto.map((p) => `<p class="mt-2 text-sm font-light leading-relaxed text-hueso/85">${p}</p>`).join('')}<p class="font-mono mt-3 text-[11px] italic text-piedra">${t.ficticio}</p></div>` : ''}
       ${f.impacto?.length ? `<h3 class="etiqueta text-rojo mt-7 mb-2">— ${t.impacto}</h3><div class="overflow-hidden border border-white/10"><table class="w-full text-[13px]"><tbody>${f.impacto.map((r) => `<tr class="border-b border-white/10 last:border-0"><td class="px-3 py-2 font-medium text-hueso">${r.prop}</td><td class="px-2 py-2 text-center"><span class="inline-grid h-6 w-6 place-items-center rounded-full text-xs font-bold ${r.si ? 'bg-rojo text-carbon-950' : 'border border-white/25 text-humo'}">${r.si ? '×' : '·'}</span></td><td class="px-3 py-2 font-light text-piedra">${r.por}</td></tr>`).join('')}</tbody></table></div>` : ''}
       ${f.defensa?.length ? `<h3 class="etiqueta text-rojo mt-7 mb-2">— ${t.defensa}</h3><ul class="space-y-2">${f.defensa.map((c) => `<li class="flex gap-2 border-l-2 border-rojo bg-white/[0.03] px-3 py-2 text-sm font-light leading-relaxed text-hueso/85"><span>${c}</span></li>`).join('')}</ul>` : ''}
       <div class="h-8"></div>`;
     veil.classList.remove('hidden');
     drawer.classList.remove('hidden');
     drawer.classList.add('flex');
+    prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     document.getElementById('drawer-close')?.focus();
   }
+
+  let opener = null;
+  let prevOverflow = '';
+
   function close() {
+    if (drawer.classList.contains('hidden')) return;
     veil.classList.add('hidden');
     drawer.classList.add('hidden');
     drawer.classList.remove('flex');
-    document.body.style.overflow = '';
+    document.body.style.overflow = prevOverflow;
+    // El foco vuelve al botón que abrió la ficha, no al principio del documento.
+    opener?.focus();
+    opener = null;
   }
+
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-open]');
-    if (btn) { open(btn.getAttribute('data-open')); return; }
+    if (btn) { opener = btn; open(btn.getAttribute('data-open')); return; }
     if (e.target.closest('#drawer-close') || e.target === veil) close();
   });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { close(); return; }
+    // Mientras el panel está abierto, el tabulador se queda dentro.
+    if (e.key !== 'Tab' || drawer.classList.contains('hidden')) return;
+    const focusables = drawer.querySelectorAll(
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 </script>

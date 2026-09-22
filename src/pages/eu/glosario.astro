@@ -6,6 +6,8 @@ import { join } from 'node:path';
 const lang = 'eu' as const;
 const t = T[lang];
 const md = readFileSync(join(process.cwd(), 'contenidos', 'eu', 'glosategia.md'), 'utf-8');
+// Azenturik gabeko bilaketa: «autentikazioa» eta «Autentikazioa» bat datoz.
+const norm = (x: string) => x.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 const rows = md.split('\n').map((l) => l.trim()).filter((l) => l.startsWith('| **')).map((l) => {
   const m = l.split('|').map((s) => s.trim());
   return { term: m[1]?.replace(/\*\*/g, '') ?? '', eu: m[2] ?? '', sec: m[3] ?? '', def: m[4] ?? '' };
@@ -17,12 +19,23 @@ const rows = md.split('\n').map((l) => l.trim()).filter((l) => l.startsWith('| *
     <h1 class="font-display mt-2 text-4xl font-light tracking-tight text-hueso md:text-6xl">{t.glosario} ES–EU</h1>
     <p class="mt-2 max-w-2xl text-[15px] font-light leading-relaxed text-piedra">Eskuliburuko termino guztiak. Idatzi berehala iragazteko, bi hizkuntzetan.</p>
     <div class="sticky top-[104px] z-30 mt-6 border border-white/10 bg-carbon-900/95 p-3 backdrop-blur-md md:top-[64px]">
-      <input id="q" type="search" placeholder={t.busca_glosario} class="w-full rounded-[2px] border border-white/15 bg-carbon-800 px-4 py-3 text-[15px] font-light text-hueso placeholder:text-humo focus:border-rojo focus:outline-none" />
-      <p class="font-mono mt-2 text-[10px] font-medium uppercase tracking-[0.2em] text-humo"><span id="count" class="text-rojo">{rows.length}</span> termino</p>
+      <label for="q" class="sr-only">{t.busca_glosario}</label>
+      <input
+        id="q"
+        type="search"
+        name="q"
+        placeholder={t.busca_glosario}
+        autocomplete="off"
+        spellcheck="false"
+        enterkeyhint="search"
+        aria-describedby="count"
+        class="w-full rounded-[2px] border border-white/15 bg-carbon-800 px-4 py-3 text-[15px] font-light text-hueso placeholder:text-humo focus:border-rojo"
+      />
+      <p class="font-mono mt-2 text-[10px] font-medium uppercase tracking-[0.2em] text-humo" id="count" aria-live="polite"><span id="countn" class="text-rojo">{rows.length}</span> {t.terminos}</p>
     </div>
     <div id="grid" class="mt-4 grid gap-px bg-white/10">
       {rows.map((r) => (
-        <article class="gcard bg-carbon-900 p-4 transition hover:bg-carbon-800 hover:shadow-[inset_3px_0_0_#D94848]" data-hay={`${r.term} ${r.eu} ${r.def} ${r.sec}`.toLowerCase()}>
+        <article class="gcard bg-carbon-900 p-4 transition hover:bg-carbon-800 hover:shadow-[inset_3px_0_0_#D94848]" data-hay={norm(`${r.term} ${r.eu} ${r.def} ${r.sec}`)}>
           <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <h2 class="font-display text-lg font-normal tracking-tight text-hueso">{r.term}</h2>
             <span class="font-mono text-[11px] uppercase tracking-[0.14em] text-rojo">{r.eu}</span>
@@ -32,6 +45,10 @@ const rows = md.split('\n').map((l) => l.trim()).filter((l) => l.startsWith('| *
         </article>
       ))}
     </div>
+    <p id="empty" hidden class="mt-4 border border-dashed border-white/15 px-5 py-10 text-center">
+      <span class="block text-[15px] font-light text-hueso">{t.sin_resultados}</span>
+      <span class="mt-1 block text-[13px] font-light text-piedra">{t.sin_resultados_pista}</span>
+    </p>
     <div class="mt-8 flex gap-2">
       <a href={`/${lang}/perimetral`} class="btn-line !px-4 !py-2 !text-[11px]">← {t.anterior}</a>
       <a href={`/${lang}`} class="btn-rojo !px-4 !py-2 !text-[11px]">{t.volver_indice}</a>
@@ -40,16 +57,21 @@ const rows = md.split('\n').map((l) => l.trim()).filter((l) => l.startsWith('| *
   <script>
     const q = document.getElementById('q');
     const cards = [...document.querySelectorAll('.gcard')];
-    const count = document.getElementById('count');
+    const countn = document.getElementById('countn');
+    const grid = document.getElementById('grid');
+    const empty = document.getElementById('empty');
+    const norm = (x) => x.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
     q?.addEventListener('input', () => {
-      const v = q.value.toLowerCase().trim();
+      const v = norm(q.value).trim();
       let n = 0;
       cards.forEach((c) => {
         const ok = !v || c.getAttribute('data-hay').includes(v);
         c.style.display = ok ? '' : 'none';
         if (ok) n++;
       });
-      count.textContent = n;
+      countn.textContent = n;
+      if (grid) grid.hidden = n === 0;
+      if (empty) empty.hidden = n !== 0;
     });
   </script>
 </Base>

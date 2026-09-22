@@ -22,7 +22,9 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
 <style>
   html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
   #chapter-fit { height: 100dvh; background: var(--bg); }
-  .hviewport { scrollbar-width: none; cursor: grab; }
+  /* `contain`: al llegar al final del carril, el gesto no se propaga al
+     navegador (nada de «volver atrás» accidental al deslizar). */
+  .hviewport { scrollbar-width: none; cursor: grab; overscroll-behavior: contain; }
   .hviewport::-webkit-scrollbar { display: none; }
   .hviewport.dragging { cursor: grabbing; }
   @media (prefers-reduced-motion: reduce) {
@@ -73,10 +75,10 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
       <div class="paper-tex grid h-full w-[78vw] max-w-[360px] shrink-0 snap-center place-items-center overflow-hidden rounded-[3px] p-5 text-center md:w-[340px] md:snap-align-none">
         <div class="flex min-h-0 max-h-full flex-col">
           <div class="flex shrink-0 justify-center text-rojo"><EpNum n={num} size="md" /></div>
-          <p class="font-display mt-3 shrink-0 text-2xl font-normal leading-tight tracking-tight text-espresso">{cap.titulo}</p>
-          <p class="font-display mt-1 shrink-0 text-[14px] font-light italic text-espresso/70">“{cap.lema}”</p>
+          <p class="font-display mt-3 shrink-0 text-2xl font-normal leading-tight tracking-tight text-hueso">{cap.titulo}</p>
+          <p class="font-display mt-1 shrink-0 text-[14px] font-light italic text-piedra">“{cap.lema}”</p>
           <div class="mt-3 min-h-0 flex-1 overflow-y-auto pr-1 text-left">
-            {cap.intro.map((p) => <p class="mb-2 border-l-2 border-rojo/60 pl-2 text-[12.5px] font-normal leading-relaxed text-espresso/85">{p}</p>)}
+            {cap.intro.map((p) => <p class="mb-2 border-l-2 border-rojo/60 pl-2 text-[12.5px] font-light leading-relaxed text-hueso/80">{p}</p>)}
           </div>
           <span class="btn-circle mx-auto mt-2" aria-hidden="true">→</span>
         </div>
@@ -87,13 +89,13 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
       <!-- panel final: idea en papel de archivo -->
       <div class="paper-tex grid h-full w-[78vw] max-w-[360px] shrink-0 snap-center place-items-center rounded-[3px] p-5 text-center md:w-[340px] md:snap-align-none">
         <div>
-          <p class="etiqueta text-rojo">{lang === 'es' ? 'Idea para llevarte' : 'Ideia nagusia'}</p>
-          <p class="font-display mt-3 text-lg font-normal italic leading-snug text-espresso">“{cap.idea || cap.lema}”</p>
+          <p class="etiqueta text-rojovivo">{lang === 'es' ? 'Idea para llevarte' : 'Ideia nagusia'}</p>
+          <p class="font-display mt-3 text-lg font-light italic leading-snug text-hueso">“{cap.idea || cap.lema}”</p>
           <div class="mt-5 flex justify-center gap-2">
-            {prevHref && <a href={prevHref} class="btn-line-os !px-4 !py-2 !text-[11px]">← {prevLabel_}</a>}
-            {nextHref && <a href={nextHref} class="btn-rojo !px-4 !py-2 !text-[11px]">{nextLabel_} →</a>}
+            {prevHref && <a href={prevHref} class="btn-line !px-4 !py-2 !text-[11px]"><span aria-hidden="true">←</span> {prevLabel_}</a>}
+            {nextHref && <a href={nextHref} class="btn-rojo !px-4 !py-2 !text-[11px]">{nextLabel_} <span aria-hidden="true">→</span></a>}
           </div>
-          <a href={`/${lang}`} class="font-mono mt-4 inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-espresso/60 underline underline-offset-4 hover:text-espresso">{t.volver_indice}</a>
+          <a href={`/${lang}`} class="font-mono mt-4 inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-piedra underline underline-offset-4 hover:text-hueso">{t.volver_indice}</a>
         </div>
       </div>
     </div>
@@ -128,10 +130,12 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
     const card = vp.querySelector('article');
     return card ? card.offsetWidth + 20 : Math.max(280, vp.clientWidth * 0.8);
   }
+  const progwrap = document.getElementById('hprogwrap');
   function metrics() {
     const max = Math.max(1, vp.scrollWidth - vp.clientWidth);
     const p = Math.min(1, Math.max(0, vp.scrollLeft / max));
     if (bar) bar.style.width = (p * 100).toFixed(1) + '%';
+    if (progwrap) progwrap.setAttribute('aria-valuenow', String(Math.round(p * 100)));
     if (count) {
       const idx = Math.min(panels(), Math.round(p * (panels() - 1)) + 1);
       count.textContent = String(idx).padStart(2, '0') + ' / ' + String(panels()).padStart(2, '0');
@@ -169,4 +173,13 @@ const epKick = lang === 'es' ? `Episodio ${num}` : `${num}. atala`;
   vp.addEventListener('pointerdown', (e) => {
     if (e.pointerType !== 'mouse' || e.button !== 0) return;
     if (e.target.closest('button, a')) return;
- 
+    drag = { x: e.clientX, left: vp.scrollLeft };
+    vp.classList.add('dragging');
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    vp.scrollLeft = drag.left - (e.clientX - drag.x);
+  });
+  window.addEventListener('pointerup', () => { drag = null; vp.classList.remove('dragging'); });
+  window.addEventListener('pointercancel', () => { drag = null; vp.classList.remove('dragging'); });
+</script>

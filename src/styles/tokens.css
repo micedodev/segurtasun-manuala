@@ -4,6 +4,11 @@
   --piedra: #a3a09a;
   --rojo: #d94848;
   --linea: rgba(255, 255, 255, 0.1);
+  /* Panel de archivo. Súbelo hacia #201d19 para más presencia,
+     bájalo hacia #141210 para fundirlo más con el fondo. */
+  --papel: #1a1815;
+  --papel-filo: rgba(236, 233, 226, 0.14);
+  --papel-regla: rgba(236, 233, 226, 0.5);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -48,6 +53,12 @@ html, body { background: #0e0e10; color: var(--hueso); }
 
 /* focus visible rojo */
 :focus-visible { outline: 2px solid #d94848; outline-offset: 3px; }
+
+/* táctil: sin retardo de 300 ms al tocar y sin destello azul del sistema */
+a, button, [role='button'], input, summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(217, 72, 72, 0.18);
+}
 
 /* cinta de términos: desplazamiento continuo.
    El contenido se imprime dos veces, así que -50% cierra el bucle sin salto. */
