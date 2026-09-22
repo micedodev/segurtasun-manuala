@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import EpNum from '../../components/EpNum.astro';
-import AsciiLock from '../../components/AsciiLock.astro';
 import { T, type Lang } from '../../lib/i18n';
 import { CAPITULOS } from '../../lib/content';
 const lang: Lang = 'eu';
@@ -26,12 +25,9 @@ const ep = ['01', '02', '03', '04', '05'];
         <p class="reveal max-w-2xl text-[16px] font-light leading-relaxed text-piedra md:text-lg">
           <strong class="font-medium text-hueso">Segurtasun eta Erabilgarritasun Handiko</strong> web-dokumentala: phishing, botnet, ransomware, rootkit, VPN, DMZ… Bost atal; mehatxu bakoitzak bere fitxa du, CIA taularekin, fikziozko kasuarekin eta defentsarekin.
         </p>
-        <div class="flex flex-col gap-4">
-          <div class="reveal hidden md:block"><AsciiLock caption="IRUD. 01 — GILTZARRA" live="SEINALEA" /></div>
-          <div class="reveal flex flex-wrap gap-3">
-            <a href={`/${lang}/ud1`} class="btn-rojo">{t.leer} <span aria-hidden="true">→</span></a>
-            <a href={`/${lang}/glosario`} class="btn-line">{t.glosario}</a>
-          </div>
+        <div class="reveal flex flex-wrap gap-3">
+          <a href={`/${lang}/ud1`} class="btn-rojo">{t.leer} <span aria-hidden="true">→</span></a>
+          <a href={`/${lang}/glosario`} class="btn-line">{t.glosario}</a>
         </div>
       </div>
       <script>
