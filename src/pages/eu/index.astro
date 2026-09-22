@@ -30,11 +30,11 @@ const ep = ['01', '02', '03', '04', '05'];
           <a href={`/${lang}/glosario`} class="btn-line">{t.glosario}</a>
         </div>
       </div>
-      <div class="reveal paper-tex mt-10 grid grid-cols-2 md:grid-cols-4">
+      <div class="reveal mt-10 grid grid-cols-2 border-y border-hueso/20 md:grid-cols-4">
         {[['08', 'mehatxu · ❶'], ['05', 'teknika · ❷'], ['04', 'malware · ❸'], ['02', 'benetako kasu · ❹']].map(([n, l], i) => (
-          <div class={`px-5 py-5 ${i > 0 ? 'border-l border-espresso/15' : ''} ${i >= 2 ? 'max-md:border-t max-md:border-espresso/15' : ''} ${i === 2 ? 'max-md:border-l-0' : ''}`}>
-            <p class="font-display text-5xl font-thin tabular-nums text-espresso">{n}</p>
-            <p class="font-mono mt-1 text-[10px] font-medium uppercase tracking-[0.22em] text-espresso/60">{l}</p>
+          <div class={`px-5 py-5 ${i > 0 ? 'border-l border-hueso/15' : ''} ${i >= 2 ? 'max-md:border-t max-md:border-hueso/15' : ''} ${i === 2 ? 'max-md:border-l-0' : ''}`}>
+            <p class="font-display text-5xl font-thin tabular-nums text-hueso">{n}</p>
+            <p class="font-mono mt-1 text-[10px] font-medium uppercase tracking-[0.22em] text-piedra">{l}</p>
           </div>
         ))}
       </div>
