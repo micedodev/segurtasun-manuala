@@ -32,11 +32,11 @@
     // Cinco vetas que cruzan el hero; cada una con su fase y velocidad.
     // core = alfa del núcleo, glow = alfa del halo.
     const veins = [
-      { y: 0.16, amp: 44, sp: 0.00016, ph: 0.0, core: 0.5, glow: 0.1 },
-      { y: 0.34, amp: 58, sp: 0.00011, ph: 2.1, core: 0.34, glow: 0.07 },
-      { y: 0.52, amp: 50, sp: 0.00013, ph: 4.2, core: 0.4, glow: 0.08 },
-      { y: 0.7, amp: 38, sp: 0.00009, ph: 1.2, core: 0.28, glow: 0.06 },
-      { y: 0.86, amp: 54, sp: 0.00014, ph: 5.3, core: 0.3, glow: 0.06 },
+      { y: 0.16, amp: 44, sp: 0.00016, ph: 0.0, core: 0.32, glow: 0.065 },
+      { y: 0.34, amp: 58, sp: 0.00011, ph: 2.1, core: 0.22, glow: 0.045 },
+      { y: 0.52, amp: 50, sp: 0.00013, ph: 4.2, core: 0.26, glow: 0.05 },
+      { y: 0.7, amp: 38, sp: 0.00009, ph: 1.2, core: 0.18, glow: 0.04 },
+      { y: 0.86, amp: 54, sp: 0.00014, ph: 5.3, core: 0.2, glow: 0.04 },
     ];
 
     const embers = Array.from({ length: 24 }, () => ({
@@ -80,7 +80,7 @@
         w * 0.85, h * 0.08, 0,
         w * 0.85, h * 0.08, Math.max(w, h) * 0.7
       );
-      const breathe = 0.04 + 0.015 * Math.sin(t * 0.0004);
+      const breathe = 0.025 + 0.01 * Math.sin(t * 0.0004);
       g.addColorStop(0, `rgba(217,72,72,${breathe.toFixed(3)})`);
       g.addColorStop(1, 'rgba(217,72,72,0)');
       ctx.fillStyle = g;
@@ -99,18 +99,18 @@
         const y = veinY(v, x, t);
         ctx.beginPath();
         ctx.arc(x, y, 5, 0, 6.2832);
-        ctx.fillStyle = 'rgba(217,72,72,0.14)';
+        ctx.fillStyle = 'rgba(217,72,72,0.09)';
         ctx.fill();
         ctx.beginPath();
         ctx.arc(x, y, 1.7, 0, 6.2832);
-        ctx.fillStyle = 'rgba(255,140,140,0.85)';
+        ctx.fillStyle = 'rgba(255,140,140,0.6)';
         ctx.fill();
       });
 
       // Ascuas ascendiendo, casi invisibles.
       embers.forEach((e) => {
         const y = (e.y - ((t * 0.000008 * e.v) % 1.2) + 1.2) % 1;
-        const tw = 0.25 + 0.2 * Math.sin(t * 0.001 + e.ph);
+        const tw = 0.16 + 0.13 * Math.sin(t * 0.001 + e.ph);
         ctx.beginPath();
         ctx.arc(e.x * w, y * h, e.s, 0, 6.2832);
         ctx.fillStyle = `rgba(217,72,72,${Math.max(0, tw).toFixed(3)})`;
