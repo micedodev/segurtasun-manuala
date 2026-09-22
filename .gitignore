@@ -1,3 +1,5 @@
 node_modules/
 dist/
 .astro/
+# Tooling del agente: no forma parte de la web ni del deploy
+.claude/
