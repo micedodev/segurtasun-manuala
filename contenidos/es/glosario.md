@@ -4,36 +4,39 @@ Todos los términos del manual, con su equivalente en el otro idioma y un enlace
 
 | Término | En euskera | Sección | Definición |
 | --- | --- | --- | --- |
-| **Ataque DDoS** | DDoS erasoa | UD2 · Seguridad lógica | Ataque que busca agotar un recurso finito del objetivo —ancho de banda, conexiones simultáneas, capacidad de proceso o memoria— para que deje de atender a los usuarios legítimos. |
-| **Ataque de fuerza bruta** | Indar gordineko erasoa | UD2 · Seguridad lógica | Intento sistemático de adivinar una credencial probando combinaciones hasta acertar. |
-| **Ataque de intermediario** | Erdiko gizonaren erasoa | UD1 · Introducción a la seguridad | Ataque en el que un tercero se sitúa en el camino de una comunicación y la retransmite, pudiendo leerla y modificarla sin que emisor ni receptor lo perciban. |
-| **Autenticación multifactor** | Faktore anitzeko autentikazioa | UD1 · Introducción a la seguridad | Comprobación de identidad que exige al menos dos pruebas de categoría distinta: algo que se sabe, algo que se tiene y algo que se es. |
-| **Bastionado** | Sendotzea | Seguridad perimetral | Proceso de reducir la exposición de un sistema: desactivar lo que no se usa, cerrar servicios y endurecer su configuración. |
-| **Botnet** | Botneta | UD2 · Seguridad lógica | Conjunto de equipos infectados que quedan bajo el control remoto de un mismo operador y ejecutan órdenes de forma coordinada. |
-| **Cortafuegos** | Suebakia | Seguridad perimetral | Sistema que controla el tráfico entre dos redes aplicando un conjunto ordenado de reglas: por cada paquete o conexión decide si se permite, se rechaza con aviso o se descarta en silencio. |
-| **DMZ** | DMZa | Seguridad perimetral | Segmento de red aislado donde se ubican los servicios que deben ser accesibles desde el exterior, separado tanto de Internet como de la red interna mediante reglas de filtrado. |
-| **Doble extorsión** | Estortsio bikoitza | UD1 · Introducción a la seguridad | Modelo de ransomware que cifra los datos y además amenaza con publicarlos, de modo que restaurar una copia no cierra el incidente. |
-| **Exfiltración** | Exfiltrazioa | UD1 · Introducción a la seguridad | Extracción no autorizada de información fuera de la organización, habitualmente camuflada dentro de tráfico de aspecto legítimo. |
-| **Exploit** | Exploita | UD1 · Introducción a la seguridad | Fragmento de código o secuencia de datos diseñado para aprovechar una vulnerabilidad concreta de un programa y hacer que se comporte de forma no prevista: ejecutar instrucciones del… |
-| **Ghostware** | Ghostwarea | UD3 · Seguridad activa | Malware diseñado para que, una vez cumplido su objetivo, no quede evidencia de que llegó a existir. |
-| **Gusano de red** | Sareko harra | UD3 · Seguridad activa | Malware capaz de replicarse y propagarse por sí mismo de un sistema a otro sin intervención humana, aprovechando vulnerabilidades de servicios accesibles en red o credenciales válidas. |
-| **Gusano de redes sociales** | Sare sozialetako harra | UD2 · Seguridad lógica | Código malicioso que se difunde a través de plataformas sociales y de mensajería utilizando las cuentas ya comprometidas para alcanzar a sus contactos. |
-| **Ingeniería social** | Ingeniaritza soziala | UD1 · Introducción a la seguridad | Conjunto de técnicas que manipulan a una persona para que realice una acción o revele información, en lugar de atacar un fallo técnico del sistema. |
-| **Malware polimórfico** | Malware polimorfikoa | UD3 · Seguridad activa | Malware que modifica su propio código en cada infección o en cada ejecución, de modo que el fichero resultante nunca es idéntico y ninguna firma basada en su contenido lo reconoce dos veces. |
-| **Mando y control** | Agindu eta kontrola | UD2 · Seguridad lógica | Infraestructura desde la que el atacante envía órdenes al malware ya instalado y recibe los datos que éste le devuelve. |
-| **Movimiento lateral** | Alboko mugimendua | UD1 · Introducción a la seguridad | Desplazamiento del atacante desde el equipo por el que entró hacia otros sistemas de la misma red, normalmente reutilizando credenciales. |
-| **Phishing** | Phishinga | UD1 · Introducción a la seguridad | Técnica de ingeniería social en la que el atacante se hace pasar por una entidad de confianza para inducir a la víctima a entregar credenciales, datos personales o dinero, o a ejecutar un… |
-| **Principio de mínimo privilegio** | Gutxieneko pribilegioaren printzipioa | Seguridad perimetral | Regla según la cual cada cuenta y cada proceso deben tener sólo los permisos estrictamente necesarios para su función. |
-| **Proxy** | Proxya | Seguridad perimetral | Servidor que se sitúa entre el cliente y el destino y realiza la petición en su nombre. |
-| **Puerta trasera** | Atzeko atea | UD1 · Introducción a la seguridad | Mecanismo que permite acceder a un sistema saltándose los controles de autenticación previstos. |
-| **Ransomware** | Ransomwarea | UD1 · Introducción a la seguridad | Malware que cifra los datos de la víctima —y habitualmente los extrae antes— para exigir un pago a cambio de la clave de descifrado y del compromiso de no publicarlos. |
-| **RAT** | RATa | UD3 · Seguridad activa | Troyano que otorga al atacante control interactivo y en tiempo real sobre el equipo infectado: sistema de ficheros, cámara, micrófono, teclado, pantalla y red. |
-| **Registro centralizado** | Erregistro zentralizatua | UD3 · Seguridad activa | Sistema que recoge en tiempo real los registros de todos los equipos y los conserva fuera del alcance de quien los generó. |
-| **Rootkit** | Rootkita | UD2 · Seguridad lógica | Conjunto de herramientas que se instala con privilegios elevados para mantener el acceso a un sistema y, sobre todo, para ocultar su propia presencia y la de otros componentes maliciosos. |
-| **Segmentación de red** | Sarearen segmentazioa | UD2 · Seguridad lógica | División de la red en zonas con filtrado entre ellas, para que un equipo comprometido no pueda alcanzar a todos los demás. |
-| **Spyware** | Spywarea | UD1 · Introducción a la seguridad | Software que recopila información sobre la actividad de un sistema o de su usuario y la transmite a un tercero sin consentimiento informado. |
-| **Stealer** | Stealerra | UD1 · Introducción a la seguridad | Malware especializado en localizar y extraer los secretos almacenados en un equipo —contraseñas guardadas en el navegador, cookies de sesión, tokens de aplicaciones y ficheros de… |
-| **Superficie de ataque** | Eraso-azalera | UD2 · Seguridad lógica | Conjunto de puntos por los que un sistema puede ser atacado: servicios expuestos, cuentas, permisos y software instalado. |
-| **Troyano** | Troiarra | UD1 · Introducción a la seguridad | Programa que ofrece una funcionalidad aparentemente útil y ejecuta además, de forma oculta, una carga maliciosa. |
-| **VPN** | VPNa | Seguridad perimetral | Tecnología que crea un canal cifrado y autenticado entre dos extremos a través de una red no confiable, de modo que el tráfico que circula por él resulta ilegible e inalterable para quien… |
-| **Vulnerabilidad de día cero** | Zero eguneko ahultasuna | UD3 · Seguridad activa | Fallo de seguridad aprovechado por un atacante antes de que el fabricante haya publicado una corrección para él. |
+| **Ataque DDoS** | DDoS erasoa | UD2 · Seguridad lógica | Agota un recurso finito (ancho de banda, conexiones, CPU o memoria) para dejar fuera a los usuarios legítimos. |
+| **Ataque de fuerza bruta** | Indar gordineko erasoa | UD2 · Seguridad lógica | Prueba combinaciones sistemáticamente hasta adivinar una credencial. |
+| **Ataque de intermediario** | Erdiko gizonaren erasoa | UD1 · Introducción a la seguridad | Un tercero intercepta una comunicación y puede leerla o modificarla sin ser detectado. |
+| **Autenticación multifactor** | Faktore anitzeko autentikazioa | UD1 · Introducción a la seguridad | Exige al menos dos pruebas de distinta categoría: lo que se sabe, se tiene y se es. |
+| **Bastionado** | Sendotzea | Seguridad perimetral | Reduce la exposición: desactiva lo no usado, cierra servicios y endurece la configuración. |
+| **Biren erasoa** | Biren erasoa | UD1 · Introducción a la seguridad | Nombre en euskera del ataque de intermediario (Man-in-the-Middle). |
+| **Botnet** | Botneta | UD2 · Seguridad lógica | Red de equipos infectados bajo un mismo operador que ejecutan órdenes coordinadas. |
+| **Cortafuegos** | Suebakia | Seguridad perimetral | Controla el tráfico entre redes con reglas ordenadas: permite, rechaza o descarta. |
+| **Descarga al paso (drive-by download)** | Mamuak | UD3 · Seguridad activa | Web comprometida que infecta al visitante con un script, sin clics. |
+| **DMZ** | DMZa | Seguridad perimetral | Segmento aislado para servicios expuestos al exterior, separado de Internet y la red interna. |
+| **Doble extorsión** | Estortsio bikoitza | UD1 · Introducción a la seguridad | Ransomware que cifra y amenaza con publicar; restaurar la copia no basta. |
+| **Exfiltración** | Exfiltrazioa | UD1 · Introducción a la seguridad | Extracción no autorizada de información, camuflada en tráfico legítimo. |
+| **Exploit** | Exploita | UD1 · Introducción a la seguridad | Código o datos que aprovechan una vulnerabilidad para alterar el comportamiento de un programa. |
+| **Ghostware** | Ghostwarea | UD3 · Seguridad activa | Malware que no deja rastro tras cumplir su objetivo. |
+| **Gusano de red** | Sareko harra | UD3 · Seguridad activa | Se replica y propaga solo por red, sin intervención humana. |
+| **Gusano de redes sociales** | Sare sozialetako harra | UD2 · Seguridad lógica | Se difunde por redes sociales y mensajería desde cuentas comprometidas. |
+| **Ingeniería social** | Ingeniaritza soziala | UD1 · Introducción a la seguridad | Manipula a personas para que actúen o revelen información, sin explotar fallos técnicos. |
+| **Koobface** | Koobface | UD2 · Seguridad lógica | Gusano de 2008 en Facebook y MySpace que creó una botnet para robar credenciales bancarias. |
+| **Malware polimórfico** | Malware polimorfikoa | UD3 · Seguridad activa | Modifica su código en cada infección para eludir firmas. |
+| **Mando y control** | Agindu eta kontrola | UD2 · Seguridad lógica | Infraestructura con la que el atacante dirige el malware y recibe datos. |
+| **Movimiento lateral** | Alboko mugimendua | UD1 · Introducción a la seguridad | Avanza de un equipo a otros de la red, reutilizando credenciales. |
+| **Phishing** | Phishinga | UD1 · Introducción a la seguridad | Suplanta una entidad de confianza para robar credenciales, datos o dinero. |
+| **Principio de mínimo privilegio** | Gutxieneko pribilegioaren printzipioa | Seguridad perimetral | Cada cuenta y proceso, solo con los permisos estrictamente necesarios. |
+| **Proxy** | Proxya | Seguridad perimetral | Servidor que pide recursos en nombre del cliente. |
+| **Puerta trasera** | Atzeko atea | UD1 · Introducción a la seguridad | Acceso que elude los controles de autenticación previstos. |
+| **Ransomware** | Ransomwarea | UD1 · Introducción a la seguridad | Cifra datos (normalmente tras extraerlos) y exige pago por la clave y no publicarlos. |
+| **RAT** | RATa | UD3 · Seguridad activa | Troyano de control remoto interactivo: ficheros, cámara, micrófono, teclado, pantalla y red. |
+| **Registro centralizado** | Erregistro zentralizatua | UD3 · Seguridad activa | Recoge registros de todos los equipos en tiempo real y los guarda fuera de su alcance. |
+| **Rootkit** | Rootkita | UD2 · Seguridad lógica | Herramientas con privilegios elevados para mantener acceso y ocultar presencia. |
+| **Segmentación de red** | Sarearen segmentazioa | UD2 · Seguridad lógica | Divide la red en zonas filtradas para contener un equipo comprometido. |
+| **Spyware** | Spywarea | UD1 · Introducción a la seguridad | Recopila actividad del sistema o usuario y la envía a terceros sin consentimiento. |
+| **Stealer** | Stealerra | UD1 · Introducción a la seguridad | Malware que localiza y extrae secretos del equipo: contraseñas, cookies y tokens. |
+| **Superficie de ataque** | Eraso-azalera | UD2 · Seguridad lógica | Puntos expuestos a ataque: servicios, cuentas, permisos y software. |
+| **Troyano** | Troiarra | UD1 · Introducción a la seguridad | Programa útil en apariencia con carga maliciosa oculta. |
+| **VPN** | VPNa | Seguridad perimetral | Canal cifrado y autenticado sobre red no confiable que protege el tráfico. |
+| **Vulnerabilidad de día cero** | Zero eguneko ahultasuna | UD3 · Seguridad activa | Fallo explotado antes de que el fabricante publique corrección. |

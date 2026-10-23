@@ -14,11 +14,11 @@ Dos incidentes reales analizados con la misma plantilla: qué falló, en qué or
 
 ### Contexto
 
-En marzo de 2017, Microsoft publica una actualización de seguridad para una vulnerabilidad en su implementación del protocolo de compartición de ficheros SMB en su primera versión, presente en prácticamente todas las versiones de Windows en uso. La corrección queda disponible con dos meses de antelación sobre lo que vendrá después.
+En marzo de 2017, Microsoft publica una actualización para SMB en su primera versión, presente en casi todo Windows en uso. Queda disponible dos meses antes del ataque.
 
-En abril se filtra públicamente un conjunto de herramientas ofensivas desarrolladas por una agencia de inteligencia estadounidense. Entre ellas figura un código de explotación fiable para esa misma vulnerabilidad, capaz de ejecutar instrucciones sin autenticación previa contra cualquier equipo que tenga el servicio accesible en red.
+En abril se filtra un arsenal ofensivo de una agencia de inteligencia estadounidense. Incluye un exploit fiable para esa vulnerabilidad: ejecuta código sin autenticación contra cualquier equipo con el servicio en red.
 
-El escenario resultante reúne tres condiciones que rara vez coinciden: una vulnerabilidad explotable sin credenciales, un exploit de calidad profesional en circulación libre y un parque enorme de equipos sin actualizar, muchos de ellos con ese servicio expuesto incluso hacia Internet.
+Coinciden tres condiciones raras: fallo explotable sin credenciales, exploit profesional en circulación libre y un parque enorme sin actualizar, con el servicio expuesto incluso a Internet.
 
 ### Cronología
 
@@ -35,19 +35,19 @@ El escenario resultante reúne tres condiciones que rara vez coinciden: una vuln
 
 #### Vulnerabilidad explotable sin autenticación
 
-El fallo residía en el tratamiento de determinadas peticiones del protocolo de compartición de ficheros. Podía aprovecharse contra un equipo que simplemente tuviera el servicio escuchando, sin usuario ni contraseña, lo que elimina el paso que más esfuerzo exige normalmente a un atacante.
+El fallo trataba mal ciertas peticiones SMB. Bastaba el servicio escuchando, sin usuario ni contraseña. Desaparece el paso más costoso del atacante.
 
 #### Propagación automática
 
-La pieza decisiva fue combinar un ransomware convencional con un módulo de gusano. El código recorría la red local y rangos de direcciones públicas buscando el puerto del servicio vulnerable, y se copiaba a sí mismo en cada equipo que respondía. Ninguna víctima posterior a la primera tuvo que abrir absolutamente nada.
+Combinó ransomware común con gusano. Recorría la red local y rangos públicos buscando el puerto vulnerable y se copiaba en cada respuesta. Tras la primera víctima, nadie tuvo que abrir nada.
 
 #### Cifrado y petición de rescate
 
-Una vez en el equipo, cifraba documentos de uso común y mostraba una nota exigiendo el pago en criptomoneda. El sistema de cobro era rudimentario y no permitía asociar de forma fiable un pago con una víctima concreta, de modo que buena parte de quienes pagaron no recibieron clave alguna.
+Cifraba documentos comunes y pedía pago en criptomoneda. El cobro no asociaba pago y víctima, así que muchos pagos nunca recibieron clave.
 
 #### La comprobación de dominio
 
-Antes de cifrar, la muestra consultaba un dominio concreto y se detenía si obtenía respuesta. Probablemente era un mecanismo para no activarse dentro de entornos de análisis automatizado, donde todo dominio resuelve. Registrar ese dominio actuó como freno global, un efecto que sus autores no habían previsto.
+Antes de cifrar consultaba un dominio y se detenía si resolvía. Era un evasor de análisis automatizado, donde todo dominio resuelve. Registrarlo actuó como freno global imprevisto.
 
 ### Impacto en cifras
 
@@ -60,32 +60,32 @@ Antes de cifrar, la muestra consultaba un dominio concreto y se detenía si obte
 
 ### Alcance real
 
-El sector sanitario británico fue el caso más visible: decenas de organizaciones del servicio público de salud cancelaron citas, derivaron urgencias y volvieron temporalmente a procedimientos en papel. El daño no fue la pérdida de datos, sino la interrupción de una actividad que no admite pausa.
+El sector sanitario británico fue lo más visible: decenas de organizaciones cancelaron citas, derivaron urgencias y volvieron al papel. El daño fue interrumpir, no perder datos.
 
-En la industria, varias plantas detuvieron líneas de producción. El motivo se repitió una y otra vez: redes internas planas donde el equipo de un despacho y un sistema de control compartían el mismo segmento sin ninguna separación.
+En la industria, varias plantas detuvieron líneas. La causa se repitió: redes planas donde despacho y control compartían segmento sin separación.
 
-El coste económico se estimó en miles de millones de euros a escala global, casi todo en tiempo de parada, horas de reconstrucción y actividad perdida, y no en rescates pagados. La recaudación de los atacantes fue, en comparación, insignificante.
+El coste global se estimó en miles de millones de euros, casi todo en paradas y reconstrucción, no en rescates. La recaudación atacante fue insignificante.
 
 ### Respuesta
 
-- Microsoft publicó de forma excepcional actualizaciones para versiones de Windows ya fuera de soporte, una decisión poco habitual que da la medida del parque afectado.
-- Muchas organizaciones optaron por desconectar redes completas mientras parcheaban, asumiendo una parada controlada para evitar una descontrolada.
-- La primera versión del protocolo pasó a deshabilitarse por defecto en las ediciones siguientes del sistema, y se recomendó su retirada allí donde seguía activa por compatibilidad.
-- El bloqueo del puerto de ese servicio en el perímetro se generalizó como medida básica, algo que ya debería haber sido la norma mucho antes del incidente.
+- Microsoft actualizó versiones fuera de soporte, medida excepcional que muestra el parque afectado.
+- Muchas organizaciones desconectaron redes y parchearon, con parada controlada ante la descontrolada.
+- La primera versión del protocolo se deshabilitó por defecto y se pidió retirarla por compatibilidad.
+- Bloquear ese puerto en perímetro se volvió norma básica, con años de retraso.
 
 ### Tres lecciones
 
 #### 1. La ventana de exposición la fija la organización
 
-El parche llevaba cincuenta y nueve días disponible. Todo el impacto se produjo dentro de la distancia entre la publicación de la corrección y su aplicación real, que es precisamente la única variable que la víctima controla por completo.
+El parche llevaba cincuenta y nueve días disponible. Todo el impacto cabe en la distancia entre publicar y aplicar, la única variable que la víctima controla.
 
 #### 2. Una red plana convierte un incidente en una catástrofe
 
-La propagación automática sólo resulta devastadora si hay a dónde propagarse. En las organizaciones segmentadas, exactamente el mismo código produjo incidentes acotados a un departamento.
+La propagación sólo arrasa si hay a dónde propagarse. En redes segmentadas, el mismo código quedó acotado a un departamento.
 
 #### 3. La capacidad de restaurar es la última defensa real
 
-Quien tenía copias verificadas y desconectadas perdió horas. Quien no las tenía perdió semanas y, en muchos casos, los datos de forma definitiva: pagar tampoco garantizaba recuperarlos.
+Quien tenía copias verificadas y desconectadas perdió horas. Quien no, perdió semanas o los datos: pagar tampoco recuperaba.
 
 ---
 
@@ -97,11 +97,11 @@ Quien tenía copias verificadas y desconectadas perdió horas. Quien no las ten�
 
 ### Contexto
 
-A finales de noviembre de 2014, los equipos de Sony Pictures Entertainment amanecen mostrando una imagen y un mensaje firmado por un grupo autodenominado Guardians of Peace. No es una nota de rescate al uso: el acceso a los sistemas ya se ha perdido y buena parte de la información corporativa está en manos ajenas.
+A finales de noviembre de 2014, los equipos de Sony Pictures Entertainment muestran una imagen firmada por Guardians of Peace. No es un rescate al uso: el acceso se ha perdido y gran parte de la información está en manos ajenas.
 
-El incidente rompe el patrón económico habitual. No hay una petición de pago proporcionada al daño ni un modelo de negocio detrás: hay exfiltración masiva, destrucción de datos y una campaña de publicación escalonada diseñada para sostener la presión durante semanas.
+No hay pago proporcional ni negocio detrás: hay exfiltración masiva, destrucción y publicación escalonada para sostener la presión durante semanas.
 
-El caso se asoció públicamente al estreno inminente de una película cuyo argumento resultaba ofensivo para un Estado, lo que introdujo en el debate una dimensión poco frecuente hasta entonces: una empresa privada convertida en objetivo de una operación con motivación política.
+El caso se asoció al estreno de una película ofensiva para un Estado. Una empresa privada se volvió objetivo de una operación con motivación política.
 
 ### Cronología
 
@@ -118,19 +118,19 @@ El caso se asoció públicamente al estreno inminente de una película cuyo argu
 
 #### Acceso inicial y permanencia prolongada
 
-La intrusión no fue instantánea. Los atacantes permanecieron dentro el tiempo suficiente para entender la organización, localizar dónde estaba lo valioso y hacerse con credenciales de administración. Esa fase silenciosa es la que determina el alcance final de cualquier incidente grave.
+Los atacantes permanecieron dentro para entender la organización, localizar lo valioso y tomar credenciales de administración. Esa fase silenciosa fija el alcance final de todo incidente grave.
 
 #### Exfiltración masiva previa
 
-Se copiaron fuera del orden de decenas de terabytes antes de que nadie advirtiera nada. Un volumen así no se mueve en una noche: exige semanas de transferencia sostenida que nadie estaba vigilando en el sentido de salida.
+Decenas de terabytes salieron antes de cualquier alerta. Ese volumen exige semanas de transferencia que nadie vigilaba en salida.
 
 #### Malware de borrado
 
-El componente destructivo no cifraba para pedir un rescate: sobrescribía el sector de arranque y los datos para impedir la recuperación. Es una diferencia fundamental respecto al ransomware, porque elimina de raíz cualquier posibilidad de negociación.
+No cifraba para pedir rescate: sobrescribía arranque y datos para impedir la recuperación. Esa diferencia elimina cualquier negociación.
 
 #### La filtración como arma
 
-La publicación escalonada convirtió la información robada en un instrumento de presión sostenida. Cada entrega renovaba la cobertura mediática y el daño reputacional, algo que un borrado por sí solo nunca habría conseguido.
+La publicación escalonada sostuvo la presión: cada entrega renovaba cobertura y daño reputacional. Un borrado solo nunca lo logra.
 
 ### Impacto en cifras
 
@@ -143,33 +143,33 @@ La publicación escalonada convirtió la información robada en un instrumento d
 
 ### Alcance real
 
-La parada operativa fue total durante días. Sin correo, sin telefonía sobre IP y sin sistema de nóminas, la compañía volvió al papel, al fax y a las reuniones presenciales; algunos procesos administrativos tardaron meses en normalizarse.
+La parada fue total durante días. Sin correo, telefonía IP ni nóminas, la compañía volvió a papel, fax y reuniones; algunos procesos tardaron meses en normalizarse.
 
-La filtración de correspondencia interna produjo un daño de naturaleza distinta a la técnica: comentarios privados sobre personas y proyectos, condiciones contractuales y desequilibrios salariales quedaron expuestos, con consecuencias directas sobre carreras profesionales y relaciones comerciales.
+La correspondencia filtrada dañó más allá de lo técnico: comentarios privados, contratos y salarios expuestos, con impacto en carreras y relaciones comerciales.
 
-Miles de trabajadores y extrabajadores vieron publicados datos personales, médicos y económicos. Las demandas colectivas que siguieron establecieron un precedente claro: la organización responde ante su propia plantilla por no haber protegido esa información.
+Miles de trabajadores vieron publicados datos personales, médicos y económicos. Las demandas colectivas fijaron el precedente: la organización responde ante su plantilla.
 
-La retirada inicial del estreno abrió un debate que trascendió con mucho la seguridad informática, sobre hasta qué punto una amenaza puede llegar a condicionar decisiones empresariales y culturales.
+La retirada inicial del estreno abrió un debate mayor: hasta qué punto una amenaza condiciona decisiones empresariales y culturales.
 
 ### Respuesta
 
-- Desconexión inmediata y completa de la red corporativa, seguida de una reconstrucción de la infraestructura desde cero en lugar de una limpieza selectiva.
-- Intervención de las autoridades federales estadounidenses, que atribuyeron públicamente el ataque a un Estado, algo entonces inusual.
-- Servicios de vigilancia de identidad para las personas afectadas y acuerdos económicos en las demandas colectivas posteriores.
-- Revisión profunda de la gestión de credenciales privilegiadas, de la segmentación interna y de la política de conservación del correo electrónico.
+- Desconexión total y reconstrucción desde cero, en lugar de limpieza selectiva.
+- Atribución pública a un Estado por autoridades federales, entonces inusual.
+- Vigilancia de identidad y acuerdos económicos en las demandas colectivas.
+- Revisión de credenciales privilegiadas, segmentación y conservación del correo.
 
 ### Tres lecciones
 
 #### 1. Lo que se guarda es lo que se puede filtrar
 
-Buena parte del daño reputacional procedió de correo de años atrás que no tenía ninguna razón operativa para seguir almacenado. Una política de conservación con borrado efectivo reduce el impacto de una brecha antes incluso de que la brecha exista.
+Gran parte del daño vino de correo antiguo sin razón operativa para conservarse. Borrar a tiempo reduce la brecha antes de que exista.
 
 #### 2. La salida hay que vigilarla igual que la entrada
 
-Decenas de terabytes salieron a lo largo de semanas sin generar una sola alerta. La supervisión se concentraba en quién entraba, no en qué volumen de información se iba, que es exactamente donde se decide la gravedad de una exfiltración.
+Decenas de terabytes salieron durante semanas sin una alerta. Se vigilaba quién entraba, no qué volumen salía: ahí se decide la gravedad.
 
 #### 3. No todo atacante busca cobrar
 
-Frente a un adversario cuyo objetivo es el daño y no el beneficio, las defensas pensadas para la extorsión no sirven: no hay rescate que negociar ni clave que comprar. Sólo quedan la prevención, la segmentación y la capacidad de reconstruir.
+Ante quien busca daño y no beneficio, la extorsión no aplica: no hay rescate ni clave. Quedan prevención, segmentación y reconstrucción.
 
 ---

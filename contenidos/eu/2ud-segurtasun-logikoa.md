@@ -4,9 +4,7 @@
 
 Ideia bat partekatzen duten bost teknika: irismena biderkatzea. Kredentzial bat kontu bihurtzen da, kontu bat mila ekipo eta mila ekipo zerbitzuaren erorketa.
 
-Unitate honetako bost teknikek ideia bat partekatzen dute: biderkatzea. Iritsitako kontaktuak biderkatzea, kontrolatutako ekipoak, segundoko saiakerak, aldi bereko eskaerak edo ikusia izan gabe irauten duten hilabeteak.
-
-Hori da gertakari bakartu bat kanpaina batetik bereizten duen eskala-jauzia. Hemen erasotzaileak ekipoz ekipo lan egiteari uzten dio eta azpiegiturarekin lan egiten hasten da: milaka nodoko sareak, ateratako milioika kredentzialen zerrendak eta orduka alokatutako konputazio-ahalmena.
+Bakoitzak beste gauza bat biderkatzen du: kontaktuak, ekipoak, segundoko saiakerak, aldi bereko eskaerak edo ikusi gabe irauten duten hilabeteak. Erasotzaileak ez du ekipoz ekipo lan egiten: milaka nodoko sareekin, ateratako milioika kredentzialen zerrendekin eta orduka alokatutako konputazio-ahalmenarekin dihardu.
 
 **Ideia nagusia:** Segurtasun logikoan ia ezer ez dago indar teknikoaren mende, eskalaren mende baizik. Botnet batean arriskutsua dena ez da nodo bakoitzak egiten duena, milaka ari direla aldi berean eta blokeatu ezin diren helbideetatik baizik.
 
@@ -30,32 +28,32 @@ Hori da gertakari bakartu bat kanpaina batetik bereizten duen eskala-jauzia. Hem
 
 ### Definizioa
 
-Plataforma sozialen eta mezularitzaren bidez zabaltzen den kode maltzurra, dagoeneko arriskuan dauden kontuak erabiliz haien kontaktuetara iristeko. Bektorea ez da zerbitzuaren ahultasun bat, igorlearen eta hartzailearen arteko aurreko harremana baizik: mezua ezagun batengandik iristen da.
+Plataforma sozialen eta mezularitzaren bidez zabaltzen den kode maltzurra, arriskuan dauden kontuetatik: bektorea ez da zerbitzuaren akatsa, igorlearen eta hartzailearen arteko konfiantza baizik. Erreferentziazko kasu historikoa Koobface da (2008): Facebook eta MySpace bidez hedatu zen arriskuan jarritako kontuetatik bidalitako mezu tranpatiekin, eta ehunka mila ekipo banku-kredentzialak lapurtzera zuzendutako botnet bihurtu zituen.
 
 ### Nola funtzionatzen duen
 
-1. Lehen kontua arriskuan jartzea, normalean berrerabilitako pasahitz batengatik edo esteka iruzurti batengatik.
-2. Kontaktuak zerrendatzea: kodeak hartutako kontuaren lagunen zerrenda, taldeak eta azken elkarrizketak irakurtzen ditu.
-3. Zabalkunde pertsonalizatua: esteka bat duen mezu labur bat argitaratzen edo bidaltzen du, tonua aurreko elkarrizketara egokituz, nabarmendu ez dadin.
-4. Hurrengo katebegia harrapatzea: estekak berriro saioa hasteko eskatzen duen orrialde batera darama, edo edukia ikusteko osagarri bat instalatzea eskatzen duen batera.
-5. Errepikapena: kontu berri bakoitzak zikloa berrabiarazten du, beraz hazkundea biderkatzailea da iritsi gabeko kontaktuak dauden bitartean.
+1. Lehen kontua: berrerabilitako pasahitza edo esteka iruzurtia.
+2. Kodeak hartutako kontuaren lagunak, taldeak eta elkarrizketak irakurtzen ditu.
+3. Esteka duen mezu labur bat bidaltzen du, aurreko tonuan.
+4. Estekak saio-hasiera berri bat edo osagarri bat instalatzea eskatzen du.
+5. Kontu berri bakoitzak zikloa berrabiarazten du: hazkundea biderkatzailea da.
 
 ### Eraso-bektorea
 
-- Plataformaren mezularitza pribatua, non mezua benetako kontaktu baten argazkiarekin eta izenarekin iristen den.
-- Argitalpenetako iruzkinak eta aipamenak, kontaktuen zerrendatik askoz harago zabaltzen dutenak irismena.
-- Kontuari baimen eskuordetuaren bidez lotutako hirugarrenen aplikazioak, pasahitza aldatuta ere baimena gordetzen dutenak.
-- Biktima bera omen datorren bideo bat ikusteko eskatzen diren erreproduzitzaile edo osagarri faltsuak.
+- Mezularitza pribatua: mezua benetako kontaktu baten argazki eta izenarekin iristen da.
+- Iruzkinak eta aipamenak: irismena kontaktuen zerrendatik harago zabaltzen dute.
+- Baimen eskuordetudun hirugarrenen aplikazioak: pasahitza aldatuta ere baimena gordetzen dute.
+- Biktima omen datorren bideoa ikusteko eskatzen diren erreproduzitzaile edo osagarri faltsuak.
 
 ### Adibide argigarria — Bidegorri Mugikortasuna
 
 *Hiri mugikortasun partekatua · 2024*
 
-2024ko maiatzean, Bidegorri Mugikortasunaren kontu korporatiboa, sare profesional batean, mezu pribatuak bidaltzen hasten zaie bere kontaktuei. Testua laburra da, euskaraz eta gaztelaniaz idatzita dago, eta sektoreko txosten bat dirudien zerbaitera estekatzen du.
+2024ko maiatzean, Bidegorri Mugikortasunaren kontu korporatiboak mezu pribatuak bidaltzen ditu sare profesional batean: testu laburra euskaraz eta gaztelaniaz, sektoreko txosten bat dirudien esteka batekin.
 
-Estekak sarearenaren berdin-berdina den saio-hasierako orrialde batera darama. Kredentzialak sartzen dituen kontaktu bakoitzak bere kontua uzten du, eta minutu gutxiren buruan mezu bera bidaltzen hasten da bere zerrendara. Sei ordutan ehun eta laurogeita hamar bidalketa zenbatzen dira hogeita hamaika kontu desberdinetatik.
+Estekak saio-hasieraren erreplika zehatza irekitzen du. Kredentzialak idazten dituenak kontua uzten du, eta minututan mezu bera birbidaltzen du. Sei ordutan: ehun eta laurogeita hamar bidalketa hogeita hamaika kontutatik.
 
-Hedapena gelditzen duena ez da defentsa tekniko bat, idazkera-xehetasun bat baizik: mezuak komunikazio arduradunak bere ohiko kontaktuekin inoiz erabiltzen ez duen tratamendu formala darabil. Haietako batek telefonoz deitzen du galdetzeko, eta abisua harra baino azkarrago zabaltzen da.
+Ez du defentsa tekniko batek gelditzen, idazkerak baizik: arduradunak inoiz erabiltzen ez duen tratamendu formala. Telefono-dei batek abisua harra baino azkarrago zabaltzen du.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -63,19 +61,19 @@ Hedapena gelditzen duena ez da defentsa tekniko bat, idazkera-xehetasun bat baiz
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Hartutako kontuek elkarrizketa pribatuetara eta kontaktu profesionalen zerrenda osoetara ematen dute sarbidea. |
-| Osotasuna | Bai | Erasotzaileak erakundearen izenean argitaratzen eta bidaltzen du edukia, haren komunikazio publikoa aldatuz. |
-| Erabilgarritasuna | Ez | Zerbitzua ez da eteten; kontua eteten bada, ondorengo euspen-neurriagatik da, ez harragatik. |
-| Autentikazioa | Bai | Zabalkunde bakoitza kontu legitimo batetik gertatzen da, zeinaren kontrola beste pertsona baten eskuetara igaro den. |
-| Ez-arbuiatzea | Bai | Mezuak kontuaren titularrak bidalitako gisa geratzen dira, eta honek ezin du kontrakoa frogatu bere kontaktuen aurrean. |
+| Konfidentzialtasuna | Bai | Hartutako kontuek elkarrizketa pribatuak eta kontaktu-zerrenda osoak agerian uzten dituzte. |
+| Osotasuna | Bai | Erasotzaileak erakundearen izenean argitaratzen du eta haren komunikazioa aldatzen du. |
+| Erabilgarritasuna | Ez | Zerbitzuak martxan jarraitzen du; euspenak bakarrik eteten du kontua. |
+| Autentikazioa | Bai | Bidalketa bakoitza kontrol galduko kontu legitimo batetik irteten da. |
+| Ez-arbuiatzea | Bai | Mezuak titularrak bidalita geratzen dira, eta honek ezin du ukatu. |
 
 ### Defentsa
 
-- Bigarren faktorea korporazioko kontu sozial guztietan, pertsonaka eskuordetutako sarbidearekin eta ez partekatutako pasahitz batekin.
-- Baimendutako hirugarrenen aplikazioen hiruhileko berrikuspena, jada erabiltzen ez direnak baliogabetuz.
-- Barne arau sinplea: mezularitzaz jasotako esteka batek ere ez darama saio-hasierako pantaila legitimo batera; helbidea idatziz sartzen da.
-- Egiaztapen-kanal azkarra —dei bat, barne talde bat— ezagun baten ustekabeko edozein mezu berresteko.
-- Dokumentatutako erantzun-prozedura: pasahitza aldatu, saio aktibo guztiak itxi, eskuordetutako baimenak baliogabetu eta abisu publikoa eman.
+- Bigarren faktorea kontu korporatibo guztietan, pertsonakako sarbidearekin, partekatutako pasahitzik gabe.
+- Hirugarrenen aplikazioen hiruhileko berrikuspena: erabiltzen ez direnak baliogabetu.
+- Barne araua: mezularitzako esteka batek ere ez darama saio-hasierara; helbidea idatziz sartzen da.
+- Egiaztapen-kanal azkarra —dei bat, barne talde bat— ustekabeko mezu bakoitzerako.
+- Erantzun dokumentatua: pasahitza aldatu, saioak itxi, baimenak baliogabetu eta publikoki abisatu.
 
 ---
 
@@ -87,32 +85,32 @@ Hedapena gelditzen duena ez da defentsa tekniko bat, idazkera-xehetasun bat baiz
 
 ### Definizioa
 
-Operadore beraren urruneko kontrolpean geratu eta aginduak modu koordinatuan exekutatzen dituzten ekipo kutsatuen multzoa. Ekipo bakoitzak bereizita ia ez du ezer ekartzen: sarearen balioa batuketan dago, eta haien jabe legitimoek normaltasunez erabiltzen jarraitzen dutelako.
+Operadore beraren urruneko kontrolpean aginduak modu koordinatuan exekutatzen dituzten ekipo kutsatuen multzoa. Ekipo bakoitzak bereizita ia ezer ez du ekartzen: balioa batuketan dago, eta jabeek normaltasunez erabiltzen jarraitzen dute.
 
 ### Nola funtzionatzen duen
 
-1. Kutsatzea: ekipoak agentea jasotzen du edozein bidetatik —troiarra, exploita edo fabrikako kredentziala— eta nodo gisa operatibo geratzen da.
-2. Erregistratzea: agenteak agindu eta kontrol azpiegiturarekin kontaktua egiten du, sarritan algoritmoak sortutako dominioen bidez edo desmuntatzen zaila den sare deszentralizatu baten bidez.
-3. Itxarotea: nodoa geldirik eta kontsumo minimoarekin geratzen da, aginduen kanala tarte irregularretan galdekatuz.
-4. Exekuzio koordinatua: agindua iristen denean, milaka nodok aldi berean jarduten dute posta bidaltzeko, kredentzialak probatzeko, trafikoa sortzeko edo malwarea banatzeko.
-5. Mantentzea: operadoreak agentea eguneratzen du, blokeatutako dominioak ordezkatzen ditu eta ahalmena hirugarrenei alokatzen die orduka.
+1. Ekipoak agentea jasotzen du edozein bidetatik —troiarra, exploita edo fabrikako kredentziala— eta nodo bihurtzen da.
+2. Agenteak agindu eta kontrola kontaktatzen du, algoritmo-dominioez edo sare deszentralizatuaz.
+3. Nodoa geldirik geratzen da kontsumo minimoarekin, eta kanala tarte irregularretan galdekatzen du.
+4. Agindua iristean, milaka nodok aldi berean jarduten dute: posta, kredentzialak, trafikoa edo malwarea.
+5. Operadoreak agentea eguneratzen du, dominio blokeatuak ordezkatzen ditu eta ahalmena orduka alokatzen du.
 
 ### Eraso-bektorea
 
-- Gauzen internetaren gailuak, Internetetik eskuragarri dauden fabrikako kredentzialekin: kamerak, grabagailuak eta etxeko routerrak.
-- Troiarrak kutsatutako erabiltzaile-ekipoak, errugabeei eragin gabe blokeatzen zailak diren egoitza-helbideak ekartzen dituztenak.
-- Adabakirik gabeko ahultasunengatik arriskuan dauden zerbitzariak, beren banda-zabalera simetrikoagatik bereziki baloratuak.
-- Sarea bera hirugarrenei alokatzea, azpiegitura beretik abiarazitako kanpaina desberdinen kopurua biderkatzen duena.
+- Gauzen internetaren gailuak, fabrikako kredentzial agerikoekin: kamerak, grabagailuak eta etxeko routerrak.
+- Troiarrak kutsatutako ekipoak: blokeatzen zailak diren egoitza-helbideak ekartzen dituzte.
+- Adabakirik gabeko zerbitzariak, banda-zabalera simetrikoagatik baloratuak.
+- Sarea hirugarrenei alokatzea: hainbat kanpaina azpiegitura beretik.
 
 ### Adibide argigarria — Mendizorrotz Telekomunikazioak
 
 *Telekomunikazio operadorea · 2025*
 
-2025eko otsailean, Mendizorrotz Telekomunikazioetako eragiketa taldeak eredu bitxi bat detektatzen du bere egoitza-sarbideko sarean: eredu bereko lau mila eta zortziehun routerrek, laurogeita hamar minuturo, egunero aldatzen den dominio bat galdekatzen dute.
+2025eko otsailean, Mendizorrotz Telekomunikazioak eredu bitxi bat detektatzen du egoitza-sarean: eredu bereko lau mila eta zortziehun routerrek laurogeita hamar minuturo galdekatzen dute eguneko dominioa.
 
-Eragindako ereduak urruneko kudeaketa-interfazea agerian uzten du eta fabrikako kredentziala ez zen inoiz aldatu, hornikuntza-prozedurak berak ez zuelako aldatzen. Kutsatutako ekipo bakoitzak segundoko kilobit bat baino gutxiago kontsumitzen du geldirik: bezero batek ere ez zuen ezertxo ere nabaritu.
+Ereduak kudeaketa-interfazea eta fabrikako kredentziala agerian uzten ditu. Ekipo bakoitzak segundoko kilobit bat baino gutxiago kontsumitzen du; inork ez du ezer nabaritu.
 
-Sarea bost astez erabili zen hirugarrenen atarien aurka kredentzialak probatzeko, nodoko eta minutuko hiru saiakerako erritmoan. Eraso zuten atariaren ikuspegitik ez zegoen blokeatzeko iturririk: lau mila eta zortziehun egoitza-helbide legitimo zeuden, ia erabiltzaile errealak bezala jokatzen.
+Sareak bost astez probatu zituen kredentzialak hirugarrenen atarien aurka, nodoko eta minutuko hiru saiakeratan. Atariak ez du iturri blokeagarririk ikusi: lau mila eta zortziehun helbide legitimo, ia erabiltzaile errealak bezala.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -120,19 +118,19 @@ Sarea bost astez erabili zen hirugarrenen atarien aurka kredentzialak probatzeko
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Operadoreak kutsatutako ekipoetarako eta haietatik igarotzen denerako sarbidea du, nahiz eta bere interes nagusia ahalmena izan. |
-| Osotasuna | Bai | Agenteak ekipoaren konfigurazioa aldatzen du bere iraunkortasuna ziurtatzeko, eta zeharkatzen duen trafikoa alda dezake. |
-| Erabilgarritasuna | Bai | Bai kanpainen azken biktimarentzat, bai ekipoaren jabearentzat, zeinaren baliabideak jakinaren gainean egon gabe kontsumitzen diren. |
-| Autentikazioa | Bai | Hasierako sarbidea ia beti ekipoak baliozkotzat hartzen dituen fabrikako edo lapurtutako kredentzialekin gertatzen da. |
-| Ez-arbuiatzea | Bai | Ekintzak bezero legitimoen helbideetatik abiatzen dira, eta hauek agertzen dira hirugarrenen aurrean erasoaren erantzule. |
+| Konfidentzialtasuna | Bai | Operadoreak ekipoak eta haien trafikoa eskuratzen ditu, ahalmena bakarrik bilatu arren. |
+| Osotasuna | Bai | Agenteak konfigurazioa aldatzen du irauteko, eta trafikoa ere alda dezake. |
+| Erabilgarritasuna | Bai | Baliabide arrotzak kontsumitzen ditu eta kanpainen azken biktima kaltetzen du. |
+| Autentikazioa | Bai | Sarrera fabrikako edo lapurtutako kredentzialekin gertatzen da, ekipoak baliozkotzat hartzen dituenak. |
+| Ez-arbuiatzea | Bai | Erasoak bezero legitimoetatik abiatzen dira, eta hauek agertzen dira erantzule. |
 
 ### Defentsa
 
-- Fabrikako kredentzialak nahitaez aldatzea hornikuntzan, jatorrizko balioa gordetzeko aukerarik gabe.
-- Administrazio-interfazeak Interneterantz ixtea: kudeaketa operadorearen saretik iritsi behar da, inoiz ez sare publikotik.
-- Kudeatutako gailuen firmwarearen eguneratze automatikoa, egutegiarekin eta aplikazioaren ondorengo egiaztapenarekin.
-- Sarean bertan galdeketa-eredu anomaloak detektatzea: bizitza oso laburreko dominioak edo giza jarduerarik gabeko orduetako konexio erregularrak.
-- Operadorearen irteerako iragazketa, bezero batek ere ezin dezan trafikorik bidali jatorriko helbidea faltsututa.
+- Fabrikako kredentzialak nahitaez aldatu hornikuntzan, jatorrizko balioa gordetzeke.
+- Administrazio-interfazeak Internetera itxita: kudeaketa operadorearen saretik bakarrik.
+- Gailuen firmwarea automatikoki eguneratuta, egutegiarekin eta ondorengo egiaztapenarekin.
+- Galdeketa anomaloak sarean bertan detektatu: bizitza laburreko dominioak edo giza jarduerarik gabeko konexio erregularrak.
+- Irteerako iragazketa: bezero batek ere ezin du trafikoa bidali jatorria faltsututa.
 
 ---
 
@@ -144,32 +142,32 @@ Sarea bost astez erabili zen hirugarrenen atarien aurka kredentzialak probatzeko
 
 ### Definizioa
 
-Kredentzial bat asmatzeko saiakera sistematikoa, konbinazioak probatuz asmatu arte. Bere forma hutsean aukera-espazio osoa zeharkatzen du; praktikan, ateratako pasahitzen hiztegiekin laburtzen da, eta horiek milioika saiakera ondo aukeratutako ehun gutxi batzuetan bihurtzen dituzte.
+Kredentzial bat asmatzeko saiakera sistematikoa, konbinazioak probatuz asmatu arte. Praktikan ateratako pasahitzen hiztegiekin laburtzen da: milioika saiakera ondo aukeratutako ehun gutxi batzuk bihurtzen dira.
 
 ### Nola funtzionatzen duen
 
-1. Helburua lortzea: autentikazioa agerian duen zerbitzu bat eta, ahal bada, baliozko erabiltzaile-izenen zerrenda bat.
-2. Estrategia aukeratzea: pasahitz ohikoenen hiztegia, erakundearen izenetik eratorritako konbinazioak edo beste urraketa batzuetan dagoeneko ateratako kredentzialak.
-3. Saiakerak banatzea: jatorri-helbide askoren artean banatzen dira eta denboran tartekatzen dira, saiakera hutsengatiko blokeoa ez aktibatzeko.
-4. Asmatzea detektatzea: zerbitzariaren erantzuna aldatu egiten da —kodea, erantzun-denbora edo mezuaren testua— eta prozesuak automatikoki erregistratzen du.
-5. Balioztatzea eta erabiltzea: kredentziala erakundearen gainerako zerbitzuetan probatzen da, pasahitzen berrerabileraren alde eginez.
+1. Helburua: autentikazioa agerian duen zerbitzu bat eta, ahal bada, baliozko erabiltzaile-zerrenda bat.
+2. Estrategia: pasahitz ohikoenen hiztegia, erakundearen izen-aldaerak edo beste urraketetako kredentzialak.
+3. Saiakerak jatorri askoren artean banatzen dira eta tartekatzen, blokeoa ez aktibatzeko.
+4. Asmatzea erantzunean detektatzen da: kode, denbora edo testu desberdina.
+5. Kredentziala gainerako zerbitzuetan probatzen da: berrerabileraren alde.
 
 ### Eraso-bektorea
 
-- Urruneko sarbide zerbitzuak eta administrazio-panelak, inolako saiakera-mugarik gabe argitaratuak.
-- Pasahitzen pulberizazioa: pasahitz oso ohiko bakar bat ehunka erabiltzaileren aurka probatzen da, kontu bat ere blokeatzera iritsi gabe.
-- Kredentzialen betetzea: aurreko ihesetako erabiltzaile eta pasahitz bikoteak bere horretan probatzea, zerbitzuen arteko berrerabileraren alde eginez.
-- Lineaz kanpoko erasoa lapurtutako laburpen-fitxategi baten aurka, non ez dagoen saiakera-mugarik ez prozesua salatuko duen erregistrorik.
+- Urruneko sarbidea eta administrazio-panelak, saiakera-mugarik gabe argitaratuak.
+- Pulberizazioa: pasahitz ohiko bakar bat ehunka erabiltzaileren aurka, konturik blokeatu gabe.
+- Betetzea: aurreko ihesetako bikoteak bere horretan probatzea, zerbitzuen arteko berrerabileragatik.
+- Lineaz kanpoko erasoa laburpen lapurtuen aurka: saiakera-mugarik gabe eta arrastorik gabe.
 
 ### Adibide argigarria — Landabe Kooperatiba
 
 *Nekazaritzako elikagaiak · 2024*
 
-Landabe Kooperatibaren hornitzaile-atariak 2024ko irailean alarmarik pizten ez duen sarbide huts kopuruaren igoera erregistratzen du: jatorri-helbide bakoitzak saiakera bakar bat egiten du berrogei minuturo, eta blokeo-atalasea bost minututan bost saiakeratan dago finkatuta.
+2024ko irailean, Landabe Kooperatibaren hornitzaile-atariak huts gehiago erregistratzen ditu alarmarik gabe: jatorri bakoitzak saiakera bat berrogei minuturo, eta blokeoa bost saiakerarekin bost minututan.
 
-Estrategia ez da pasahitz asko probatzea erabiltzaile baten aurka, pasahitz sinesgarri bat baizik atariko hirurehun erabiltzaileen aurka. Aukeratutakoak kooperatibaren izena eta urte korrontea konbinatzen ditu. Lau kontuk horrelaxe zeukaten.
+Pasahitz sinesgarri bat probatzen du hirurehun erabiltzaileen aurka, askoren ordez baten aurka: kooperatibaren izena gehi urte korrontea. Lau kontuk horrelaxe zeukaten.
 
-Lau horietako bat hornitzaileen banku-datuak aldatzeko baimena zuen pertsona batena zen. Erasoak bederatzi egun iraun zuen eta ez zuen inoiz konturik blokeatu, ez baitzen inoiz bi aldiz jarraian huts egitera iritsi kontu beraren aurka.
+Lauetako batek hornitzaileen banku-datuak aldatzen zituen. Bederatzi egun konturik blokeatu gabe: inoiz ez bi huts jarraian kontu berean.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -177,19 +175,19 @@ Lau horietako bat hornitzaileen banku-datuak aldatzeko baimena zuen pertsona bat
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Asmatutako kredentzial bakar batek kontu horrek kontsulta dezakeen informazio osora ematen du sarbidea. |
-| Osotasuna | Bai | Arriskuan dagoen kontuak idazteko baimenak baditu, erasotzaileak gaitasun hori osorik heredatzen du. |
-| Erabilgarritasuna | Ez | Helburua arreta erakarri gabe sartzea da; eraso arduragabe batek bakarrik eragiten ditu kontuen blokeo masiboak. |
-| Autentikazioa | Bai | Zuzenean erasotzen den kontrola da: nortasunaren egiaztapena gainditzea sekretua jakin gabe. |
-| Ez-arbuiatzea | Bai | Behin barruan, jarduera guztia kontuaren titular legitimoarena bezala geratzen da erregistratuta. |
+| Konfidentzialtasuna | Bai | Kredentzial asmatu batek kontuaren informazio osora ematen du sarbidea. |
+| Osotasuna | Bai | Erasotzaileak kontuaren idazte-baimenak osorik heredatzen ditu. |
+| Erabilgarritasuna | Ez | Isilean sartzea bilatzen du; eraso trakets batek bakarrik blokeatzen ditu kontuak. |
+| Autentikazioa | Bai | Kontrol zuzena erasotzen du: nortasuna gainditzen du sekreturik gabe. |
+| Ez-arbuiatzea | Bai | Barruan, jarduera guztia titularraren izenean geratzen da erregistratuta. |
 
 ### Defentsa
 
-- Bigarren autentikazio-faktorea: asmatutako pasahitz bat saiakera nahikoa ez bihurtzen du.
-- Atzerapen progresiboa saiakera huts bakoitzaren ondoren, blokeo finkoaren ordez: erasotzailea moteltzen du, kontuak zerbitzuz kanpo uzteko aukerarik eman gabe.
-- Pasahitz berriak ateratako kredentzialen zerrenden aurka egiaztatzea, ezartzen diren une berean.
-- Zerbitzuko hutsen bolumen globala zaintzea, eta ez kontuka bakarrik: pulberizazioa multzokatuan bakarrik ikusten da.
-- Pasahitzak eratorpen-funtzio geldoekin eta gatzarekin gordetzea, lapurtutako fitxategi bat kredentzial argi bihur ez dadin.
+- Bigarren faktorea: pasahitz asmatu bat ez da nahikoa.
+- Atzerapen progresiboa huts bakoitzaren ondoren, blokeo finkoaren ordez: moteltzen du kontuak kanpo utzi gabe.
+- Pasahitz berri bakoitza ateratako zerrenden aurka egiaztatu sortzean.
+- Huts globalak zaindu zerbitzuka, ez kontuka bakarrik: pulberizazioa multzokatuan bakarrik ikusten da.
+- Pasahitzak funtzio geldoekin eta gatzarekin gorde: lapurtutako fitxategiak ez du testu argirik ematen.
 
 ---
 
@@ -201,32 +199,32 @@ Lau horietako bat hornitzaileen banku-datuak aldatzeko baimena zuen pertsona bat
 
 ### Definizioa
 
-Helburuaren baliabide finitu bat agortu nahi duen erasoa —banda-zabalera, aldi bereko konexioak, prozesatzeko ahalmena edo memoria— erabiltzaile legitimoak artatzeari utz diezaion. Banatua deitzen zaio trafikoa aldi berean iturri askotatik datorrelako, eta horrek jatorri bakar bat blokeatuz konpontzea eragozten du.
+Helburuaren baliabide finitu bat agortzen duen erasoa —banda-zabalera, konexioak, prozesamendua edo memoria— erabiltzaile legitimoak artatu gabe uzteko. Banatua da trafikoa iturri askotatik datorrelako aldi berean: jatorri bat blokeatzeak ez du balio.
 
 ### Nola funtzionatzen duen
 
-1. Agortu beharreko baliabidea aukeratzea: sareko lotura, suebakiaren konexio-taula, aplikazio-zerbitzaria edo datu-basea.
-2. Ahalmena biltzea: botnet propio edo alokatu bat, gehi trafikoa anplifikatzeko balio duten gaizki konfiguratutako zerbitzuak.
-3. Anplifikazioa: eskaera txikiak bidaltzen dira jatorriko helbidea faltsututa, askoz pakete handiagoekin erantzuten duten zerbitzuetara, biktimarantz zuzenduta.
-4. Asetzea: aukeratutako baliabidea bete egiten da eta zerbitzua eskaerak errefusatzen edo onartezina den geldotasunarekin erantzuten hasten da.
-5. Iraunkortasun moldakorra: biktimak teknika bat arintzen badu, operadoreak bektorez, atakaz edo ereduz aldatzen du eta jarraitu egiten du.
+1. Agortu beharreko baliabidea: sareko lotura, suebakiaren konexio-taula, aplikazio-zerbitzaria edo datu-basea.
+2. Ahalmena: botnet propio edo alokatua, gehi anplifikatzen duten zerbitzu gaizki konfiguratuak.
+3. Jatorri faltsutuko eskaera txikiek erantzun askoz handiagoak eragiten dituzte biktimaren aurka.
+4. Baliabidea betetzen da: zerbitzuak eskaerak errefusatu edo geldotasun onartezinarekin erantzuten du.
+5. Biktimak teknika bat arintzen badu, operadoreak bektorez, atakaz edo ereduz aldatu eta jarraitzen du.
 
 ### Eraso-bektorea
 
-- Bolumetrikoa: loturaren banda-zabalera asetzen da, gaizki konfiguratutako DNS edo NTP zerbitzuen bidez anplifikatuz.
-- Protokolokoa: suebakiaren edo orekatzailearen egoera-taulak agortzen dira erdi irekita utzitako konexioekin.
-- Aplikazio-geruzakoa: eskaera gutxi, baina oso garestiak, datu-base osoa zeharkatzera behartzen duten bilaketak esaterako.
-- Aurretiazko estortsioa: eraso-abisua ordainketa-eskaerarekin, ahalmenaren erakustaldi labur batez sostengatua.
+- Bolumetrikoa: lotura asetzen du gaizki konfiguratutako DNS edo NTP zerbitzuez anplifikatuta.
+- Protokolokoa: suebaki edo orekatzailearen taulak agortzen ditu erdi irekitako konexioekin.
+- Aplikazio-geruzakoa: eskaera gutxi oso garestiak, datu-base osoa zeharkatzen duten bilaketak.
+- Aurretiazko estortsioa: eraso-abisua ordainketa-eskaerarekin eta ahalmen-erakustaldi labur batekin.
 
 ### Adibide argigarria — Gorbeia Energia
 
 *Energia merkaturatzailea · 2025*
 
-2025eko azaroaren 14an, urteko tarifa-aldaketa bolumen handieneko egunarekin batera, Gorbeia Energiaren bezero-atariak erantzuteari uzten dio. Konpainiaren lotura ez dago asetuta: sarrerako trafikoak ez du ia gainditzen edozein astelehenetakoa.
+2025eko azaroaren 14an, tarifa-aldaketa egun handienean, Gorbeia Energiaren atariak erantzuteari uzten dio. Lotura ez dago asetuta: trafikoa astelehen batekoa da.
 
-Erasoa aplikazio-geruzakoa da. Mila eta berrehun helbide desberdinek, segundo gutxiro, kontsulta bat abiarazten dute tarifa-konparatzailean, kontratu baten historiko osoa berriro kalkulatzera behartzen duten parametroekin. Eskaera bakoitzak prozesu bat okupatzen du ia hiru segundoz.
+Aplikazio-geruzako erasoa da: mila eta berrehun helbidek segundo gutxiro kontsultatzen dute konparatzailea, historiko osoa birkalkulatuz. Eskaera bakoitzak ia hiru segundoz okupatzen du prozesu bat.
 
-Aplikazio-zerbitzarian ehun eta hirurogei prozesu eskuragarri egonik, segundoko hirurogei eskaera baino gutxiago nahikoa izan ziren ataria lau orduz erabilezin uzteko. Suebakiak ez zuen ezer anomalorik ikusi: eskaera guztiak sintaktikoki zuzenak ziren eta baliozko saioetatik zetozen.
+Ehun eta hirurogei prozesurekin, segundoko hirurogei eskaera baino gutxiago nahikoa izan ziren ataria lau orduz ixteko. Suebakiak ez zuen ezer anomalorik ikusi: eskaera zuzenak baliozko saioetatik.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -234,19 +232,19 @@ Aplikazio-zerbitzarian ehun eta hirurogei prozesu eskuragarri egonik, segundoko 
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Ez | Ez da informaziorik ateratzen, nahiz eta erasoa beste sarrera bat paraleloan exekutatzen den bitartean arreta desbideratzeko erabil daitekeen. |
-| Osotasuna | Ez | Gordetako datuak ez dira aldatzen: erasoak artatzeko ahalmenaren gainean jarduten du, ez edukiaren gainean. |
-| Erabilgarritasuna | Bai | Erasoaren helburu bakar eta aitortua da, eta jarduten duen propietate bakarra. |
-| Autentikazioa | Ez | Ez da nortasun-kontrolik gainditzen; erasoak berdin funtzionatzen du erabat anonimoak diren eskaerekin. |
-| Ez-arbuiatzea | Ez | Ez zaio ekintza faltsurik egozten inongo erabiltzaileri, nahiz eta arrastoak biktima ere badiren tarteko ekipoak seinalatu. |
+| Konfidentzialtasuna | Ez | Ez du informaziorik ateratzen; gehienez paraleloko beste sarrera bat estaltzen du. |
+| Osotasuna | Ez | Ez du daturik aldatzen: artatzeko ahalmenaren aurka dihardu, ez edukiaren aurka. |
+| Erabilgarritasuna | Bai | Erasoaren helburu bakar eta aitortua da. |
+| Autentikazioa | Ez | Ez du nortasun-kontrolik gainditzen; eskaera anonimoekin funtzionatzen du. |
+| Ez-arbuiatzea | Ez | Ez du ekintza faltsurik egozten; arrastoak tarteko ekipo biktimetara darama. |
 
 ### Defentsa
 
-- Norberaren loturarena baino ahalmen askoz handiagoa duen arintze-zerbitzua, behar izan aurretik kontratatuta eta ez erasoan zehar.
-- Eskaeren muga jatorriaren eta eragiketa garestiaren arabera, orrialde bat eskatzearen eta kalkulu astun bat abiaraztearen artean bereiziz.
-- Erabiltzailearen mende ez dauden erantzun guztien cachea, trafikoaren zatirik handiena aplikaziora inoiz iritsi ez dadin.
-- Hondatzeko moduko diseinua: asetzearen aurrean, funtzio garestiak desaktibatu eta funtsezkoak mantendu, erabat erori beharrean.
-- Konektibitate-hornitzailearekin entseatutako erantzun-plana, idatziz eta sarerik gabe eskuragarri dauden kontaktu eta prozedurekin.
+- Lotura propioarena baino askoz ahalmen handiagoko arintze-zerbitzua, erasoa baino lehen kontratatuta.
+- Muga jatorrika eta eragiketa garestika: orrialde bat eskatzea ez da kalkulu astun bat.
+- Erabiltzailearekiko independenteak diren erantzunen cachea: ia ezer ez da aplikaziora iristen.
+- Hondagarri diseinatzea: asetzean, funtzio garestiak itzali eta funtsezkoei eutsi.
+- Hornitzailearekin entseatutako erantzuna: kontaktuak eta prozedura idatziz, sarerik gabe eskuragarri.
 
 ---
 
@@ -258,32 +256,32 @@ Aplikazio-zerbitzarian ehun eta hirurogei prozesu eskuragarri egonik, segundoko 
 
 ### Definizioa
 
-Pribilegio handiekin instalatzen den tresna multzoa, sistema baterako sarbideari eusteko eta, batez ere, bere presentzia eta beste osagai maltzur batzuena ezkutatzeko. Ez dakar eraso-gaitasun berririk: zer exekutatzen ari den galdetzen zaionean sistemak erantzuten duena manipulatzen du.
+Pribilegio handiekin instalatutako tresna multzoa, sarbideari eusteko eta bere presentzia eta beste osagai maltzur batzuena ezkutatzeko. Ez dakar eraso-gaitasun berririk: sistemak zer exekutatzen duen galdetuta erantzuten duena manipulatzen du.
 
 ### Nola funtzionatzen duen
 
-1. Pribilegioak lortzea: rootkitak administrazio- edo nukleo-baimenak behar ditu, tokiko exploit baten bidez edo lapurtutako kredentzialen bidez lortzen dituenak.
-2. Galdeketa-bidean txertatzea: aplikazioen eta sistemaren artean kokatzen da, deiak, funtzio-taulak edo nukleoko moduluak aldatuz.
-3. Erantzunak iragaztea: programa batek prozesuen, fitxategien edo konexioen zerrenda eskatzen duenean, benetako zerrenda itzultzen du bere elementuak kenduta.
-4. Iraunkortasuna babestea: bere fitxategiak eta abio-sarrerak zerrendatzea, aldatzea edo ezabatzea eragozten du.
-5. Erasoaren gainerakoari zerbitzua: estaltze-geruza horren azpian atzeko ateak, teklakatu-erregistratzaileak edo botnet agenteak bizi dira, sistemaren beraren tresnentzat ikusezin.
+1. Administrazio- edo nukleo-baimenak lortzen ditu tokiko exploit batez edo lapurtutako kredentzialez.
+2. Aplikazioen eta sistemaren artean kokatzen da: deiak, funtzio-taulak edo nukleoko moduluak aldatzen ditu.
+3. Prozesu, fitxategi edo konexioak eskatuta, benetako zerrenda itzultzen du bere elementurik gabe.
+4. Bere fitxategiak eta abio-sarrerak zerrendatzea, aldatzea edo ezabatzea eragozten du.
+5. Geruza horren azpian atzeko ateak, teklakatu-erregistratzaileak edo botnet agenteak bizi dira, sistemaren tresnentzat ikusezin.
 
 ### Eraso-bektorea
 
-- Erabiltzaile-espazioan: partekatutako liburutegiak ordezkatzea, aldaerarik sinpleena eta detektatzen errazena ere bai.
-- Nukleo-espazioan: modulu edo kontrolatzaile maltzur bat kargatzea, sistema eragileak ikusten duen guztia ikusi eta kontrolatzen duena.
-- Abio-kudeatzailean: sistema eragilea baino lehenago exekutatzen da, beraz hau haren kontrolpean jaiotzen da.
-- Ekipoaren edo txartel baten firmwarean, non diskoaren formateo osoari ere bizirik irauten dion.
+- Erabiltzaile-espazioan: liburutegiak ordezkatzen ditu; aldaera sinpleena eta detektatzen errazena.
+- Nukleo-espazioan: modulu maltzur batek sistema eragileak ikusten duen guztia ikusi eta kontrolatzen du.
+- Abio-kudeatzailean: sistema eragilea baino lehen exekutatzen da, eta hau haren kontrolpean jaiotzen da.
+- Ekipoaren edo txartel baten firmwarean: diskoaren formateo osoari bizirik irauten dio.
 
 ### Adibide argigarria — Errekalde Kimika
 
 *Industria kimikoa · 2023*
 
-Errekalde Kimikaren produkzioa kontrolatzeko zerbitzariak, 2023ko martxotik, inork azaltzen ez duen portaera bat erakusten du: gaueko batez besteko sare-kontsumoa makina beraren duela urtebetekoa halako hiru da, baina tokiko tresna batek ere ez du hori justifikatzen duen prozesurik ez konexiorik erakusten.
+2023ko martxotik, Errekalde Kimikaren produkzio-zerbitzariak gauez urtebete lehenagokoaren halako hiru kontsumitzen du sarean, baina tokiko tresnek ez dute prozesurik ez konexiorik erakusten.
 
-Egiaztapenak zerbitzaritik beretik egiten dira, eta hortxe dago arazoa. Nukleoan kargatutako kontrolatzaile batek erantzunak iragazten ditu: konexioen zerrenda eskatzen zaionean, bereak izan ezik guztiak itzultzen ditu. Barrutik ikusita, makina koherentea da eta garbi dago.
+Dena zerbitzaritik bertatik egiaztatzen da, eta hortxe dago arazoa: nukleoko kontrolatzaile batek bere konexioak ezkutatzen ditu. Barrutik, makina garbi dago.
 
-Desadostasuna kanpotik begiratuta konpontzen da. Kommutadorearen trafiko-kontagailuak zerbitzariak aitortzen dituenak baino lau aldiz datu gehiago erregistratzen ditu irteeran. Ebidentzia horrekin diskoa kanpoko sistema batetik aztertzen da eta kontrolatzailea agertzen da, zazpi hilabetez aktibo zegoen exfiltrazio-agente batekin batera.
+Kanpotik konpontzen da: kommutadoreak zerbitzariak aitortzen duena halako lau erregistratzen du irteeran. Disko kanpoko sistema batez aztertuta, kontrolatzailea agertzen da zazpi hilabetez aktibo zegoen exfiltrazio-agentearekin.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -291,18 +289,18 @@ Desadostasuna kanpotik begiratuta konpontzen da. Kommutadorearen trafiko-kontaga
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Bere estaltze-geruzaren azpian informazioa lapurtzeko tresnak modu egonkorrean eta luzez aritzen dira. |
-| Osotasuna | Bai | Sistema eragilearen osagaiak aldatzen ditu eta, horrekin, sistema horrek jakinarazten duen guztiaren fidagarritasuna. |
-| Erabilgarritasuna | Ez | Bere interesa sistemak normaltasunez funtzionatzea da: erorketa batek saihestu nahi duen azterketa bera eragingo luke. |
-| Autentikazioa | Bai | Sarbide pribilegiatu iraunkorra gordetzen du, nortasun-kontrol batetik ere berriro igaro gabe. |
-| Ez-arbuiatzea | Bai | Erregistroak manipulatu eta ezkutatzen ditu, beraz gertatutakoaren berreraikuntzak fidagarria izateari uzten dio. |
+| Konfidentzialtasuna | Bai | Bere geruzaren azpian informazio-lapurretako tresnak egonkor aritzen dira. |
+| Osotasuna | Bai | Sistemaren osagaiak aldatzen ditu, eta hark jakinarazten duen guztiaren fidagarritasuna. |
+| Erabilgarritasuna | Ez | Normaltasuna behar du: erorketa batek saihestu nahi duen azterketa eragingo luke. |
+| Autentikazioa | Bai | Sarbide pribilegiatuari eusten dio, nortasun-kontrolik berriro igaro gabe. |
+| Ez-arbuiatzea | Bai | Erregistroak manipulatzen ditu, eta gertatutakoaren berreraikuntza ez da fidagarria. |
 
 ### Defentsa
 
-- Abio segurua sinaduraren egiaztapenarekin eta konfiantzazko plataforma-moduluarekin, sinatu gabeko koderik karga ez dadin sistema baino lehen.
-- Ekipotik kanpoko zaintza: kommutadorearen kontagailuak, suebakiaren erregistroak eta zerbitzari independente batera bidalitako telemetria.
-- Erregistroak denbora errealean zentralizatzea, arriskuan dagoen ekipoak idatzi ere ezin duen eta ezabatu ezin duen sistema batera.
-- Azterketa forentsea kanpoko eta konfiantzazko euskarri batetik, inoiz ez sistema susmagarriaren tresnekin.
-- Berretsiz gero, birinstalazio osoa eta firmwarearen eguneratzea: nukleo-rootkit baten garbiketa selektiboak ez du inolako bermerik eskaintzen.
+- Abio segurua sinadura-egiaztapenarekin eta plataforma-moduluarekin: sinatu gabeko koderik ez sistema baino lehen.
+- Kanpoko zaintza: kommutadorearen kontagailuak, suebakiaren erregistroak eta zerbitzari independenterako telemetria.
+- Erregistroak denbora errealean zentralizatu, arriskuko ekipoak idatzi eta ezabatu ezin duen sistema batera.
+- Forentsea kanpoko euskarri fidagarri batetik, inoiz ez sistema susmagarriaren tresnekin.
+- Berretsiz gero, birinstalazio osoa eta firmware-eguneratzea: nukleo-rootkit baten garbiketa selektiboak ez du bermerik.
 
 ---

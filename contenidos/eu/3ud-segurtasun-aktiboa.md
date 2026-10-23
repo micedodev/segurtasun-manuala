@@ -1,14 +1,12 @@
 # 3UD · Segurtasun aktiboa
 
-> Ikusiak ez izateko diseinatutako lau familia
+> Ikusiak ez izateko diseinatutako bost familia
 
-Ikusiak ez izateko berariaz diseinatutako lau familia. Hemen defentsak sinaduren zerrenda izateari uzten dio eta portaeraren zaintza bihurtzen da.
+Ez dute berehalako efekturik bilatzen, denbora baizik: bakoitzak detekzioa saihesten du bere erara.
 
-Unitate honetako lau familiek eskuliburuko gainerakotik bereizten dituen ezaugarri bat partekatzen dute: berariaz daude diseinatuta ikusiak ez izateko. Ez dute berehalako efekturik bilatzen, denbora baizik.
+Sinaduren zerrendak ez ditu ikusten. Segurtasun aktiboak portaerak zaintzen ditu eta ekipoaz mesfidatzen da.
 
-Horrek metodoa aldatzera behartzen du. Fitxategiak mehatxu ezagunen zerrenda baten aurka alderatzen dituen defentsa batek huts egiten du kopia bakoitzean aldatzen den kode baten aurrean, bere arrastoa ezabatzen duen beste baten aurrean eta galdetzen zaionean sistemak erantzuten duena manipulatzen duen hirugarren baten aurrean. Segurtasun aktiboa portaerak zaintzea da, eta ekipo batek bere buruaz jakinarazten duenaz mesfidatzea.
-
-**Ideia nagusia:** Arriskuan dagoen sistema bera bere egoerari buruzko informazioaren iturri denean, informazio horrek ez du jada balio. Detekzio fidagarria beti kanpotik iristen da: saretik, zentralizatutako erregistroetatik edo ekipoa itzalita eginiko azterketa batetik.
+**Ideia nagusia:** Arriskuan dagoen sistemak ez du bere berri ematen. Detekzio fidagarria kanpotik dator: saretik, erregistro zentralizatuetatik edo ekipoa itzalita.
 
 ---
 
@@ -18,6 +16,7 @@ Horrek metodoa aldatzera behartzen du. Fitxategiak mehatxu ezagunen zerrenda bat
 2. [Ghostware](#2-ghostwarea) — Ikertzen denerako, ez dago jada ikertzeko ezer.
 3. [RAT](#3-rata) — Beste norbait dago zure ekipoaren aurrean eserita.
 4. [Polymorphic Malware](#4-malware-polimorfikoa) — Kopia bakoitza desberdina da. Portaera, ez.
+5. [Drive-by Download](#5-drive-by-download) — Ez duzu ezer klikatu behar. Bisita nahikoa da.
 
 ---
 
@@ -29,32 +28,32 @@ Horrek metodoa aldatzera behartzen du. Fitxategiak mehatxu ezagunen zerrenda bat
 
 ### Definizioa
 
-Bere kabuz ugaldu eta sistema batetik bestera hedatzeko gai den malwarea, giza esku-hartzerik gabe, sarean eskuragarri dauden zerbitzuen ahultasunak edo baliozko kredentzialak aprobetxatuz. Troiarrarekiko aldea erabakigarria da: troiarrak erabaki bat itxaroten du, harrak ez du ezer itxaroten.
+Bere kabuz ugaltzen eta hedatzen da, giza esku-hartzerik gabe, sareko zerbitzuen ahultasunez edo baliozko kredentzialez baliatuz. Troiarrak erabaki bat itxaroten du; harrak ezer ez.
 
 ### Nola funtzionatzen duen
 
-1. Lehen ekipoan exekutatzea, edozein sarrera-bidetatik: eranskin bat, euskarri eramangarri bat edo exploit bat.
-2. Aurkitzea: ekipo horretatik eskuragarri dauden helbideak zerrendatzen ditu, tokiko sarean eta, irten ahal badu, Interneterantz ere bai.
-3. Hedatze-baldintza probatzea: helmuga bakoitzean zerbitzu ahula, berrerabilitako kredentziala edo idazteko baimena duen baliabide partekatua bilatzen du.
-4. Kopiatzea eta urrunetik exekutatzea: bere burua helmugara transferitzen du eta han exekuta dadin lortzen du, inork ezer ireki gabe.
-5. Hazkunde esponentziala: ekipo berri bakoitzak prozesua errepikatzen du, beraz kutsatuen kopurua gero eta tarte laburragoetan bikoizten da, eskuragarri dauden helburuak agortu arte.
+1. Lehen ekipoan sartzen da: eranskin, euskarri eramangarri edo exploit bidez.
+2. Helbide eskuragarriak zerrendatzen ditu sare lokalean eta, irten ahal badu, Interneten.
+3. Helmuga bakoitza probatzen du: zerbitzu ahula, berrerabilitako kredentziala edo idazteko baimeneko baliabidea.
+4. Helmugara kopiatzen da eta han exekutatzen da, inork ezer ireki gabe.
+5. Ekipo berri bakoitzak prozesua errepikatzen du: kutsatuak gero eta tarte laburragoetan bikoizten dira.
 
 ### Eraso-bektorea
 
-- Barne sare osotik eskuragarri dauden fitxategiak partekatzeko zerbitzuak, gutxitan segmentatuta daudenak.
-- Ekipo guztietan lehenetsita entzuten duten zerbitzuetan aurretiazko autentikaziorik gabe ustia daitezkeen ahultasunak.
-- Parke osoan berdinak diren tokiko administratzaile-kredentzialak, sarbide bat sarbide unibertsal bihurtzen dutenak.
-- Exekuzio automatikoa duten euskarri eramangarriak, oraindik indarrean daudenak sare orokorretik isolatutako industria-inguruneetan.
+- Barne sare osoko fitxategi-partekatzea, ia inoiz segmentatua.
+- Lehenetsita entzuten duten zerbitzuak, autentikaziorik gabe ustia daitezkeen ahultasunekin.
+- Parke osoan berdinak diren administratzaile-kredentzialak: sarbide batek guztiak irekitzen ditu.
+- Exekuzio automatikoko euskarri eramangarriak, sare orokorretik isolatutako industriaguneetan indarrean.
 
 ### Adibide argigarria — Aiztondo Mekanika
 
 *Industria mekanizatua · 2024*
 
-2024ko uztailean, mantentze-lanetako eramangarri bat Aiztondo Mekanikaren lantegiko sarera konektatzen da, bi aste domeinutik kanpo eta eguneratzerik jaso gabe egon ondoren. Fitxategiak partekatzeko zerbitzu batean ahultasun bat aprobetxatzen duen har bat darama.
+2024ko uztailean, mantentze-lanetako eramangarri bat Aiztondo Mekanikaren lantegiko sarera itzultzen da, bi aste domeinutik kanpo eta eguneratu gabe. Fitxategi-partekatzeko ahultasuna ustiatzen duen harra dakar.
 
-Lantegiko sarea laua da: kontroleko berrogeita bi ekipoek segmentu bera partekatzen dute, produkzio-lerroen artean inolako bereizketarik gabe. Harrak hamalau minutu behar ditu guztietara iristeko.
+Lantegiko sarea laua da: kontroleko berrogeita bi ekipoek segmentu bera partekatzen dute, produkzio-lerroen arteko bereizketarik gabe. Harra guztietara iristen da hamalau minututan.
 
-Kaltea ez du karga suntsitzaile batek eragiten, harrak ez baitzeraman bat ere. Ugalketa-trafikoak berak eragiten du: automatak kontrol-zikloaren mezuak galtzen hasten dira segmentuaren asetzeagatik eta hiru lerro gelditu egiten dira segurtasunagatik. Produkzioa hamaika ordutan berreskuratzen da; sare lauarekiko konfiantza, ez.
+Karga suntsitzailerik gabe: ugalketa-trafikoak eragiten du kaltea. Automatak kontrol-zikloaren mezuak galtzen dituzte asetzeagatik eta hiru lerro gelditzen dira segurtasunagatik. Produkzioa hamaika ordutan dator; sare lauarekiko konfiantza, ez.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -62,19 +61,19 @@ Kaltea ez du karga suntsitzaile batek eragiten, harrak ez baitzeraman bat ere. U
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Ez | Bere helburua ugaltzea da, ez irakurtzea: horretarako karga espezifiko bat gehitzen badu bakarrik jartzen ditu datuak arriskuan. |
-| Osotasuna | Bai | Iristen den sistema bakoitza aldatzen du bertan instalatzeko eta bere exekuzioa bermatzeko. |
-| Erabilgarritasuna | Bai | Ugalketak sarea eta prozesadorea kontsumitzen ditu; sare lauetan asetzea bera nahikoa da produkzioa gelditzeko. |
-| Autentikazioa | Bai | Ekipo bakoitzaren sarbide-kontrola gaindituz edo saihestuz hedatzen da, berrerabilitako kredentzialekin edo bat ere behar izan gabe. |
-| Ez-arbuiatzea | Ez | Ez du erabiltzaile jakin bati egozteko moduko ekintzarik sortzen: hedapena automatikoa da eta halaxe geratzen da erregistratuta. |
+| Konfidentzialtasuna | Ez | Ugaltzea du helburu; karga espezifikoarekin bakarrik jartzen ditu datuak arriskuan. |
+| Osotasuna | Bai | Iristen den sistema bakoitza aldatzen du instalatzeko eta exekutatzeko. |
+| Erabilgarritasuna | Bai | Sarea eta prozesadorea asetzen ditu; sare lauetan produkzioa gelditzen du. |
+| Autentikazioa | Bai | Sarbide-kontrola gaindituz edo saihestuz hedatzen da, berrerabilitako kredentzialekin edo batere gabe. |
+| Ez-arbuiatzea | Ez | Bere kabuz hedatzen da eta hala geratzen da erregistratuta: ezer ez zaio erabiltzaile bati egozten. |
 
 ### Defentsa
 
-- Sarearen segmentazioa eremuka eta funtzioka, arriskuan dagoen ekipo batek gutxi batzuetara bakarrik irits dadin.
-- Tokiko administratzailearen pasahitzak ekipoko bakarrak, automatikoki sortuak eta txandakatuak.
-- Sarean lehenetsita entzuten duen zerbitzu oro lehentasunez adabakitzea, inoiz argitaratzen ez diren barne ekipoetan ere bai.
-- Eguneratzeen kontroletik kanpo egon ondoren itzultzen diren ekipoentzako nahitaezko koarentena eta egoeraren egiaztapena.
-- Segmentu oso bat minututan isolatzeko gaitasuna, aurrez entseatua: har baten aurrean, eusteko abiadurak azterketarenak baino gehiago balio du.
+- Segmentatu sarea eremuka eta funtzioka: arriskuko ekipo batek gutxi batzuetara bakarrik irits dadin.
+- Administratzaile-pasahitza bakarra ekipo bakoitzeko, automatikoki sortua eta txandakatua.
+- Adabakitu lehentasunez sarean entzuten duen zerbitzu oro, barne ekipoetan ere.
+- Nahitaezko koarentena eta egiaztapena eguneratu gabe itzultzen diren ekipoentzat.
+- Segmentu bat minututan isolatzea, aurrez entseatua: har baten aurrean, eusteak aztertzeak baino gehiago balio du.
 
 ---
 
@@ -86,32 +85,32 @@ Kaltea ez du karga suntsitzaile batek eragiten, harrak ez baitzeraman bat ere. U
 
 ### Definizioa
 
-Bere helburua bete ondoren existitu izanaren frogarik gera ez dadin diseinatutako malwarea. Ez da rootkit batek bezala jardun bitartean ezkutatzera mugatzen: zantzuak aktiboki ezabatzen ditu —erregistro-sarrerak, diskoko aztarnak, denbora-markak— eta erretiratu egiten da. Bere helburua ez da iraunkortasuna, gertakaria bera ukatzea baizik.
+Helburua beteta, existitu izanaren frogarik uzten ez du. Ez da rootkit bat bezala ezkutatzen: zantzuak —erregistroak, aztarnak, markak— ezabatu eta gertakaria ukatzeko erretiratzen da.
 
 ### Nola funtzionatzen duen
 
-1. Ahalik eta aztarna txikienarekin exekutatzea: kasu askotan memorian soilik, diskoan fitxategirik idatzi gabe.
-2. Sistemaren beraren administrazio-tresnak erabiltzea bere zereginetarako, jarduera lan normalarekin nahas dadin.
-3. Helburua betetzea: datu multzo jakin bat ateratzea edo sabotaje puntual bat, beti denboran mugatua.
-4. Garbiketa: sortutako erregistro-sarrerak hautatuz ezabatzea, denbora-markak leheneratzea eta sortutako aldi baterako fitxategiak kentzea.
-5. Erretiratzea: prozesua amaitu egiten da eta ez du iraunkortasun-mekanismorik uzten; berrabiarazte batek memoriako azken arrastoa ezabatzen du.
+1. Ahalik eta aztarna txikienarekin exekutatzen da, askotan memorian soilik eta diskoan idatzi gabe.
+2. Sistemaren administrazio-tresnak erabiltzen ditu: jarduera lan normala dirudi.
+3. Denboran mugatutako helburua betetzen du: datu jakinak atera edo sabotaje puntual bat egin.
+4. Garbitu egiten du: erregistroak ezabatu, denbora-markak lehengoratu eta aldi baterako fitxategiak kendu.
+5. Iraunkortasunik gabe erretiratzen da: berrabiarazte batek memoriako azken arrastoa ezabatzen du.
 
 ### Eraso-bektorea
 
-- Script batetik abiatuta memorian soilik exekutatzea, gero aztertzeko fitxategirik gera ez dadin.
-- Sisteman dagoeneko dauden administrazio-utilitate legitimoak gaizki erabiltzea, inolako susmorik pizten ez dutenak.
-- Erregistroak hautatuz ezabatzea hustuketa osoa egin beharrean, erregistro huts batek seinale argia baitakar.
-- Fitxategien denbora-markak aldatzea, sistemaren jatorrizko instalazioarenekin bat etor daitezen.
+- Script batetik memorian soilik exekutatzea: ez da aztertzeko fitxategirik geratzen.
+- Sistemako administrazio-utilitate legitimoak gaizki erabiltzea, susmorik piztu gabe.
+- Erregistroak hautatuz ezabatzea: erregistro hutsak salatu egiten du.
+- Denbora-markak aldatzea, jatorrizko instalazioarenekin bat etor daitezen.
 
 ### Adibide argigarria — Urdaibai Bioteknologia
 
 *Bioteknologia · 2025*
 
-2025eko ekainean, Urdaibai Bioteknologiak lehiaketa publiko bat galtzen du tarte txiki batengatik, teknikoki oso antzeko proposamen bat aurkezten duen lehiakide baten aurrean. Ez dago segurtasun-alertarik, ez fitxategi susmagarririk, ez erregistratutako sarbide anomalorik.
+2025eko ekainean, Urdaibai Bioteknologiak lehiaketa publiko bat galtzen du tarte txikiagatik, teknikoki oso antzeko proposamena aurkeztu duen lehiakide baten aurrean. Ez dago alertarik, fitxategi susmagarririk ez sarbide anomalorik.
 
-Ondorengo berrikuspenak inkoherentzia bakar bat aurkitzen du: proiektuen zerbitzarian, segurtasun-gertaeren erregistroak berrogei minutuko zuloa du apirileko goizalde batean. Ez dago hutsik —horrek berehala erakarriko baitzuen arreta—, besterik gabe ez dago sarrerarik tarte horretan, sistemaren erregistroak normaltasunez jarraitzen duen bitartean.
+Ondorengo berrikuspenak inkoherentzia bakarra aurkitzen du: berrogei minutuko zuloa apirileko goizalde batean segurtasun-erregistroan. Ez dago hutsik —horrek salatu egingo luke—: tarte horretan ez dago sarrerarik, sistemarenak normal jarraitzen duen bitartean.
 
-Zulo hori da sarreraren froga bakarra. Ez zen sarrera-metodoa berreskuratu ez erabilitako tresna identifikatu, ez baitzen haren ezer geratu diskoan. Enpresak bere erregistro-politika aldatu zuen hurrengo egunean: harrezkero denbora errealean bidaltzen dira administratzaile batek ere ezaba ez ditzakeen zerbitzari batera.
+Zulo hori da froga bakarra: ez sarrera-metodo, ez tresna, ezer ez diskoan. Hurrengo egunean enpresak erregistroak denbora errealean bidaltzen ditu administratzaileak ezaba ez dezakeen zerbitzari batera.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -119,19 +118,19 @@ Zulo hori da sarreraren froga bakarra. Ez zen sarrera-metodoa berreskuratu ez er
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Bere ohiko helburua informazio jakin eta balio handikoa modu zuzenduan ateratzea da. |
-| Osotasuna | Bai | Sistemaren erregistroak aldatzen ditu, hain zuzen edozein ikerketa oinarritzen den datuak. |
-| Erabilgarritasuna | Ez | Zerbitzua etetea bere diseinuaren kontrakoa litzateke: garbi utzi nahi duen ekipoaren gainera erakarriko luke arreta. |
-| Autentikazioa | Bai | Aurretik lortutako kredentzial pribilegiatuekin jarduten du, dagoeneko ezarritako saio legitimoak aprobetxatuz. |
-| Ez-arbuiatzea | Bai | Bere efektu bereizgarriena da: trazabilitatea suntsitzen du gertakaririk egon zela frogatzea eragozteraino. |
+| Konfidentzialtasuna | Bai | Balio handiko informazio jakina modu zuzenduan ateratzea du helburu. |
+| Osotasuna | Bai | Erregistroak aldatzen ditu: ikerketa oinarritzen den datuak. |
+| Erabilgarritasuna | Ez | Zerbitzua eteteak garbi utzi nahi duen ekipoa salatuko luke. |
+| Autentikazioa | Bai | Aurretik lortutako kredentzial pribilegiatuekin jarduten du, irekitako saio legitimoetan. |
+| Ez-arbuiatzea | Bai | Trazabilitatea suntsitzen du: gertakaririk egon zela frogatzea eragozten du. |
 
 ### Defentsa
 
-- Erregistroak denbora errealean bidaltzea gehitze hutsezko kanpoko sistema batera, jatorrizko ekipoaren administratzailearen eskumenetik kanpo.
-- Erregistroen jarraitutasuna zaintzea: denbora-zulo bat sarrera susmagarri bat bezain esanguratsua da.
-- Memoriako portaeraren araberako detekzioa, diskoan lotutako fitxategirik gabe exekutatzen den script bat ikusteko gai dena.
-- Sistemaren administrazio-utilitateen erabilera erregistratzea, inoiz erabiltzen ez dituzten ekipoetan agertzen direnean alerta emanez.
-- Sistemaren fitxategien denbora-marken eta laburpenen oinarri-lerro bat gordetzea, leheneratze artifizialak detektatzeko.
+- Erregistroak denbora errealean bidaltzea gehitze hutsezko kanpo-sistema batera, jatorrizko ekipoaren eskumenez kanpo.
+- Erregistroen jarraitutasuna zaintzea: denbora-zuloa sarrera susmagarria bezain esanguratsua da.
+- Memoriako portaeraren detekzioa: diskoan fitxategirik gabeko script-ak ikusten ditu.
+- Administrazio-utilitateen erabilera erregistratzea, inoiz erabiltzen ez dituzten ekipoetan alerta emanez.
+- Sistemako fitxategien marka eta laburpenen oinarri-lerroa gordetzea, leheneratze artifizialak detektatzeko.
 
 ---
 
@@ -143,32 +142,32 @@ Zulo hori da sarreraren froga bakarra. Ez zen sarrera-metodoa berreskuratu ez er
 
 ### Definizioa
 
-Erasotzaileari kutsatutako ekipoaren gaineko kontrol interaktiboa eta denbora errealekoa ematen dion troiarra: fitxategi-sistema, kamera, mikrofonoa, teklatua, pantaila eta sarea. Malware automatizatuarekiko aldea nabarmena da: hemen pertsona bat dago beste aldean, ikusten duenaren arabera erabakiak hartzen.
+Kutsatutako ekipoaren kontrol interaktiboa eta denbora errealekoa ematen du: fitxategiak, kamera, mikrofonoa, teklatua, pantaila eta sarea. Beste aldean pertsona batek erabakitzen du ikusten duenaren arabera.
 
 ### Nola funtzionatzen duen
 
-1. Instalazioa troiar baten, exploit baten edo ekiporako minutu gutxiko sarbide fisiko baten bidez.
-2. Alderantzizko konexioa: agenteak berak abiarazten du konexioa erasotzailearen zerbitzarirantz, beraz ez da beharrezkoa biktimaren suebakian sarrerako atakarik irekitzea.
-3. Kanal estalia: trafikoa zifratu eta ohiko atakatik bidaltzen da, normalean 443tik, ohiko web trafikotzat igarotzeko.
-4. Kontrol interaktiboa: operadoreak karpetak arakatzen ditu, pantaila kapturatzen du, kamera aktibatzen du edo aginduak abiarazten ditu, aurkitzen duenera egokituz.
-5. Hedapena: beste tresna batzuk zabaltzen ditu, kredentzialak lapurtzen ditu eta sareko gainerako ekipoetara salto egiten du, dagoeneko barne posizio batetik.
+1. Troiar, exploit edo minutu gutxiko sarbide fisiko bidez instalatzen da.
+2. Alderantzizko konexioa irekitzen du erasotzailearengana: ez du sarrerako atakarik behar biktimaren suebakian.
+3. Trafikoa zifratu eta ohiko atakatik bidaltzen du, normalean 443tik: ohiko web trafikoa dirudi.
+4. Operadoreak karpetak arakatzen ditu, pantaila kapturatzen du, kamera aktibatzen du edo aginduak abiarazten ditu, aurkitzen duenera egokituta.
+5. Barrutik hedatzen da: tresnak zabaldu, kredentzialak lapurtu eta sareko gainerako ekipoetara salto egin.
 
 ### Eraso-bektorea
 
-- Urruneko laguntzarako tresna legitimo gisa aurkeztutako eranskinak eta deskargak.
-- Lan-eskaintza faltsuak, ekipo pertsonalean exekutatu behar den proba tekniko batekin.
-- Zaindu gabe eta desblokeatuta dagoen ekipo baterako minutu gutxiko sarbide fisikoa.
-- Urruneko kontrolerako aplikazio errealak, haiek kudeatzen dituen kontuaren kredentzialak lortu ondoren modu abusuzkoan erabiliak.
+- Urruneko laguntzako tresna legitimo gisa mozorrotutako eranskinak eta deskargak.
+- Lan-eskaintza faltsuak, ekipo pertsonalean exekutatzeko proba tekniko batekin.
+- Minutu gutxiko sarbide fisikoa zaindu gabeko ekipo desblokeatu batera.
+- Urruneko kontroleko aplikazio errealak, haien kontuaren kredentzialekin modu abusuzkoan erabiliak.
 
 ### Adibide argigarria — Lauaxeta Argitaletxea
 
 *Argitalpena eta komunikabideak · 2024*
 
-2024ko urrian, Lauaxeta Argitaletxeko kazetari batek lankidetza-eskaintza bat jasotzen du, mezuaren arabera proiektu baten gidoia daukan eranskin batekin. Fitxategiak urruneko sarbideko agente bat instalatzen du eta ondoren benetako dokumentu bat erakusten du, jasotako eskaintzarekin bat datorrena.
+2024ko urrian, Lauaxeta Argitaletxeko kazetari batek lankidetza-eskaintza bat jasotzen du, proiektu baten ustezko gidoia eranskin. Fitxategiak urruneko sarbideko agente bat instalatzen du eta gero benetako dokumentu koherente bat erakusten du.
 
-Hiru astez, operadorea lan-ordutegian bakarrik konektatzen da, beste konexio batzuen artean tartekatuta, eta inoiz ez hogei minutu jarraian baino gehiago. Lan-karpetak berrikusten ditu, iturrien zerrenda bat kopiatzen du eta kamera bi aldiz aktibatzen du barne bileretan.
+Hiru astez, operadorea lan-ordutegian bakarrik konektatzen da, beste konexio artean tartekatuta, inoiz ez hogei minutuz jarraian. Lan-karpetak berrikusi, iturrien zerrenda kopiatu eta kamera bi aldiz aktibatzen du barne bileretan.
 
-Detekzioa zeharkako bide batetik iristen da: ekipoa aktibo gisa ageri da fitxategi-zerbitzariaren erregistroan, erabiltzailea lekukoak zituen ekitaldi publiko batean zegoen ordu batean. Kointzidentzia hori gabe, 443 atakatik zifratutako kanalak ohiko web trafikotik bereizi ezina izaten jarraituko zuen.
+Detekzioa zeharkako bidetik dator: ekipoa aktibo ageri da fitxategi-zerbitzarian, erabiltzailea lekukoak zituen ekitaldi publikoan zegoenean. Kointzidentzia hori gabe, 443 atakatik zifratutako kanalak ohiko web trafikoa zirudien.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -176,19 +175,19 @@ Detekzioa zeharkako bide batetik iristen da: ekipoa aktibo gisa ageri da fitxate
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Operadoreak pantaila eta fitxategiak ikusten ditu eta, hala erabakiz gero, inguru fisikoa kameraren eta mikrofonoaren bidez. |
-| Osotasuna | Bai | Kontrol interaktibo osoa du ekipoan edozer sortu, aldatu edo ezabatzeko. |
-| Erabilgarritasuna | Ez | Giza operadore batek hondatze nabarmen oro saihesten du: biktimak erabateko normaltasunez lanean jarraitzea komeni zaio. |
-| Autentikazioa | Bai | Biktimaren dagoeneko hasitako saioaren barruan jarduten du, haren nortasuna heredatuz kredentzialik behar izan gabe. |
-| Ez-arbuiatzea | Bai | Ekintza oro erabiltzailearen izenean geratzen da erregistratuta, ireki ere egin ez zituen dokumentuetarako sarbideak barne. |
+| Konfidentzialtasuna | Bai | Operadoreak pantaila eta fitxategiak ikusten ditu, eta ingurua kameraz eta mikrofonoaz. |
+| Osotasuna | Bai | Kontrol interaktibo osoa du: edozer sortu, aldatu edo ezabatu ekipoan. |
+| Erabilgarritasuna | Ez | Hondatze nabarmen oro saihesten du: biktimak normaltasunez lanean jarraitzea komeni zaio. |
+| Autentikazioa | Bai | Biktimaren irekitako saioan jarduten du, haren nortasuna heredatuz kredentzialik gabe. |
+| Ez-arbuiatzea | Bai | Dena erabiltzailearen izenean geratzen da erregistratuta, ireki gabeko dokumentuen sarbideak barne. |
 
 ### Defentsa
 
-- Irteerako trafikoaren kontrola helmuga aztertuta: 443 atakatik helbide ezezagun batera doan konexio iraunkor bat anomaloa da, zifratuta joanda ere.
-- Urruneko mahaigainaren eta pantaila-kapturaren funtzioen portaeraren araberako detekzioa, erabili behar ez luketen prozesuetan.
-- Kamera aktibo dagoela adierazten duen seinale fisikoa, eta erabiltzen ari ez denean objektiboa estaltzeko politika.
-- Saioaren blokeo automatikoa jarduerarik ezagatik tarte laburrean, sarbide fisikoaren aukera-tartea ixten duena.
-- Baimendutako urruneko laguntza-tresnen katalogo itxia eta gainerako guztien blokeoa, onartu gabeko legitimoak barne.
+- Irteerako trafikoa helmugaka kontrolatzea: 443 atakatik helbide ezezagunera doan konexio iraunkorra anomaloa da, zifratuta ere.
+- Urruneko mahaigainaren eta pantaila-kapturaren detekzioa portaeraren arabera, erabili behar ez luketen prozesuetan.
+- Kamera aktiboaren seinale fisikoa, eta objektiboa estalita erabiltzen ez denean.
+- Saioaren blokeo automatikoa jarduerarik gabe tarte laburrean: sarbide fisikoaren tartea ixten du.
+- Baimendutako urruneko laguntzaren katalogo itxia eta gainerakoen blokeoa, onartu gabeko legitimoak barne.
 
 ---
 
@@ -200,32 +199,32 @@ Detekzioa zeharkako bide batetik iristen da: ekipoa aktibo gisa ageri da fitxate
 
 ### Definizioa
 
-Kutsatze edo exekuzio bakoitzean bere kodea aldatzen duen malwarea; ondorioz, fitxategia inoiz ez da berdina eta haren edukian oinarritutako sinadura batek ere ez du bi aldiz ezagutzen. Aldatzen dena forma da; azkenean exekutatzen duen funtzioa beti bera da.
+Kutsatze edo exekuzio bakoitzean kodea aldatzen du: fitxategia inoiz ez da berdina eta edukiko sinadurak ez du bi aldiz ezagutzen. Forma aldatzen da; funtzioa beti bera.
 
 ### Nola funtzionatzen duen
 
-1. Mutazio-motorraren eta karga erabilgarriaren arteko bereizketa: karga egonkor mantentzen da eta motorrak estalki desberdinak sortzen ditu kopia bakoitzerako.
-2. Karga gako berri batekin zifratzea aldi bakoitzean, zifratutako edukia bi fitxategiren artean inoiz errepika ez dadin.
-3. Deszifratzaile desberdin bat sortzea: aginduak berrantolatzen dira, eragiketa alferrikakoak txertatzen dira eta erabilitako erregistroak aldatzen dira.
-4. Entregatzea: biktima bakoitzak laburpen kriptografiko bakarra duen fitxategi bat jasotzen du, mehatxu ezagunen zerrenda batean ere inoiz agertu ez dena.
-5. Exekuzioa: memorian dagoeneko, deszifratzaileak beti karga bera berreraikitzen du, eta hor bertan da portaera berriro ezagungarri.
+1. Motorra eta karga bereizten ditu: karga egonkorra da eta kopia bakoitzak estalki desberdina dakar.
+2. Karga gako berri batekin zifratzen du aldi bakoitzean: edukia ez da inoiz errepikatzen.
+3. Deszifratzaile desberdina sortzen du: aginduak berrantolatu, eragiketa alferrikakoak txertatu eta erregistroak aldatu.
+4. Biktima bakoitzak laburpen bakarra duen fitxategia jasotzen du, mehatxu-zerrendetan inoiz agertu gabea.
+5. Memorian, deszifratzaileak beti karga bera berreraikitzen du: hor portaera salatzen da.
 
 ### Eraso-bektorea
 
-- Banaketa masiboa deskarga bakoitzeko kopia bakar bat sortuz, laburpen ezagunen edozein zerrenda baliogabetzen duena.
-- Paketatzaile eta lausotzaile komertzialak, dagoeneko existitzen den malware bati geruza berri bat gehitzen diotenak bere logika ukitu gabe.
-- Aldaera metamorfikoa: karga erabilgarria bera ere berridazten du, deszifratzailerik behar izan gabe, eta horrek memoriako azterketa ere zailtzen du.
-- Aldaerak eskaeraren arabera sortzea entregatzeko unean, biktiman detektatutako sistema eragilera egokituta.
+- Deskarga bakoitzeko kopia bakarra: laburpen ezagunen zerrendak baliogabetzen ditu.
+- Paketatzaile eta lausotzaile komertzialak: geruza berria, logika ukitu gabe.
+- Aldaera metamorfikoa: karga bera berridazten du deszifratzailerik gabe, memoriako azterketa zailduz.
+- Aldaerak eskaeraren arabera sortzea entregan, biktimaren sistema eragilera egokituta.
 
 ### Adibide argigarria — Zaldibar Farmazia Banaketa
 
 *Farmazia banaketa · 2026*
 
-2026ko urtarrilaren eta martxoaren artean, Zaldibar Farmazia Banaketak bidalketa-agiri bat dirudien eranskina duten ehun eta berrogei posta jasotzen ditu. Perimetroko antibirusak ez du bat ere blokeatzen: fitxategi bakoitzak laburpen kriptografiko desberdina du eta bat ere ez dago mehatxu ezagunen zerrendetan.
+2026ko urtarrilaren eta martxoaren artean, Zaldibar Farmazia Banaketak ustezko bidalketa-agiria eranskin duten ehun eta berrogei posta jasotzen ditu. Perimetroko antibirusak ez du bat ere blokeatzen: fitxategi bakoitzak laburpen desberdina du, zerrenda ezagunetatik kanpo.
 
-Ehun eta berrogei fitxategiek 180 eta 210 kilobyte artean pisatzen dute eta haien barne egitura erabat desberdina da. Exekutatzean, ordea, gauza bera egiten dute zehazki, eta ordena berean: bizitza laburreko dominio bat galdekatzen dute, ausazko izena duen zeregin programatu bat sortzen dute eta aldi baterako karpetatik prozesu seme bat abiarazten dute.
+180 eta 210 kilobyte artean pisatzen dute, barne egitura desberdinarekin. Exekutatzean gauza bera egiten dute ordena berean: bizitza laburreko dominioa galdekatu, ausazko izeneko zeregin programatua sortu eta aldi baterako karpetatik prozesu semea abiatu.
 
-Detekzioa fitxategiak alderatzeari utzi eta portaerak alderatzen hasten direnean iristen da. Galdeketa, zeregin programatua eta aldi baterako karpetatik abiatutako prozesu semearen sekuentziaren aurrean alerta ematen duen arau batek ehun eta berrogei kasuak identifikatzen ditu, eta baita inor ohartu gabe exekutatu ziren hemezortziak ere.
+Detekzioa portaerak alderatzean dator, ez fitxategiak. Sekuentzia horren arauak ehun eta berrogei kasuak identifikatzen ditu, baita oharkabean exekutatu ziren hemezortziak ere.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -233,18 +232,75 @@ Detekzioa fitxategiak alderatzeari utzi eta portaerak alderatzen hasten direnean
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Daraman karga stealer bat edo troiar bat izan ohi da, beraz informazioaren lapurreta da ohiko amaiera. |
-| Osotasuna | Bai | Sisteman instalatzen da eta bere abio-konfigurazioa aldatzen du geroko exekuzioa ziurtatzeko. |
-| Erabilgarritasuna | Ez | Polimorfismoa saihesteko teknika bat da, ez kalte egitekoa: berez ez du zerbitzurik eteten. |
-| Autentikazioa | Ez | Ez du nortasun-kontrola erasotzen; bilatzen duena defentsak ez ezagutzea da, ez inor ordezkatzea. |
-| Ez-arbuiatzea | Ez | Ez ditu erregistroak manipulatzen: bere efektua detekzioa atzeratzea da, ez gero gertatzen denaren arrastoa ezabatzea. |
+| Konfidentzialtasuna | Bai | Karga stealer edo troiarra izan ohi da: informazio-lapurretan amaitzen da. |
+| Osotasuna | Bai | Sisteman instalatzen da eta abioa aldatzen du geroko exekuzioa ziurtatzeko. |
+| Erabilgarritasuna | Ez | Saihesteko teknika da, ez kalte egitekoa: berez ez du zerbitzurik eteten. |
+| Autentikazioa | Ez | Ez du nortasuna erasotzen: defentsak ez ezagutzea bilatzen du, ez inor ordezkatzea. |
+| Ez-arbuiatzea | Ez | Ez ditu erregistroak manipulatzen: detekzioa atzeratzen du, ez geroko arrastoa ezabatzen. |
 
 ### Defentsa
 
-- Portaeraren araberako detekzioa eta ez sinaduraren araberakoa: ekintzen sekuentziak egonkor irauten du fitxategia kopia bakoitzean aldatzen bada ere.
-- Entregatu aurretiko azterketa ingurune isolatuan, fitxategiak zer egiten duen behatzen duena eta ez zer itxura duen.
-- Baimendutako aplikazioen zerrendak, arazoa alderantzikatzen dutenak: txarra ezagutu beharrean, ezaguna dena bakarrik baimentzen da.
-- Sareko adierazleak irizpide osagarri gisa: berriki erregistratutako edo bizitza oso laburreko dominioek familia osoak salatzen dituzte.
-- Exekuzio-azalera murriztea: exekutagarriak blokeatzea aldi baterako eta deskargen karpetetan, non software legitimo batek ere ez bailuke abiarazi behar.
+- Portaeraren detekzioa, ez sinadurarena: sekuentzia egonkorra da fitxategia aldatuta ere.
+- Entregatu aurretik ingurune isolatuan aztertzea: zer egiten duen behatzea, ez itxura.
+- Baimendutako aplikazioen zerrendak: ezaguna dena bakarrik baimentzea, txarra ezagutu beharrean.
+- Sareko adierazleak osagarri: berriki erregistratutako edo bizitza laburreko dominioek familia osoak salatzen dituzte.
+- Exekutagarriak blokeatzea aldi baterako eta deskargen karpetetan: software legitimoak ez luke hortik abiatu behar.
+
+---
+
+## 5. Drive-by Download
+
+**Mamuak · Zure klikaren beharrik ez duen mamua** · Larritasuna: Altua
+
+> Ez duzu ezer klikatu behar. Bisita nahikoa da.
+
+### Definizioa
+
+Eraso fantasma bat berez gauzatzen da arriskuan dagoen webgunea bisitatzean: orriak eduki legitimoarekin batera script maltzur bat dakar, bisitariaren sisteman zaurgarritasunak bilatu eta, bat aurkitzean, malwarea deskargatu eta exekutatzen duena. Ez du pertsona amu bidez jotzen, phishingak bezala, ezta erabakiaren zain geratzen ere, troiarrak bezala: nabigatzaileak orria prozesatzea nahikoa du.
+
+### Nola funtzionatzen duen
+
+1. Erasotzaileak webgune kaltebera infektatzen du ahultasun ezagunen bilatzaileekin, eta JavaScript maltzurra txertatzen du gunearen HTMLan, edo scripta sartzen du orriko iFrame, esteka edo iragarki batean.
+2. Erabiltzaileak kutsatutako orria ohiko moduan bisitatzen du, ezer deskargatu gabe eta abisurik onartu gabe.
+3. Webguneak orria itzultzen du script kaltegarria kodean sartuta: erabiltzailearen sistemara deskargatzen da gainerakoarekin batera.
+4. Script-ak Hop Point zerbitzariari script berriak eskatzen dizkio, biktimaren ekipoan lehertu daitekeen kalteberatasuna miatzen dutenak, bata bestearen atzetik, batek arrakasta izan arte.
+5. Zaurgarritasunen batek amore emanez gero, script batek pieza exekutagarria (malwarea) deskargatzen du beste zerbitzari batetik (edo lehengotik) eta ekipoan martxan jartzen du.
+
+### Eraso-bektorea
+
+- Arriskuan jarritako konfiantzazko orriak: arriskua ez dago gune susmagarrian, scripta injektatu dioten konfiantzazko webean baizik.
+- Orri kalteberan txertatutako iFrame, esteka eta iragarki maltzurrak, ohiko nabigazioan ikusezin.
+- Hop Point zerbitzaria: miaketa-scriptak eta bisitari bakoitzaren ahultasunera egokitutako ustiapena ematen ditu.
+- Banaketa-zerbitzaria: azken karga gordetzen du eta ustiapenak arrakasta izan duen ekipoei bakarrik zerbitzatzen die.
+
+### Adibide argigarria — Oarso Bidaiak
+
+*Bidaia-agentzia · 2025*
+
+2025eko otsailean, Oarso Bidaiak-eko langile batek tokiko hedabide baten kultura-agenda kontsultatzen du taldeen eskaintza prestatzeko. Agendak publizitate-sareko iragarkiak erakusten ditu; sareak egun batzuk lehenago iFrame maltzurra zeraman iragarkia onartu zuen berrikusi gabe.
+
+Langilearen nabigatzaileak, bi eguneratze pendiente eta osagarri zaharkituarekin, injektatutako scripta exekutatu zuen ezer arrarorik erakutsi gabe. Script-ak Hop Point zerbitzariari eskatu zion: hirugarren miaketak osagarri eguneratu gabean lehertu zitekeen ahultasuna aurkitu zuen.
+
+Minutu batzuetara banaketa-zerbitzariko stealer batek nabigatzaileko pasahitzak atera zituen, erreserba-kudeatzailearenak barne. Inork ez zuen ezer klikatu: ekintza bakarra konfiantzazko orria une okerrean bisitatzea izan zen.
+
+> Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
+
+### Segurtasunaren propietateen gaineko inpaktua
+
+| Propietatea | Arriskuan geratzen da? | Justifikazioa |
+| --- | :---: | --- |
+| Konfidentzialtasuna | Bai | Deskargatutako malwarea stealer edo troiarra izan ohi da: barrutik ateratzen ditu kredentzialak eta datuak. |
+| Osotasuna | Bai | Exekutagarria instalatzen du eta konfigurazioa aldatzen du exekuzioa eta iraunkortasuna ziurtatzeko. |
+| Erabilgarritasuna | Ez | Zerbitzua eteteak denbora behar duen infekzioa salatuko luke. |
+| Autentikazioa | Bai | Kodea biktimaren pribilegioekin exekutatzen da eta haren nortasunarekin jarduten du, baimenik gabe. |
+| Ez-arbuiatzea | Ez | Ez ditu erregistroak ezabatzen: bisitaren eta deskargaren arrastoa uzten du, ikerketak aurkitzen duena. |
+
+### Defentsa
+
+- Sistema eragilea, nabigatzailea, osagarriak eta antibirusa eguneratuta eduki azken partxeekin: egiteke dagoen partxe bakoitza miaketak probatzen duen ahultasuna da.
+- Antibirus proaktiboa portaeraren analisiarekin: kode ezezaguna detektatu eta ustiapena blokeatzen du sinadurarik gabe ere.
+- Nabigatzailearen antiphishing eta antimalware blokeatzaileak aktibatuta, leku maltzurrak aurrez blokeatuta.
+- Ez sartzea jatorri zalantzazko esteketan ez spamez iristen direnetan, eta helmuga beti egiaztatzea: kurtsorea estekaren gainean pasatuz edo egoera-barrari begiratuz, sakatu aurretik.
+- Pribilegiorik gabeko kontuarekin nabigatzea: ahultasunak amore emanda ere malwareak ez du ekipoaren kontrol osoa heredatzen.
 
 ---

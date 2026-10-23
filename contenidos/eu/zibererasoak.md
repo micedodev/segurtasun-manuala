@@ -14,11 +14,11 @@ Txantiloi berarekin aztertutako bi gertakari erreal: zerk huts egin zuen, zein o
 
 ### Testuingurua
 
-2017ko martxoan, Microsoftek segurtasun-eguneratze bat argitaratzen du SMB fitxategiak partekatzeko protokoloaren lehen bertsioaren inplementazioan zegoen ahultasun baterako, erabileran zeuden ia Windows bertsio guztietan zegoena. Zuzenketa bi hilabeteko aurrerapenez geratzen da eskuragarri, gero etorriko zenaren aldean.
+2017ko martxoan, Microsoftek eguneratze bat argitaratzen du SMBren lehen bertsiorako, ia Windows guztietan zegoena. Erasoa baino bi hilabete lehenago geratu zen eskuragarri.
 
-Apirilean, estatubatuar inteligentzia-agentzia batek garatutako eraso-tresna multzo bat publikoki filtratzen da. Haien artean ahultasun horretarako berorretarako ustiapen-kode fidagarri bat dago, aurretiazko autentikaziorik gabe aginduak exekutatzeko gai dena zerbitzua sarean eskuragarri duen edozein ekiporen aurka.
+Apirilean, estatubatuar inteligentzia-agentzia baten eraso-tresna multzo bat filtratzen da. Ahultasun horretarako exploit fidagarria dakar: kodea exekutatzen du autentikaziorik gabe, zerbitzua sarean duen edozein ekiporen aurka.
 
-Ondoriozko egoerak gutxitan batera gertatzen diren hiru baldintza biltzen ditu: kredentzialik gabe ustia daitekeen ahultasun bat, zirkulazio librean dagoen kalitate profesionaleko exploit bat eta eguneratu gabeko ekipo parke izugarri bat, askok zerbitzu hori Interneterantz ere agerian zutela.
+Hiru baldintza arraro batera gertatu ziren: kredentzialik gabe ustia daitekeen akatsa, zirkulazio libreko exploit profesionala eta eguneratu gabeko parke izugarria, zerbitzua Internetera ere agerian zuena.
 
 ### Kronologia
 
@@ -35,19 +35,19 @@ Ondoriozko egoerak gutxitan batera gertatzen diren hiru baldintza biltzen ditu: 
 
 #### Autentikaziorik gabe ustia daitekeen ahultasuna
 
-Akatsa fitxategiak partekatzeko protokoloaren eskaera jakin batzuen tratamenduan zegoen. Zerbitzua entzuten besterik ez zuen ekipo baten aurka aprobetxa zitekeen, erabiltzailerik eta pasahitzik gabe, eta horrek normalean erasotzaile bati ahalegin gehien eskatzen dion urratsa kentzen du.
+Akatsak SMB eskaera jakin batzuk gaizki tratatzen zituen. Zerbitzua entzuten egotea nahikoa zen, erabiltzailerik eta pasahitzik gabe. Erasotzailearen urratsik garestiena desagertzen da.
 
 #### Hedapen automatikoa
 
-Pieza erabakigarria ohiko ransomware bat har modulu batekin konbinatzea izan zen. Kodeak tokiko sarea eta helbide publikoen tarteak zeharkatzen zituen zerbitzu ahularen ataka bilatuz, eta bere burua kopiatzen zuen erantzuten zuen ekipo bakoitzean. Lehenaren ondorengo biktima batek ere ez zuen ezertxo ere ireki behar izan.
+Ohiko ransomware bat har moduluarekin konbinatu zuen. Tokiko sarea eta tarte publikoak zeharkatzen zituen ataka ahula bilatuz, eta bere burua kopiatzen zuen erantzun bakoitzean. Lehen biktimaren ondoren, inork ez zuen ezer ireki behar.
 
 #### Zifratzea eta erreskate-eskaera
 
-Behin ekipoan, erabilera arrunteko dokumentuak zifratzen zituen eta kriptomonetan ordaintzea eskatzen zuen ohar bat erakusten zuen. Kobrantza-sistema landugabea zen eta ez zuen ordainketa bat biktima jakin batekin modu fidagarrian lotzeko aukerarik ematen, beraz ordaindu zutenetako askok ez zuten gakorik jaso.
+Erabilera arrunteko dokumentuak zifratzen zituen eta kriptomonetan ordainketa eskatzen zuen. Kobrantzak ez zuen ordainketa eta biktima lotzen, eta ordaindu askok ez zuten gakorik jaso.
 
 #### Dominioaren egiaztapena
 
-Zifratu aurretik, laginak dominio jakin bat galdekatzen zuen eta gelditu egiten zen erantzuna jasotzen bazuen. Ziurrenik azterketa automatizatuko inguruneetan ez aktibatzeko mekanismo bat zen, han dominio oro ebazten baita. Dominio hori erregistratzeak balazta global gisa jardun zuen, bere egileek aurreikusi ez zuten efektu batekin.
+Zifratu aurretik dominio bat galdekatzen zuen eta gelditzen zen ebazten bazuen. Azterketa automatizatuko ihesbide bat zen, han denak ebazten baitu. Erregistratzeak aurreikusi gabeko balazta globala eragin zuen.
 
 ### Inpaktua zenbakitan
 
@@ -60,32 +60,32 @@ Zifratu aurretik, laginak dominio jakin bat galdekatzen zuen eta gelditu egiten 
 
 ### Benetako irismena
 
-Britainia Handiko osasun sektorea izan zen kasurik ikusgarriena: osasun zerbitzu publikoko hamarnaka erakundek hitzorduak bertan behera utzi zituzten, larrialdiak desbideratu zituzten eta aldi baterako paperezko prozeduretara itzuli ziren. Kaltea ez zen datuen galera izan, etenik onartzen ez duen jarduera baten etendura baizik.
+Britainia Handiko osasun sektorea izan zen ikusgarriena: hamarnaka erakundek hitzorduak bertan behera utzi, larrialdiak desbideratu eta paperezko prozeduretara itzuli ziren. Kaltea etendura izan zen, ez galera.
 
-Industrian, hainbat lantegik produkzio-lerroak gelditu zituzten. Arrazoia behin eta berriz errepikatu zen: barne sare lauak, non bulego bateko ekipoak eta kontrol-sistema batek segmentu bera partekatzen zuten inolako bereizketarik gabe.
+Industrian, lantegiek lerroak gelditu zituzten. Arrazoia errepikatu zen: sare lauak, bulegoko ekipoa eta kontrol-sistema bereizketarik gabe segmentu berean.
 
-Kostu ekonomikoa milaka milioi eurotan kalkulatu zen mundu mailan, ia dena geldialdi-denboran, berreraikuntza-ordutan eta galdutako jardueran, eta ez ordaindutako erreskateetan. Erasotzaileen bilketa, alderatuta, hutsala izan zen.
+Kostua milaka milioi eurotan kalkulatu zen mundu mailan, ia dena geldialdi eta berreraikuntzan, ez erreskateetan. Erasotzaileen bilketa hutsala izan zen.
 
 ### Erantzuna
 
-- Microsoftek salbuespen gisa eguneratzeak argitaratu zituen jada euskarritik kanpo zeuden Windows bertsioetarako; ohikoa ez den erabaki horrek eragindako parkearen neurria ematen du.
-- Erakunde askok sare osoak deskonektatzea aukeratu zuten adabakiak jartzen zituzten bitartean, geldialdi kontrolatu bat onartuz kontrolik gabeko bat saihesteko.
-- Protokoloaren lehen bertsioa lehenetsita desgaitzera pasatu zen sistemaren hurrengo edizioetan, eta bateragarritasunagatik aktibo jarraitzen zuen lekuetan kentzea gomendatu zen.
-- Zerbitzu horren ataka perimetroan blokeatzea oinarrizko neurri gisa orokortu zen, gertakaria baino askoz lehenago araua izan behar zuena.
+- Microsoftek euskarritik kanpoko bertsioak eguneratu zituen, salbuespeneko neurria parke eragindakoa erakusten duena.
+- Erakunde askok sareak deskonektatu eta adabakiak jarri zituzten, geldialdi kontrolatuarekin.
+- Protokoloaren lehen bertsioa lehenetsita desgaitzen da eta kentzea gomendatzen da.
+- Ataka hori perimetroan blokeatzea oinarrizko arau bihurtu zen, beranduegi.
 
 ### Hiru ikasgai
 
 #### 1. Agerian egoteko tartea erakundeak finkatzen du
 
-Adabakiak berrogeita hemeretzi egun zeramatzan eskuragarri. Inpaktu osoa zuzenketaren argitalpenaren eta haren benetako aplikazioaren arteko distantzian gertatu zen, eta hori da, hain zuzen, biktimak erabat kontrolatzen duen aldagai bakarra.
+Adabakiak berrogeita hemeretzi egun zeramatzan eskuragarri. Inpaktu osoa argitalpenaren eta aplikazioaren arteko distantzian gertatu zen, biktimak erabat kontrolatzen duen aldagai bakarrean.
 
 #### 2. Sare lau batek gertakari bat hondamendi bihurtzen du
 
-Hedapen automatikoa suntsitzailea da nora hedatu badago bakarrik. Erakunde segmentatuetan, kode berberak sail batera mugatutako gertakariak eragin zituen.
+Hedapenak nora hedatu badu bakarrik suntsitzen du. Sare segmentatuetan, kode berak sail batean gelditu zen.
 
 #### 3. Leheneratzeko gaitasuna da azken benetako defentsa
 
-Egiaztatutako eta deskonektatutako kopiak zituenak orduak galdu zituen. Ez zituenak asteak galdu zituen eta, kasu askotan, datuak behin betiko: ordaintzeak ere ez baitzuen berreskuratzea bermatzen.
+Egiaztatutako eta deskonektatutako kopiak zituenak orduak galdu zituen. Ez zituenak asteak eta, askotan, datuak: ordainketak ez zuen berreskuratzea bermatzen.
 
 ---
 
@@ -97,11 +97,11 @@ Egiaztatutako eta deskonektatutako kopiak zituenak orduak galdu zituen. Ez zitue
 
 ### Testuingurua
 
-2014ko azaroaren amaieran, Sony Pictures Entertainmenteko ekipoak Guardians of Peace izena hartzen zuen talde batek sinatutako irudi eta mezu bat erakutsiz esnatzen dira. Ez da ohiko erreskate-ohar bat: sistemetarako sarbidea dagoeneko galdu da eta korporazioko informazioaren zati handi bat besteren esku dago.
+2014ko azaroaren amaieran, Sony Pictures Entertainmenteko ekipoak Guardians of Peace taldearen irudi eta mezuarekin esnatzen dira. Ez da erreskate-oharra: sarbidea galdua da eta informazioaren zati handi bat besteren esku dago.
 
-Gertakariak ohiko eredu ekonomikoa hausten du. Ez dago kaltearekiko proportzionala den ordainketa-eskaerarik ez negozio-eredurik atzean: exfiltrazio masiboa dago, datuen suntsipena eta astez aste presioari eusteko diseinatutako mailakako argitalpen-kanpaina bat.
+Ez dago ordainketa-eskaera proportzionalik ez negozio-eredurik: exfiltrazio masiboa dago, suntsipena eta astez presioari eusteko mailakako argitalpenak.
 
-Kasua estatu batentzat iraingarria zen argumentua zuen film baten estreinaldi hurbilarekin lotu zen publikoki, eta horrek ordura arte gutxitan agertutako dimentsio bat sartu zuen eztabaidan: enpresa pribatu bat motibazio politikoa duen operazio baten helburu bihurtuta.
+Kasua estatu batentzat iraingarria zen film baten estreinaldiarekin lotu zen. Enpresa pribatu bat motibazio politikodun operazio baten helburu bihurtu zen.
 
 ### Kronologia
 
@@ -118,19 +118,19 @@ Kasua estatu batentzat iraingarria zen argumentua zuen film baten estreinaldi hu
 
 #### Hasierako sarbidea eta iraunkortasun luzea
 
-Sarrera ez zen bat-batekoa izan. Erasotzaileek barruan iraun zuten erakundea ulertzeko, baliotsua zena non zegoen aurkitzeko eta administrazio-kredentzialak eskuratzeko adina denbora. Fase isil hori da edozein gertakari larriren azken irismena zehazten duena.
+Erasotzaileek barruan iraun zuten erakundea ulertzeko, baliotsua non zegoen aurkitzeko eta administrazio-kredentzialak hartzeko. Fase isil horrek finkatzen du gertakari larriren azken irismena.
 
 #### Aurretiazko exfiltrazio masiboa
 
-Hamarnaka terabyteren ordenakoa kopiatu zen kanpora inork ezer nabaritu aurretik. Halako bolumen bat ez da gau batean mugitzen: asteetako transferentzia jarraitua eskatzen du, eta inor ez zegoen irteerako noranzkoa zaintzen.
+Hamarnaka terabyte kopiatu ziren inork nabaritu aurretik. Bolumen horrek asteetako transferentzia eskatzen du, inork irteeran zaintzen ez zuena.
 
 #### Ezabatze malwarea
 
-Osagai suntsitzaileak ez zuen zifratzen erreskate bat eskatzeko: abio-sektorea eta datuak gainidazten zituen berreskurapena eragozteko. Funtsezko aldea da ransomwarearekiko, negoziatzeko aukera oro errotik kentzen baitu.
+Ez zuen zifratzen erreskatea eskatzeko: abio-sektorea eta datuak gainidazten zituen berreskurapena galarazteko. Horrek negoziatzeko aukera oro kentzen du.
 
 #### Filtrazioa arma gisa
 
-Mailakako argitalpenak lapurtutako informazioa etengabeko presio-tresna bihurtu zuen. Entrega bakoitzak mediatiko estaldura eta ospearen kaltea berritzen zituen, ezabatze soil batek inoiz lortuko ez zuen zerbait.
+Mailakako argitalpenak lapurtutakoa etengabeko presio bihurtu zuen. Entrega bakoitzak estaldura eta ospe-kaltea berritzen zituen.
 
 ### Inpaktua zenbakitan
 
@@ -143,33 +143,33 @@ Mailakako argitalpenak lapurtutako informazioa etengabeko presio-tresna bihurtu 
 
 ### Benetako irismena
 
-Eragiketa-geldialdia erabatekoa izan zen egunetan. Postarik gabe, IP gaineko telefoniarik gabe eta nomina-sistemarik gabe, konpainia paperera, faxera eta aurrez aurreko bileretara itzuli zen; administrazio-prozesu batzuek hilabeteak behar izan zituzten normalizatzeko.
+Geldialdia erabatekoa izan zen egunetan. Postarik, IP telefoniarik eta nomina-sistemarik gabe, paperera, faxera eta aurrez aurreko bileretara itzuli zen; prozesu batzuek hilabeteak behar izan zituzten.
 
-Barne korrespondentziaren filtrazioak teknikoa ez bezalako izaerako kaltea eragin zuen: pertsonei eta proiektuei buruzko iruzkin pribatuak, kontratu-baldintzak eta soldata-desorekak agerian geratu ziren, ibilbide profesionaletan eta merkataritza-harremanetan zuzeneko ondorioekin.
+Barne postaren filtrazioak kalte ez-teknikoa eragin zuen: iruzkin pribatuak, kontratuak eta soldata-desorekak agerian, ibilbide eta harremanetan ondorio zuzenekin.
 
-Milaka langilek eta langile ohik datu pertsonalak, medikoak eta ekonomikoak argitaratuta ikusi zituzten. Ondoren etorri ziren talde-demandek aurrekari argi bat ezarri zuten: erakundeak bere plantillaren aurrean erantzuten du informazio hori ez babesteagatik.
+Milaka langilek datu pertsonalak, medikoak eta ekonomikoak argitaratuta ikusi zituzten. Talde-demandek aurrekaria ezarri zuten: erakundeak plantillaren aurrean erantzuten du.
 
-Estreinaldiaren hasierako kentzeak informatika-segurtasuna askogatik gainditzen zuen eztabaida bat ireki zuen: mehatxu batek zenbateraino baldintza ditzakeen enpresa eta kultura erabakiak.
+Estreinaldia kentzeak segurtasuna gainditzen zuen eztabaida ireki zuen: zenbateraino baldintzatzen duen mehatxu batek enpresa eta kultura erabakiak.
 
 ### Erantzuna
 
-- Korporazioko sarearen berehalako eta erabateko deskonexioa, eta ondoren azpiegituraren berreraikuntza zerotik, garbiketa selektiboa egin beharrean.
-- Estatu Batuetako agintari federalen esku-hartzea, erasoa estatu bati publikoki egotzi baitzioten, orduan ezohikoa zen zerbait.
-- Nortasuna zaintzeko zerbitzuak eragindako pertsonentzat eta akordio ekonomikoak ondorengo talde-demandetan.
-- Kredentzial pribilegiatuen kudeaketaren, barne segmentazioaren eta posta elektronikoa gordetzeko politikaren berrikuspen sakona.
+- Sarearen deskonexio osoa eta berreraikuntza zerotik, garbiketa selektiboaren ordez.
+- AEBko agintarien atribuzio publikoa estatu bati, orduan ezohikoa.
+- Nortasun-zaintza eragindakoentzat eta akordioak talde-demandetan.
+- Kredentzial pribilegiatuen, segmentazioaren eta posta-gordetzearen berrikuspen sakona.
 
 ### Hiru ikasgai
 
 #### 1. Gordetzen dena da filtra daitekeena
 
-Ospearen kaltearen zati handi bat gordeta jarraitzeko inolako arrazoi operatiborik ez zuen urte askotako postatik etorri zen. Borratze eraginkorra duen gordetze-politika batek urraketa baten inpaktua murrizten du urraketa bera existitu aurretik.
+Ospe-kaltearen zati handi bat gordetzeko arrazoirik gabeko urteetako postatik etorri zen. Borratze eraginkorrak urraketaren inpaktua murrizten du aldez aurretik.
 
 #### 2. Irteera sarrera bezainbeste zaindu behar da
 
-Hamarnaka terabyte atera ziren asteetan zehar alerta bakar bat sortu gabe. Zaintza nor sartzen zen begira zegoen, eta ez zenbat informazio irteten zen, eta hortxe erabakitzen da exfiltrazio baten larritasuna.
+Hamarnaka terabyte atera ziren asteetan alerta bakar gabe. Zaintzak sarrera begiratzen zuen, ez irteerako bolumena: hortxe erabakitzen da larritasuna.
 
 #### 3. Erasotzaile guztiek ez dute kobratu nahi
 
-Helburua kaltea eta ez irabazia duen aurkari baten aurrean, estortsiorako pentsatutako defentsek ez dute balio: ez dago negoziatzeko erreskaterik ez erosteko gakorik. Prebentzioa, segmentazioa eta berreraikitzeko gaitasuna besterik ez da geratzen.
+Kaltea eta ez irabazia bilatzen duen aurkariaren aurrean, estortsio-defentsek ez dute balio: ez dago erreskaterik ez gakorik. Prebentzioa, segmentazioa eta berreraikuntza besterik ez.
 
 ---

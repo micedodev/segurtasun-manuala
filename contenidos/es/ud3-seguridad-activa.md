@@ -1,14 +1,12 @@
 # UD3 · Seguridad activa
 
-> Cuatro familias diseñadas para no ser vistas
+> Cinco familias diseñadas para no ser vistas
 
-Cuatro familias diseñadas específicamente para no ser vistas. Aquí la defensa deja de ser una lista de firmas y pasa a ser vigilancia del comportamiento.
+No buscan efecto inmediato, sino tiempo: cada una evita la detección a su manera.
 
-Las cuatro familias de esta unidad comparten un rasgo que las separa del resto del manual: están diseñadas específicamente para no ser vistas. No persiguen un efecto inmediato, persiguen tiempo.
+La lista de firmas no las ve. La seguridad activa vigila comportamientos y desconfía del propio equipo.
 
-Eso obliga a cambiar de método. Una defensa que compara ficheros contra una lista de amenazas conocidas falla ante un código que cambia en cada copia, ante otro que borra su propio rastro y ante un tercero que manipula lo que el sistema responde cuando se le pregunta. La seguridad activa consiste en vigilar comportamientos y en desconfiar de lo que un equipo informa sobre sí mismo.
-
-**La idea que hay que llevarse:** Cuando el sistema comprometido es la fuente de la información sobre su propio estado, esa información ya no vale. La detección fiable llega siempre desde fuera: de la red, de los registros centralizados o de un análisis hecho con el equipo apagado.
+**La idea que hay que llevarse:** Un equipo comprometido no informa de su estado. La detección fiable llega desde fuera: red, registros centralizados o equipo apagado.
 
 ---
 
@@ -18,6 +16,7 @@ Eso obliga a cambiar de método. Una defensa que compara ficheros contra una lis
 2. [Ghostware](#2-ghostware) — Cuando se investiga, ya no hay nada que investigar.
 3. [RAT](#3-rat) — Hay alguien más sentado delante de tu equipo.
 4. [Malware polimórfico](#4-malware-polimorfico) — Cada copia es distinta. El comportamiento, no.
+5. [Descarga al paso (drive-by download)](#5-descarga-al-paso-drive-by-download) — No haces clic en nada. La visita basta.
 
 ---
 
@@ -29,32 +28,32 @@ Eso obliga a cambiar de método. Una defensa que compara ficheros contra una lis
 
 ### Definición
 
-Malware capaz de replicarse y propagarse por sí mismo de un sistema a otro sin intervención humana, aprovechando vulnerabilidades de servicios accesibles en red o credenciales válidas. La diferencia con el troyano es decisiva: el troyano espera una decisión, el gusano no espera nada.
+Se replica y se propaga solo, sin intervención humana, por servicios en red o credenciales válidas. El troyano espera una decisión; el gusano, ninguna.
 
 ### Cómo funciona
 
-1. Ejecución en el primer equipo, por cualquier vía de entrada: un adjunto, un soporte extraíble o un exploit.
-2. Descubrimiento: enumera las direcciones alcanzables desde ese equipo, dentro de la red local y, si puede salir, también hacia Internet.
-3. Prueba de la condición de propagación: busca en cada destino el servicio vulnerable, la credencial reutilizada o el recurso compartido con permiso de escritura.
-4. Copia y ejecución remota: se transfiere a sí mismo al destino y consigue que se ejecute allí, sin que nadie abra nada.
-5. Crecimiento exponencial: cada equipo nuevo repite el proceso, de modo que el número de infectados se dobla en intervalos cada vez más cortos hasta agotar los objetivos alcanzables.
+1. Entra en el primer equipo: adjunto, soporte extraíble o exploit.
+2. Enumera direcciones alcanzables en la red local y, si sale, en Internet.
+3. Prueba cada destino: servicio vulnerable, credencial reutilizada o recurso compartido con escritura.
+4. Se copia al destino y se ejecuta allí sin que nadie abra nada.
+5. Cada equipo nuevo repite el proceso: los infectados se doblan en intervalos cada vez más cortos.
 
 ### Vector de ataque
 
-- Servicios de compartición de ficheros accesibles desde toda la red interna, que rara vez están segmentados.
-- Vulnerabilidades explotables sin autenticación previa en servicios que escuchan por defecto en todos los equipos.
-- Credenciales de administrador local idénticas en todo el parque, que convierten un acceso en acceso universal.
-- Soportes extraíbles con ejecución automática, todavía vigentes en entornos industriales aislados de la red general.
+- Compartición de ficheros accesible desde toda la red interna, casi nunca segmentada.
+- Servicios que escuchan por defecto, con vulnerabilidades explotables sin autenticación.
+- Credenciales de administrador local idénticas en todo el parque: un acceso abre todos.
+- Soportes extraíbles con ejecución automática, aún vigentes en entornos industriales aislados.
 
 ### Caso ilustrativo — Aiztondo Mekanika
 
 *Mecanizado industrial · 2024*
 
-En julio de 2024, un portátil de mantenimiento se conecta a la red de planta de Aiztondo Mekanika tras dos semanas fuera del dominio y sin recibir actualizaciones. Lleva un gusano que aprovecha una vulnerabilidad en un servicio de compartición de ficheros.
+En julio de 2024, un portátil de mantenimiento vuelve a la red de planta de Aiztondo Mekanika tras dos semanas fuera del dominio, sin actualizar. Trae un gusano que explota una vulnerabilidad en un servicio de compartición de ficheros.
 
-La red de planta es plana: los cuarenta y dos equipos de control comparten el mismo segmento, sin separación alguna entre líneas de producción. El gusano tarda catorce minutos en alcanzarlos todos.
+La red de planta es plana: los cuarenta y dos equipos de control comparten un segmento sin separación entre líneas de producción. El gusano los alcanza todos en catorce minutos.
 
-El daño no lo causa una carga destructiva, porque el gusano no llevaba ninguna. Lo causa el propio tráfico de replicación: los autómatas empiezan a perder los mensajes del ciclo de control por saturación del segmento y tres líneas se detienen por seguridad. La producción se recupera en once horas; la confianza en la red plana, no.
+Sin carga destructiva: el tráfico de replicación causa el daño. Los autómatas pierden mensajes del ciclo de control por saturación y tres líneas se detienen por seguridad. La producción vuelve en once horas; la confianza en la red plana, no.
 
 > Escenario ficticio construido para ilustrar el mecanismo. Ni la organización ni los hechos son reales.
 
@@ -62,19 +61,19 @@ El daño no lo causa una carga destructiva, porque el gusano no llevaba ninguna.
 
 | Propiedad | ¿Queda comprometida? | Justificación |
 | --- | :---: | --- |
-| Confidencialidad | No | Su objetivo es reproducirse, no leer: sólo compromete datos si incorpora además una carga específica para ello. |
-| Integridad | Sí | Modifica cada sistema que alcanza para instalarse en él y garantizar su propia ejecución. |
-| Disponibilidad | Sí | La replicación consume red y procesador; en redes planas la saturación basta por sí sola para detener la producción. |
-| Autenticación | Sí | Se propaga superando o eludiendo el control de acceso de cada equipo, con credenciales reutilizadas o sin necesitar ninguna. |
-| No repudio | No | No genera acciones atribuibles a un usuario concreto: la propagación es automática y queda registrada como tal. |
+| Confidencialidad | No | Su objetivo es reproducirse; solo lee datos con carga específica. |
+| Integridad | Sí | Modifica cada sistema que alcanza para instalarse y ejecutarse. |
+| Disponibilidad | Sí | Satura red y procesador; en redes planas detiene la producción. |
+| Autenticación | Sí | Supera o elude el control de acceso con credenciales reutilizadas o sin ninguna. |
+| No repudio | No | Se propaga solo y queda registrado: nada se atribuye a un usuario. |
 
 ### Defensa
 
-- Segmentación de la red por zonas y por función, de modo que un equipo comprometido sólo pueda alcanzar a unos pocos.
-- Contraseñas de administrador local únicas por equipo, generadas y rotadas de forma automática.
-- Parcheo prioritario de todo servicio que escuche en red por defecto, también en los equipos internos que nunca se publican.
-- Cuarentena obligatoria y verificación de estado para los equipos que se reincorporan tras estar fuera del control de actualizaciones.
-- Capacidad de aislar un segmento completo en minutos, ensayada de antemano: ante un gusano, la velocidad de contención importa más que la de análisis.
+- Segmenta la red por zonas y funciones: un equipo comprometido solo alcanza a unos pocos.
+- Contraseña de administrador local única por equipo, generada y rotada automáticamente.
+- Parchea primero todo servicio a la escucha por defecto, también en equipos internos.
+- Cuarentena y verificación obligatorias para equipos que vuelven tras estar sin actualizar.
+- Aísla un segmento en minutos, ensayado de antemano: ante un gusano, contener importa más que analizar.
 
 ---
 
@@ -86,32 +85,32 @@ El daño no lo causa una carga destructiva, porque el gusano no llevaba ninguna.
 
 ### Definición
 
-Malware diseñado para que, una vez cumplido su objetivo, no quede evidencia de que llegó a existir. No se limita a ocultarse mientras opera, como hace un rootkit: elimina activamente los indicios —entradas de registro, artefactos en disco, marcas temporales— y se retira. Su meta no es la permanencia, sino la negación del incidente.
+Cumplido su objetivo, no deja evidencia de haber existido. No se oculta como un rootkit: borra indicios —registros, artefactos, marcas— y se retira para negar el incidente.
 
 ### Cómo funciona
 
-1. Ejecución con la menor huella posible: en muchos casos únicamente en memoria, sin escribir ningún fichero en disco.
-2. Uso de las herramientas de administración del propio sistema para sus tareas, de modo que la actividad se confunda con el trabajo normal.
-3. Cumplimiento del objetivo: extracción de un conjunto concreto de datos o sabotaje puntual, siempre acotado en el tiempo.
-4. Limpieza: borrado selectivo de las entradas de registro generadas, restauración de marcas temporales y eliminación de los ficheros temporales creados.
-5. Retirada: el proceso termina y no deja mecanismo de persistencia alguno; un reinicio elimina el último rastro en memoria.
+1. Se ejecuta con la mínima huella, a menudo solo en memoria y sin escribir en disco.
+2. Usa las herramientas de administración del sistema: su actividad parece trabajo normal.
+3. Cumple su objetivo acotado en el tiempo: extrae unos datos o ejecuta un sabotaje puntual.
+4. Limpia: borra registros generados, restaura marcas temporales y elimina ficheros temporales.
+5. Se retira sin persistencia: un reinicio elimina el último rastro en memoria.
 
 ### Vector de ataque
 
-- Ejecución exclusivamente en memoria a partir de un script, de modo que no quede fichero que analizar después.
-- Abuso de utilidades legítimas de administración ya presentes en el sistema, que no levantan ninguna sospecha.
-- Borrado selectivo de registros en lugar de vaciado completo, porque un registro vacío sí constituye una señal evidente.
-- Alteración de las marcas temporales de los ficheros para que encajen con las de la instalación original del sistema.
+- Ejecución en memoria desde un script: no queda fichero que analizar.
+- Abuso de utilidades legítimas del sistema, que no levantan sospechas.
+- Borrado selectivo de registros: un registro vacío delata.
+- Marcas temporales alteradas para encajar con la instalación original.
 
 ### Caso ilustrativo — Urdaibai Bioteknologia
 
 *Biotecnología · 2025*
 
-En junio de 2025, Urdaibai Bioteknologia pierde un concurso público por un margen mínimo frente a un competidor que presenta una propuesta técnicamente muy similar. No hay ninguna alerta de seguridad, ningún fichero sospechoso y ningún acceso anómalo registrado.
+En junio de 2025, Urdaibai Bioteknologia pierde un concurso público por un margen mínimo ante un competidor con una propuesta técnicamente muy similar. No hay alertas, ficheros sospechosos ni accesos anómalos.
 
-La revisión posterior encuentra una sola inconsistencia: en el servidor de proyectos, el registro de eventos de seguridad tiene un hueco de cuarenta minutos en una madrugada de abril. No está vacío —eso habría llamado la atención de inmediato—, simplemente no existen entradas en ese intervalo, mientras que el registro del sistema sí continúa con normalidad.
+La revisión posterior halla una sola inconsistencia: un hueco de cuarenta minutos en una madrugada de abril en el registro de seguridad. No está vacío —eso delataría—: faltan entradas mientras el registro del sistema sigue normal.
 
-Ese hueco es la única prueba de la intrusión. No se recuperó el método de entrada ni se identificó la herramienta empleada, porque no quedó nada de ella en el disco. La empresa cambió su política de registros al día siguiente: desde entonces se envían en tiempo real a un servidor donde ningún administrador puede borrarlos.
+Ese hueco es la única prueba: ni método de entrada ni herramienta, nada quedó en disco. Al día siguiente la empresa envía sus registros en tiempo real a un servidor donde nadie puede borrarlos.
 
 > Escenario ficticio construido para ilustrar el mecanismo. Ni la organización ni los hechos son reales.
 
@@ -119,19 +118,19 @@ Ese hueco es la única prueba de la intrusión. No se recuperó el método de en
 
 | Propiedad | ¿Queda comprometida? | Justificación |
 | --- | :---: | --- |
-| Confidencialidad | Sí | Su propósito habitual es la extracción dirigida de información concreta y de alto valor. |
-| Integridad | Sí | Altera los registros del sistema, que son precisamente los datos sobre los que se apoya cualquier investigación posterior. |
-| Disponibilidad | No | Interrumpir el servicio sería contradictorio con su diseño: llamaría la atención justo sobre el equipo que quiere dejar limpio. |
-| Autenticación | Sí | Opera con credenciales privilegiadas obtenidas previamente, aprovechando sesiones legítimas ya establecidas. |
-| No repudio | Sí | Es su efecto más característico: destruye la trazabilidad hasta el punto de impedir demostrar que llegó a haber un incidente. |
+| Confidencialidad | Sí | Extrae de forma dirigida información concreta de alto valor. |
+| Integridad | Sí | Altera los registros: los datos sobre los que se apoya la investigación. |
+| Disponibilidad | No | Interrumpir el servicio delataría al equipo que quiere dejar limpio. |
+| Autenticación | Sí | Opera con credenciales privilegiadas previas, en sesiones legítimas ya abiertas. |
+| No repudio | Sí | Destruye la trazabilidad: impide demostrar que hubo un incidente. |
 
 ### Defensa
 
-- Envío de registros en tiempo real a un sistema externo de sólo añadido, fuera del alcance del administrador del equipo de origen.
-- Vigilancia de la continuidad de los registros: un hueco temporal es tan significativo como una entrada sospechosa.
-- Detección por comportamiento en memoria, capaz de ver un script que se ejecuta sin fichero asociado en disco.
-- Registro del uso de las utilidades de administración del sistema, con alerta cuando aparecen en equipos que no las emplean nunca.
-- Conservación de una línea base de marcas temporales y de resúmenes de los ficheros de sistema, para detectar restauraciones artificiales.
+- Envía registros en tiempo real a un sistema externo de solo añadido, fuera del alcance del origen.
+- Vigila la continuidad de los registros: un hueco temporal vale tanto como una entrada sospechosa.
+- Detecta por comportamiento en memoria: ve scripts sin fichero en disco.
+- Registra el uso de utilidades de administración y alerta cuando aparecen donde nunca se usan.
+- Conserva una línea base de marcas y resúmenes de ficheros de sistema: delata restauraciones.
 
 ---
 
@@ -143,32 +142,32 @@ Ese hueco es la única prueba de la intrusión. No se recuperó el método de en
 
 ### Definición
 
-Troyano que otorga al atacante control interactivo y en tiempo real sobre el equipo infectado: sistema de ficheros, cámara, micrófono, teclado, pantalla y red. A diferencia del malware automatizado, aquí hay una persona al otro lado tomando decisiones en función de lo que va viendo.
+Da al atacante control interactivo y en tiempo real del equipo: ficheros, cámara, micrófono, teclado, pantalla y red. Al otro lado decide una persona según lo que ve.
 
 ### Cómo funciona
 
-1. Instalación mediante un troyano, un exploit o un acceso físico de pocos minutos al equipo.
-2. Conexión inversa: el agente inicia él la conexión hacia el servidor del atacante, de modo que no hace falta abrir ningún puerto entrante en el cortafuegos de la víctima.
-3. Canal encubierto: el tráfico se cifra y se envía por puertos habituales, normalmente el 443, para pasar por tráfico web corriente.
-4. Control interactivo: el operador explora carpetas, captura la pantalla, activa la cámara o lanza órdenes, adaptándose a lo que encuentra.
-5. Extensión: despliega otras herramientas, roba credenciales y salta a los demás equipos de la red desde una posición ya interna.
+1. Se instala con un troyano, un exploit o minutos de acceso físico al equipo.
+2. Abre una conexión inversa hacia el servidor del atacante: no necesita puertos entrantes en el cortafuegos.
+3. Cifra el tráfico por puertos habituales, normalmente el 443: parece web corriente.
+4. El operador explora carpetas, captura pantalla, activa la cámara o lanza órdenes según lo que encuentra.
+5. Se extiende: despliega herramientas, roba credenciales y salta a otros equipos desde dentro.
 
 ### Vector de ataque
 
-- Adjuntos y descargas presentadas como herramientas legítimas de soporte remoto.
-- Falsas ofertas de empleo con una prueba técnica que debe ejecutarse en el equipo personal.
-- Acceso físico de pocos minutos a un equipo desbloqueado y sin vigilancia.
-- Aplicaciones de control remoto reales, empleadas de forma abusiva tras obtener las credenciales de la cuenta que las gestiona.
+- Adjuntos y descargas disfrazados de herramientas legítimas de soporte remoto.
+- Falsas ofertas de empleo con una prueba técnica para ejecutar en el equipo personal.
+- Minutos de acceso físico a un equipo desbloqueado y sin vigilancia.
+- Herramientas reales de control remoto con credenciales robadas de su cuenta.
 
 ### Caso ilustrativo — Lauaxeta Argitaletxea
 
 *Edición y medios de comunicación · 2024*
 
-En octubre de 2024, una periodista de Lauaxeta Argitaletxea recibe una oferta de colaboración con un documento adjunto que, según el mensaje, contiene el guion de un proyecto. El fichero instala un agente de acceso remoto y muestra a continuación un documento real, coherente con la oferta recibida.
+En octubre de 2024, una periodista de Lauaxeta Argitaletxea recibe una oferta de colaboración con el supuesto guion de un proyecto como adjunto. El fichero instala un agente de acceso remoto y luego muestra un documento real y coherente.
 
-Durante tres semanas, el operador se conecta sólo en horario laboral, entremezclado con otras conexiones, y nunca más de veinte minutos seguidos. Revisa las carpetas de trabajo, copia una lista de fuentes y activa la cámara en dos ocasiones durante reuniones internas.
+Durante tres semanas, el operador se conecta solo en horario laboral, mezclado con otras conexiones y nunca más de veinte minutos. Revisa carpetas, copia una lista de fuentes y activa la cámara dos veces en reuniones internas.
 
-La detección llega por una vía indirecta: el equipo figura como activo en el registro del servidor de ficheros a una hora en la que su usuaria estaba en un acto público con testigos. Sin esa coincidencia, el canal cifrado por el puerto 443 habría seguido siendo indistinguible del tráfico web normal.
+La detección llega por vía indirecta: el equipo figura activo en el servidor de ficheros con su usuaria en un acto público con testigos. Sin esa coincidencia, el canal cifrado del 443 seguiría pasando por tráfico web normal.
 
 > Escenario ficticio construido para ilustrar el mecanismo. Ni la organización ni los hechos son reales.
 
@@ -176,19 +175,19 @@ La detección llega por una vía indirecta: el equipo figura como activo en el r
 
 | Propiedad | ¿Queda comprometida? | Justificación |
 | --- | :---: | --- |
-| Confidencialidad | Sí | El operador ve la pantalla y los ficheros y, si lo decide, el entorno físico a través de la cámara y el micrófono. |
-| Integridad | Sí | Dispone de control interactivo completo para crear, modificar o eliminar cualquier cosa en el equipo. |
-| Disponibilidad | No | Un operador humano evita cualquier degradación perceptible: le interesa que la víctima siga trabajando con total normalidad. |
-| Autenticación | Sí | Actúa dentro de la sesión ya iniciada de la víctima, heredando su identidad sin necesitar credenciales. |
-| No repudio | Sí | Toda acción queda registrada a nombre de la persona usuaria, incluidos accesos a documentos que nunca llegó a abrir. |
+| Confidencialidad | Sí | El operador ve pantalla y ficheros, y el entorno físico por cámara y micrófono. |
+| Integridad | Sí | Su control interactivo crea, modifica o elimina cualquier cosa del equipo. |
+| Disponibilidad | No | Evita cualquier degradación perceptible: quiere a la víctima trabajando con normalidad. |
+| Autenticación | Sí | Actúa en la sesión abierta de la víctima y hereda su identidad sin credenciales. |
+| No repudio | Sí | Todo queda a nombre de la usuaria, incluidos documentos que nunca abrió. |
 
 ### Defensa
 
-- Control del tráfico saliente con inspección del destino: una conexión persistente a una dirección desconocida por el puerto 443 es anómala aunque vaya cifrada.
-- Detección por comportamiento de las funciones de escritorio remoto y de captura de pantalla en procesos que no deberían utilizarlas.
-- Indicador físico de cámara activa y política de cubrir el objetivo cuando no se está usando.
-- Bloqueo automático de sesión por inactividad corta, que cierra la ventana de oportunidad del acceso físico.
-- Catálogo cerrado de herramientas de soporte remoto autorizadas y bloqueo de todas las demás, incluidas las legítimas no aprobadas.
+- Controla el tráfico saliente por destino: una conexión persistente a lo desconocido por el 443 es anómala, cifrada o no.
+- Detecta por comportamiento el escritorio remoto y la captura de pantalla en procesos que no los usan.
+- Indicador físico de cámara activa y objetivo tapado cuando no se usa.
+- Bloqueo automático tras inactividad corta: cierra la ventana del acceso físico.
+- Catálogo cerrado de soporte remoto autorizado y bloqueo del resto, legítimo o no.
 
 ---
 
@@ -200,32 +199,32 @@ La detección llega por una vía indirecta: el equipo figura como activo en el r
 
 ### Definición
 
-Malware que modifica su propio código en cada infección o en cada ejecución, de modo que el fichero resultante nunca es idéntico y ninguna firma basada en su contenido lo reconoce dos veces. Lo que cambia es la forma; la función que acaba ejecutando es siempre la misma.
+Cambia su código en cada infección o ejecución: ningún fichero es idéntico y ninguna firma lo reconoce dos veces. Cambia la forma; la función, siempre la misma.
 
 ### Cómo funciona
 
-1. Separación entre motor de mutación y carga útil: la carga permanece estable y el motor produce envolturas distintas para cada copia.
-2. Cifrado de la carga con una clave nueva cada vez, de modo que el contenido cifrado no se repita jamás entre dos ficheros.
-3. Generación de un descifrador diferente: se reordenan instrucciones, se insertan operaciones inútiles y se cambian los registros empleados.
-4. Entrega: cada víctima recibe un fichero con un resumen criptográfico único, que no ha aparecido nunca en ninguna lista de amenazas conocidas.
-5. Ejecución: ya en memoria, el descifrador reconstruye siempre la misma carga, y es justo ahí donde el comportamiento vuelve a ser reconocible.
+1. Separa motor de mutación y carga: la carga es estable y cada copia lleva una envoltura distinta.
+2. Cifra la carga con una clave nueva cada vez: el contenido nunca se repite.
+3. Genera un descifrador distinto: reordena instrucciones, inserta operaciones inútiles y cambia registros.
+4. Cada víctima recibe un fichero con resumen único, ausente en toda lista de amenazas.
+5. En memoria, el descifrador reconstruye siempre la misma carga: ahí el comportamiento delata.
 
 ### Vector de ataque
 
-- Distribución masiva con generación de una copia única por descarga, que anula cualquier lista de resúmenes conocidos.
-- Empaquetadores y ofuscadores comerciales, que añaden una capa nueva a un malware ya existente sin tocar su lógica.
-- Variante metamórfica: reescribe también la propia carga útil, sin necesidad de descifrador, lo que dificulta incluso el análisis en memoria.
-- Generación de variantes bajo demanda en el momento de la entrega, ajustadas al sistema operativo detectado en la víctima.
+- Copia única por descarga: anula las listas de resúmenes conocidos.
+- Empaquetadores y ofuscadores comerciales: nueva capa sin tocar la lógica.
+- Variante metamórfica: reescribe la propia carga sin descifrador y dificulta el análisis en memoria.
+- Variantes bajo demanda en la entrega, ajustadas al sistema operativo de la víctima.
 
 ### Caso ilustrativo — Zaldibar Farmazia Banaketa
 
 *Distribución farmacéutica · 2026*
 
-Entre enero y marzo de 2026, Zaldibar Farmazia Banaketa recibe ciento cuarenta correos con un adjunto que aparenta ser un albarán. El antivirus perimetral no bloquea ninguno: cada fichero tiene un resumen criptográfico distinto y ninguno figura en las listas de amenazas conocidas.
+Entre enero y marzo de 2026, Zaldibar Farmazia Banaketa recibe ciento cuarenta correos con un supuesto albarán. El antivirus perimetral no bloquea ninguno: cada fichero trae un resumen distinto, ausente en las listas conocidas.
 
-Los ciento cuarenta ficheros pesan entre 180 y 210 kilobytes y su estructura interna difiere por completo. Al ejecutarse, sin embargo, hacen exactamente lo mismo y en el mismo orden: consultan un dominio de vida corta, crean una tarea programada con nombre aleatorio y lanzan un proceso hijo desde la carpeta de temporales.
+Pesan entre 180 y 210 kilobytes, con estructura por completo distinta. Al ejecutarse hacen lo mismo en el mismo orden: consultan un dominio de vida corta, crean una tarea programada con nombre aleatorio y lanzan un proceso hijo desde temporales.
 
-La detección llega cuando se deja de comparar ficheros y se empieza a comparar comportamientos. Una regla que alerta ante la secuencia consulta, tarea programada y proceso hijo desde temporales identifica los ciento cuarenta casos, y también los dieciocho que ya se habían ejecutado sin que nadie lo advirtiera.
+La detección llega al comparar comportamientos en vez de ficheros. Una regla sobre esa secuencia identifica los ciento cuarenta casos, más dieciocho ya ejecutados sin que nadie lo advirtiera.
 
 > Escenario ficticio construido para ilustrar el mecanismo. Ni la organización ni los hechos son reales.
 
@@ -233,18 +232,75 @@ La detección llega cuando se deja de comparar ficheros y se empieza a comparar 
 
 | Propiedad | ¿Queda comprometida? | Justificación |
 | --- | :---: | --- |
-| Confidencialidad | Sí | La carga que transporta suele ser un stealer o un troyano, de modo que el robo de información es el desenlace habitual. |
-| Integridad | Sí | Se instala en el sistema y modifica su configuración de arranque para asegurarse la ejecución posterior. |
-| Disponibilidad | No | El polimorfismo es una técnica de evasión, no de daño: por sí mismo no interrumpe ningún servicio. |
-| Autenticación | No | No ataca el control de identidad; lo que busca es no ser reconocido por la defensa, no suplantar a nadie. |
-| No repudio | No | No manipula los registros: su efecto es retrasar la detección, no borrar el rastro de lo que ocurra después. |
+| Confidencialidad | Sí | Suele transportar un stealer o un troyano: el robo de información es el desenlace habitual. |
+| Integridad | Sí | Se instala y modifica el arranque para asegurarse la ejecución posterior. |
+| Disponibilidad | No | Es evasión, no daño: por sí mismo no interrumpe ningún servicio. |
+| Autenticación | No | No ataca la identidad: busca que no lo reconozcan, no suplantar a nadie. |
+| No repudio | No | No manipula registros: retrasa la detección, no borra el rastro posterior. |
 
 ### Defensa
 
-- Detección por comportamiento y no por firma: la secuencia de acciones se mantiene estable aunque el fichero cambie en cada copia.
-- Análisis en entorno aislado antes de la entrega, que observa lo que el fichero hace en lugar del aspecto que tiene.
-- Listas de aplicaciones permitidas, que invierten el problema: en vez de reconocer lo malo, se autoriza únicamente lo conocido.
-- Indicadores de red como criterio complementario: los dominios recién registrados o de vida muy corta delatan a familias enteras.
-- Reducción de la superficie de ejecución: bloqueo de ejecutables en las carpetas de temporales y de descargas, donde ningún software legítimo debería lanzarse.
+- Detecta por comportamiento, no por firma: la secuencia es estable aunque el fichero cambie.
+- Analiza en entorno aislado antes de entregar: observa lo que hace, no su aspecto.
+- Lista aplicaciones permitidas: autoriza solo lo conocido en vez de reconocer lo malo.
+- Usa indicadores de red: los dominios recién registrados o de vida corta delatan familias enteras.
+- Bloquea ejecutables en temporales y descargas: ningún software legítimo se lanza desde ahí.
+
+---
+
+## 5. Descarga al paso (drive-by download)
+
+**Mamuak · El fantasma que no necesita tu clic** · Severidad: Alta
+
+> No haces clic en nada. La visita basta.
+
+### Definición
+
+Ataque fantasma que se ejecuta solo al visitar una web comprometida: la página entrega con su contenido un script que busca vulnerabilidades y, si halla alguna, descarga y ejecuta un malware. No usa señuelos como el phishing ni espera decisiones como el troyano: basta con que el navegador procese la página.
+
+### Cómo funciona
+
+1. El atacante localiza una web vulnerable con rastreadores de fallos conocidos y le inyecta un JavaScript en su HTML, o cuela el script en un iframe, enlace o anuncio.
+2. El usuario visita la página con normalidad, sin descargar nada ni aceptar avisos.
+3. La web devuelve la página con el script incluido: se descarga con el resto del contenido.
+4. El script contacta con un servidor Hop Point y le pide nuevos scripts, que prueban vulnerabilidades del equipo una tras otra hasta que alguna cede.
+5. Si alguna cede, un último script descarga el ejecutable —el malware— desde ese servidor u otro, y lo pone en marcha.
+
+### Vector de ataque
+
+- Webs legítimas comprometidas: el peligro está en una web de confianza, no en un sitio sospechoso.
+- Iframes, enlaces y anuncios maliciosos insertados en la página, invisibles al navegar.
+- Servidor Hop Point: entrega sondeos y el exploit ajustado a cada vulnerabilidad detectada.
+- Servidor de distribución: aloja la carga final y solo la sirve donde el exploit triunfa.
+
+### Caso ilustrativo — Oarso Bidaiak
+
+*Agencia de viajes · 2025*
+
+En febrero de 2025, una empleada de Oarso Bidaiak consulta la agenda cultural de un medio local para una oferta de grupos. La agenda muestra anuncios de una red que días antes aceptó sin revisar uno con un iframe malicioso.
+
+Su navegador, con dos actualizaciones pendientes y un complemento obsoleto, ejecuta el script sin mostrar nada extraño. El script contacta con un Hop Point: su tercer sondeo halla una vulnerabilidad explotable en el complemento.
+
+Minutos después, un stealer del servidor de distribución extrae las contraseñas del navegador, incluidas las del gestor de reservas. Nadie hizo clic en nada: la única acción fue visitar una página de confianza en el momento equivocado.
+
+> Escenario ficticio construido para ilustrar el mecanismo. Ni la organización ni los hechos son reales.
+
+### Impacto sobre las propiedades de la seguridad
+
+| Propiedad | ¿Queda comprometida? | Justificación |
+| --- | :---: | --- |
+| Confidencialidad | Sí | Suele descargar un stealer o un troyano, que extrae credenciales y datos desde dentro. |
+| Integridad | Sí | Instala un ejecutable y modifica la configuración para asegurarse ejecución y persistencia. |
+| Disponibilidad | No | Busca silencio: interrumpir el servicio delataría una infección que necesita tiempo. |
+| Autenticación | Sí | Se ejecuta con los privilegios de la víctima y actúa con su identidad, sin su autorización. |
+| No repudio | No | No borra registros: deja rastro de visita y descarga, donde lo halla la investigación. |
+
+### Defensa
+
+- Actualiza sistema, navegador, complementos y antivirus: cada parche pendiente es una vulnerabilidad del sondeo.
+- Antivirus proactivo con análisis de comportamiento: bloquea el exploit aunque no exista su firma.
+- Activa los bloqueadores antiphishing y antimalware del navegador, con los sitios maliciosos bloqueados.
+- No abras enlaces dudosos ni llegados por spam, y comprueba su destino con el cursor o la barra de estado antes de pulsar.
+- Navega sin privilegios de administrador: el malware no hereda el control total aunque la vulnerabilidad ceda.
 
 ---

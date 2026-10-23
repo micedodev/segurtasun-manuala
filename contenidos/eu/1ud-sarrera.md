@@ -2,13 +2,11 @@
 
 > Ia inoiz bakarka agertzen ez diren zortzi mehatxu
 
-Ia gertakari erreal orotan agertzen diren zortzi mehatxu, konbinazio batean edo bestean. Defendatu aurretik jakin behar da bakoitzak zer bilatzen duen eta nondik sartzen den.
+Ia gertakari erreal orotan konbinatuta agertzen diren zortzi mehatxu: defendatu aurretik jakin behar da bakoitzak zer bilatzen duen eta nondik sartzen den.
 
-Segurtasuna gaizki atera daitekeenaren inbentario zintzo batekin hasten da. Unitate honek ia inoiz bakarka jarduten ez duten zortzi mehatxu biltzen ditu: gertakari erreal bat kate bat izan ohi da, non pieza bakoitzak hurrengoari bidea prestatzen dion.
+Unitate honek kate gisa jasotzen ditu: pieza bakoitzak hurrengoari prestatzen dio bidea. Lehen laurek sarbidea nola lortzen den azaltzen dute; azken laurek, behin barruan zer egiten den harekin. Posta batek kredentzial bat ematen du, eta kredentzial hori ransomwarean amaitzen da aste batzuk geroago.
 
-Ordena ere ez da kasualitatea. Lehen laurek sarbidea nola lortzen den azaltzen dute; hurrengo laurek, behin barruan dagoenean zer egiten den harekin. Iruzurrezko posta batek kredentzial bat entregatzen du, kredentzial horrek troiar bat instalatzeko bidea ematen du, troiarrak atzeko ate bat uzten du eta handik sartzen da ransomwarea hiru aste geroago.
-
-**Ideia nagusia:** Zortzi mehatxu hauetako bakar batek ere ez du akats tekniko ikusgarririk behar. Nahikoa du berrerabilitako kredentzial batekin, jarri gabeko adabaki batekin edo presaka hartutako erabaki batekin.
+**Ideia nagusia:** Batak ere ez du akats ikusgarririk behar: nahikoa da berrerabilitako kredentzial bat, jarri gabeko adabaki bat edo presaka hartutako erabaki bat.
 
 ---
 
@@ -33,32 +31,32 @@ Ordena ere ez da kasualitatea. Lehen laurek sarbidea nola lortzen den azaltzen d
 
 ### Definizioa
 
-Ingeniaritza sozialeko teknika, non erasotzaileak konfiantzazko erakunde baten itxura hartzen duen biktimak kredentzialak, datu pertsonalak edo dirua eman ditzan, edo fitxategi bat exekuta dezan. Ez du softwarearen akatsik ustiatzen: presa, hierarkia eta ohitura ustiatzen ditu.
+Konfiantzazko erakunde baten itxura hartzea, biktimak kredentzialak, datuak edo dirua eman ditzan, edo fitxategi bat exekuta dezan. Ez du softwarea ustiatzen: presa, hierarkia eta ohitura baizik.
 
 ### Nola funtzionatzen duen
 
-1. Azterketa: erasotzaileak izenak, karguak, ohiko hornitzaileak eta posta-helbideen formatua biltzen ditu iturri publikoetatik.
-2. Beita prestatzea: zerbitzu legitimo baten itxura klonatzen da eta benetakoaren antzeko dominio bat erregistratzen da, letra bat aldatuta edo goi-mailako dominio desberdin batekin.
-3. Bidalketa: mezua postaz, SMSz edo korporazioko mezularitzaz iristen da, egiaztatzea eragozten duen presazko aitzakia batekin.
-4. Harrapaketa: biktimak bere kredentzialak sartzen ditu formulario faltsuan; honek erasotzaileari birbidaltzen dizkio eta gero benetako gunera birbideratzen du, susmorik piztu ez dadin.
-5. Berehalako erabilera: kredentzialak minutu gutxitan erabiltzen dira, askotan modu automatizatuan, inork ezer nabaritu aurretik.
+1. Azterketa: izenak, karguak, hornitzaileak eta postaren formatua, iturri publikoetatik bilduta.
+2. Beita: zerbitzu legitimoaren klona, antzeko dominio batean, letra bat aldatuta edo goi-mailako domeinu desberdinarekin.
+3. Bidalketa: posta, SMS edo mezularitza, egiaztatzea eragozten duen presazko aitzakiarekin.
+4. Harrapaketa: biktimak kredentzialak tekleatzen ditu formulario faltsuan; honek birbidali eta benetako gunera birbideratzen du.
+5. Berehalako erabilera: kredentzialak minutu gutxitan ustiatzen dira, askotan automatikoki.
 
 ### Eraso-bektorea
 
-- Posta elektronikoa esteka edo eranskinarekin: alde handiz, oraindik kanal nagusia.
-- SMSa eta berehalako mezularitza, non helmugako helbidea laburtuta agertzen den eta ezin den sakatu aurretik aztertu.
-- Laguntzazko telefono-deia, minutu batzuk lehenago bidalitako mezu idatziari sinesgarritasuna ematen diona.
-- QR kodeak, paperean inprimatuta edo dokumentuetan txertatuta, posta-atariaren esteken analisia erabat saihesten dutenak.
+- Esteka edo eranskina duen posta: alde handiz kanal nagusia.
+- SMSa eta mezularitza, non helbidea laburtuta datorren eta ezin den sakatu aurretik aztertu.
+- Laguntzazko deia, minutu batzuk lehenagoko mezuari sinesgarritasuna ematen diona.
+- Papereko edo dokumentuetako QR kodeak, atariko esteken analisia saihesten dutenak.
 
 ### Adibide argigarria — Nerbioi Logistika, S. L.
 
 *Garraioa eta banaketa · 2024*
 
-2024ko martxoan, Nerbioi Logistikako administrazio sailak telefonia-operadoreak bidali omen duen posta bat jasotzen du. Mezuak faktura bat ordaindu gabe dagoela iragartzen du eta benetakoaren berdin-berdina den atari batera estekatzen du, sei ordu lehenago erregistratutako nerbioi-facturacion.net dominioan ostatatua.
+2024ko martxoan, administrazio sailak telefonia-operadorearen posta bat jasotzen du: ordaindu gabeko faktura bat, benetakoaren berdina den atari baterako estekarekin, sei ordu lehenago erregistratutako nerbioi-facturacion.net dominioan.
 
-Ordainketak kudeatzen dituen pertsonak korporazioko erabiltzailea eta pasahitza sartzen ditu. Formulario faltsuak datuen formatua balioztatzen du, erasotzailearen zerbitzarira birbidaltzen ditu eta benetako atarira birbideratzen du, non saioa itxita ageri den. Biktimak iraungi egin dela ulertzen du, normaltasunez sartzen da berriro eta ez du ezer jakinarazten.
+Ordainketen arduradunak kredentzialak sartzen ditu. Formularioak formatua balioztatzen du, datuak erasotzaileari birbidaltzen dizkio eta benetako atarira birbideratzen du, saioa itxita; iraungi dela pentsatzen du eta ez du abisatzen.
 
-Hogei minutu geroago, kredentzial horiek berak erabiltzen dira korporazioko postan kanpoko helbide batetik sartzeko. Erasotzaileak birbidalketa automatikoko arau bat sortzen du eta hamaika egunez jarraitzen du hornitzaileekiko korrespondentzia irakurtzen, benetako faktura baten kontu-zenbakia aldatzea prestatu arte.
+Hogei minutu geroago, kredentzial horiek kanpotik sartzen dira postara. Erasotzaileak birbidalketa-arau bat sortzen du eta hamaika egunez irakurtzen du hornitzaileekiko korrespondentzia, benetako faktura baten kontua aldatu arte.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -66,19 +64,19 @@ Hogei minutu geroago, kredentzial horiek berak erabiltzen dira korporazioko post
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Harrapatutako kredentzialek postara eta nortasun horri lotutako zerbitzu guztietara ematen dute sarbidea. |
-| Osotasuna | Bai | Kontua hartuta, erasotzaileak postontziko arauak, dokumentuak eta fakturen banku-datuak aldatzen ditu. |
-| Erabilgarritasuna | Ez | Zerbitzuak martxan jarraitzen du: erasotzaileari interesatzen zaio, hain zuzen, ezer ez etetea eta arretarik ez erakartzea. |
-| Autentikazioa | Bai | Sistemak legitimotzat hartzen du ez dena, baliozko kredentzialak aurkezten dituelako. |
-| Ez-arbuiatzea | Bai | Ekintzak biktimaren izenean geratzen dira erregistratuta, eta honek ez du bera izan ez zela frogatzeko modurik. |
+| Konfidentzialtasuna | Bai | Kredentzialek posta eta nortasun horren zerbitzu guztiak irekitzen dituzte. |
+| Osotasuna | Bai | Kontua hartuta, arauak, dokumentuak eta banku-datuak aldatzen ditu. |
+| Erabilgarritasuna | Ez | Zerbitzuak martxan jarraitzen du: arreta ez erakartzea komeni zaio. |
+| Autentikazioa | Bai | Sistemak baliozko kredentzialak dakartzana onartzen du, jabea ez bada ere. |
+| Ez-arbuiatzea | Bai | Dena biktimaren izenean geratzen da erregistratuta, eta honek ez du kontrakoa frogatzeko modurik. |
 
 ### Defentsa
 
-- Phishingaren aurrean erresistentea den bigarren faktorea, FIDO2 gakoak edo passkeyak kasu: ezin zaio dominio legitimoaz besteko bati birbidali, hari lotuta dagoelako.
-- SPF, DKIM eta DMARC argitaratuta eta ukatze-politikarekin, inork ezin dezan postarik bidali dominio propioa ordezkatuz.
-- Kanpotik datorren mezu orotan abisu bisual automatikoa, eta azken hogeita hamar egunetan erregistratutako dominioen koarentena.
-- Banku-datuen edozein aldaketarako banda kanpoko prozedura derrigorrezkoa: dagoeneko ezagutzen den zenbakira deitu, inoiz ez mezuan ageri denera.
-- Aldian behingo simulazioak, non emaitza prestakuntzarako erabiltzen den eta ez zigortzeko; helburua azkar jakinaraztea da, eta ez inor inoiz ez erortzea.
+- Phishingaren aurkako bigarren faktorea (FIDO2 gakoak, passkeyak): domeinu legitimoari lotua, ez da birbideratzen.
+- SPF, DKIM eta DMARC, ukatze-politikarekin, domeinu propioan.
+- Abisu bisuala kanpoko mezu orotan, eta koarentena erregistratu berriko domeinuentzat.
+- Banku-aldaketa oro bandaz kanpo egiaztatzea, dagoeneko ezaguna den zenbaki batean.
+- Aldian behingo simulazioak prestatzeko, ez zigortzeko: garrantzitsuena azkar abisatzea da.
 
 ---
 
@@ -90,32 +88,32 @@ Hogei minutu geroago, kredentzial horiek berak erabiltzen dira korporazioko post
 
 ### Definizioa
 
-Hirugarren bat komunikazio baten bidean kokatu eta hura birbidaltzen duen erasoa; bide horretan irakurri eta alda dezake, ez igorleak ez hartzaileak nabaritu gabe. Biktimak ez du konexioa galtzen: espero zuen zerbitzu bera jasotzen du, beste norbaiten bidez besterik ez.
+Hirugarren bat komunikazio baten bidean sartu eta hura birbidaltzen du, irakurriz edo aldatuz, inork nabaritu gabe. Biktimak espero zuen zerbitzua jasotzen du, baina erasotzailearen bidez.
 
 ### Nola funtzionatzen duen
 
-1. Kokatzea: erasotzaileak trafikoaren bidean egotea lortzen du, legitimoaren izen bera duen haririk gabeko sarbide-puntu bat jarriz edo segmentuko ARP taula pozoituz.
-2. Atzematea: biktimaren trafiko guztia bere ekipotik igarotzen da benetako helmugara iritsi aurretik.
-3. Zifratzea ahultzea: konexioa HTTP bada, argitan irakurtzen da; HTTPS bada, zifratu gabeko bertsio bat behartzen saiatzen da edo ziurtagiri propio bat aurkezten du.
-4. Birbidaltzea: erasotzaileak eskaera benetako zerbitzariari birbidaltzen dio eta erantzuna biktimari itzultzen dio, esperientzia normaletik bereizi ezina izan dadin.
-5. Ustiatzea: saioko cookieak, kredentzialak edo kontu-zenbakiak ateratzen ditu, eta nahi izanez gero edukia bidean aldatzen du.
+1. Kokatzea: izen bikia duen sarbide-puntua edo segmentuan ARP taula pozoitua.
+2. Atzematea: trafiko guztia erasotzailearen ekipolitik igarotzen da benetako helmugara iritsi aurretik.
+3. Ahultzea: HTTP argitan irakurtzen da; HTTPSn testu laua behartzen da edo ziurtagiri propioa aurkezten da.
+4. Birbidaltzea: eskaera eta erantzuna birbidaltzen ditu, denak normala dirudien.
+5. Ustiatzea: cookieak, kredentzialak edo kontuak lapurtzen ditu, eta edukia bidean alda dezake.
 
 ### Eraso-bektorea
 
-- Haririk gabeko sare irekiak edo pasahitz partekatua dutenak, non edonork argitara dezakeen izen bikia duen sare bat.
-- ARP pozoitzea kommutadore bidezko tokiko sare batean, segmentuko trafikoa erasotzailearen ekipora birbideratzen duena.
-- DNS edo DHCP zerbitzariaren ordezkapena, biktimari kontrolpeko atebide edo ebazle bat ematen diona.
-- Arriskuan dauden tarteko gailuak: eguneratu gabeko router bat bitartekari iraunkor eta isil bihur daiteke.
+- Sare irekiak edo pasahitz partekatukoak, non edonork argitaratzen duen sare biki bat.
+- Tokiko sareko ARP pozoitzea, trafikoa erasotzailearengana desbideratzen duena.
+- Ordezkatutako DNS edo DHCP, kontrolpeko atebidea ematen duena.
+- Eguneratu gabeko routerrak, bitartekari iraunkor eta isil bihurtuak.
 
 ### Adibide argigarria — Itsasargi Aholkularitza
 
 *Ingeniaritza aholkularitza · 2025*
 
-2025eko irailean egindako kongresu batean, Itsasargi Aholkularitzako aholkulari batek bere eramangarria Kongresua_Wifi_Librea izeneko sare ireki batera konektatzen du. Eraikineko sare legitimoa KongresuaWiFi zen; lehen ilaratik seinale onena ematen duena erasotzailearena da.
+2025eko iraileko kongresu batean, aholkulari batek eramangarria Kongresua_Wifi_Librea sare irekira konektatzen du, lehen ilarako seinale onenekora; legitimoa KongresuaWiFi zen.
 
-Sartzaileak atebide gisa jokatzen du. Aholkulariak enpresako dokumentu-kudeatzailea irekitzen duenean, sistemaren konfiantzazko biltegian ez dagoen agintaritza batek emandako ziurtagiria jasotzen du. Nabigatzaileak abisu argia erakusten du; aholkulariak, proiektatzeko presaka, onartu egiten du.
+Dokumentu-kudeatzailea irekitzean, agintaritza ezezagunaren ziurtagiria jasotzen du. Nabigatzaileak abisatzen du; proiektatzeko presaka, onartu egiten du.
 
-Konexioa dagoeneko beraren bidez ezarrita, erasotzaileak dokumentu-kudeatzailearen saioko cookiea lortzen du. Ez du pasahitzik behar: cookiea bere ekipotik berrerabiltzen du eta arratsalde horretan bertan lehian dauden hiru proiekturen planoak deskargatzen ditu.
+Erasotzaileak saioko cookiea harrapatu eta, pasahitzik gabe, lehian zeuden hiru proiekturen planoak deskargatzen ditu arratsalde horretan.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -123,19 +121,19 @@ Konexioa dagoeneko beraren bidez ezarrita, erasotzaileak dokumentu-kudeatzailear
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Zifratu gabeko trafiko guztia, eta indarrez onartutako ziurtagiri batekin zifratutakoa, irakurgarri geratzen zaio bitartekariari. |
-| Osotasuna | Bai | Erasotzaileak erantzuna alda dezake entregatu aurretik: kontu-zenbaki bat aldatu edo edukia orrialdean txertatu. |
-| Erabilgarritasuna | Ez | Konexioa etetea erasoa salatzea litzateke; bitartekariari komeni zaio dena normaltasunez ibiltzea. |
-| Autentikazioa | Bai | Biktimak zerbitzari legitimoaren aurrean autentikatzen dela uste du, eta erasotzailearen ekipoaren aurrean egiten du. |
-| Ez-arbuiatzea | Bai | Eskaerak biktimaren baliozko saioarekin iristen dira zerbitzarira, eta hura ageri da gertatzen den guztiaren egile. |
+| Konfidentzialtasuna | Bai | Zifratu gabeko trafikoa —eta inposatutako ziurtagiriaz zifratutakoa— irakurgarri geratzen da. |
+| Osotasuna | Bai | Erantzunak alda ditzake: kontu bat aldatu edo edukia txertatu. |
+| Erabilgarritasuna | Ez | Konexioa eteteak salatuko luke erasoa; denak normala dirudi behar du. |
+| Autentikazioa | Bai | Biktima erasotzailearen aurrean autentikatzen da, zerbitzaria dela uste duelarik. |
+| Ez-arbuiatzea | Bai | Eskaerak biktimaren baliozko saioarekin iristen dira, suposatutako egilearekin. |
 
 ### Defentsa
 
-- HTTPS derrigorrezkoa HSTSrekin eta aurrekargarekin, nabigatzaileak zifratu gabeko bertsioa erabiltzeari uko egin diezaion, hala adierazita ere.
-- Korporazioko VPNa beti aktibo bulegotik ateratzen diren ekipoetan: tunel zifratuak tokiko sareko bitartekaria neutralizatzen du.
-- Kudeatutako ekipoetan ziurtagiri-abisu baten aurrean jarraitzeko aukera politikaz kentzea.
-- ARPren ikuskapen dinamikoa eta DHCP snooping barne sareko kommutadoreetan, baimendu gabeko erantzunak baztertzen dituztenak.
-- Bizitza laburreko saioak eta Secure, HttpOnly eta SameSite markatutako cookieak, lapurreta baten berrerabilera-tartea murrizteko.
+- HTTPS HSTSrekin eta aurrekargarekin: nabigatzaileak zifratu gabeko bertsioa ukatzen du, hala adierazita ere.
+- Korporazioko VPNa beti aktibo bulegotik kanpo.
+- Ziurtagiri-abisuen aurrean jarraitzea politikaz blokeatzea kudeatutako ekipoetan.
+- ARP ikuskapen dinamikoa eta DHCP snooping barne kommutadoreetan.
+- Saio laburrak eta Secure, HttpOnly eta SameSite cookieak.
 
 ---
 
@@ -147,32 +145,32 @@ Konexioa dagoeneko beraren bidez ezarrita, erasotzaileak dokumentu-kudeatzailear
 
 ### Definizioa
 
-Itxuraz erabilgarria den funtzionalitate bat eskaintzen duen programa, ezkutuan karga maltzur bat ere exekutatzen duena. Harrarekiko aldea erabakigarria da: troiarra ez da bere kabuz hedatzen, norbaitek exekutatzea erabaki behar du, eta bere ingeniaritza guztia erabaki hori lortzera dago bideratuta.
+Itxuraz baliagarria den programa, karga maltzur ezkutua daramana. Ez da bere kabuz hedatzen: norbaitek exekutatu behar du, eta bere ingeniaritza guztia erabaki horren bila dabil.
 
 ### Nola funtzionatzen duen
 
-1. Paketatzea: kode maltzurra agintzen duena benetan egiten duen programa erreal bati eransten zaio, biktimak egiaztatzen badu ezerk huts egin ez dezan.
-2. Banaketa: deskarga-gune batean argitaratzen da, eranskin gisa bidaltzen da edo fabrikatzailearen webgune ofiziala imitatzen duen bilatzaile-iragarki batean kokatzen da.
-3. Exekuzioa: biktimak borondatez instalatzen du, sarritan administratzaile-baimenak emanez, instalatzaileak erabateko normaltasunez eskatzen dituelako.
-4. Iraunkortasuna: karga deskargen karpetatik kanpo kopiatzen da eta sistemarekin batera abiarazteko erregistratzen da, izen sinesgarri batekin.
-5. Aktibazioa: agindu eta kontrol zerbitzariarekin harremanetan jartzen da eta aginduen zain geratzen da, edo zuzenean bere funtzioa zabaltzen du: espioitza, lapurreta edo urruneko sarbidea.
+1. Paketatzea: kode maltzurra agintzen duena betetzen duen programa errealarekin bidaiatzen du.
+2. Banaketa: deskargak, eranskinak edo web ofiziala imitatzen duten iragarkiak.
+3. Exekuzioa: biktimak instalatu eta administratzaile-baimenak ematen ditu susmorik gabe.
+4. Iraunkortasuna: Deskargetatik kanpo kopiatu eta abioan erregistratzen da izen sinesgarriarekin.
+5. Aktibazioa: agindu eta kontrol zerbitzariarekin harremanetan jartzen da, edo espioitza, lapurreta edo urruneko sarbidea zabaltzen du.
 
 ### Eraso-bektorea
 
-- Doako softwarearen instalatzaileak edo biltegi ez-ofizialetatik deskargatutako bertsio eramangarriak.
-- Benetako emaitzaren gainean kokatutako bilatzaile-iragarkiak, fabrikatzailearen webgunearen kopia batera daramatenak.
-- Makroak dituzten ofimatikako eranskinak, non dokumentua benetakoa den eta makroa karga.
-- Nabigatzailearen edo dokumentu-irakurgailuaren eguneratze faltsuak, arriskuan dagoen web batetik erakutsiak.
+- Biltegi ez-ofizialetako instalatzaile doako edo eramangarriak.
+- Benetako emaitzaren gaineko iragarkiak, fabrikatzailearen web klonatu batera daramatenak.
+- Makrodun dokumentuak: fitxategia benetakoa da, makroa karga.
+- Arriskuan dauden webetako nabigatzaile- edo irakurgailu-eguneratze faltsuak.
 
 ### Adibide argigarria — Goierri Elektronika
 
 *Osagaien fabrikazioa · 2023*
 
-2023ko azaroan, Goierri Elektronikako teknikari batek planoak bi formaturen artean bihurtzeko tresna bat behar du. Programaren izena bilatu eta lehen emaitza deskargatzen du: goierri-cadtools.com helbidera daraman iragarki bat, fabrikatzailearen webgunearen kopia sinesgarria.
+2023ko azaroan, teknikari batek planoak formatuz aldatzeko tresna behar du eta lehen emaitza deskargatzen du: goierri-cadtools.com helbiderako iragarki bat, fabrikatzailearen webgunearen kopia.
 
-Instalatzaileak funtzionatu egiten du. Tresnak planoak behar bezala bihurtzen ditu eta teknikariak astez aste erabiltzen du inolako gorabeherarik gabe. Harekin batera bigarren exekutagarri bat instalatu da erabiltzailearen profilean, eguneratze-zerbitzu baten izenarekin programatutako zeregin gisa erregistratuta.
+Tresnak funtzionatzen du eta astez erabiltzen da gorabeherarik gabe. Harekin bigarren exekutagarri bat instalatu zen, eguneratze-zerbitzu izenarekin programatutako zeregin gisa.
 
-Bigarren osagai horrek ez du ezer ikusgarririk egiten hemezortzi egunez. Epe hori igarota, 443 atakatik irteerako konexio bat irekitzen du, ohiko web trafikotik bereizi ezina, eta zain geratzen da. Sistemen sailak zeregin programatuen azterketa batek instalatutako produkturik bati ere ez dagokion sarrera bat aurkitzen duenean bakarrik detektatzen du.
+Hemezortzi egun isilik eman ondoren, 443 atakako irteerako konexioa irekitzen du, web trafikotik bereizi ezina. Zeregin programatuak aztertzean bakarrik detektatzen da, produktu instalaturik gabeko sarrera bat agertzean.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -180,19 +178,19 @@ Bigarren osagai horrek ez du ezer ikusgarririk egiten hemezortzi egunez. Epe hor
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Karga erabiltzailearen baimenekin exekutatzen da eta hark iristen duen guztira iristen da, zehazki. |
-| Osotasuna | Bai | Kutsatutako ekipoko fitxategiak, konfigurazioa eta beste programak alda ditzake, mugarik gabe. |
-| Erabilgarritasuna | Ez | Ondo eraikitako troiar batek ez du errendimendua hondatzen: arreta erakartzeak bere bizitza baliagarria laburtuko luke. |
-| Autentikazioa | Bai | Dagoeneko autentikatuta dagoen saio baten barruan jarduten du, beraz erabiltzailearen nortasuna heredatzen du haren kredentzialik behar izan gabe. |
-| Ez-arbuiatzea | Bai | Erregistroek agindu ez zituen eta ezagutu ere ez zituen ekintzak egozten dizkiote erabiltzaile legitimoari. |
+| Konfidentzialtasuna | Bai | Erabiltzailearen baimenekin dabil eta hark iristen duen guztira iristen da. |
+| Osotasuna | Bai | Fitxategiak, konfigurazioa eta programak aldatzen ditu mugarik gabe. |
+| Erabilgarritasuna | Ez | Ez du errendimendua hondatzen: arretak bere bizitza laburtuko luke. |
+| Autentikazioa | Bai | Autentikatutako saioaren nortasuna heredatzen du, kredentzialik gabe. |
+| Ez-arbuiatzea | Bai | Erregistroek erabiltzaileari egozten dizkiote agindu ez zituen ekintzak. |
 
 ### Defentsa
 
-- Softwarea korporazioko biltegitik edo fabrikatzailearen webgune ofizialetik bakarrik instalatzea, paketearen sinadura digitala egiaztatuta.
-- Eguneroko erabilerako kontuei tokiko administratzaile-baimenak kentzea.
-- Ekipo kritikoetan baimendutako aplikazioen zerrendak: onartuta ez dagoena ez da exekutatzen.
-- Internetetik datozen dokumentuen makroak lehenetsita blokeatzea, klik bakar batez gaitzeko aukerarik gabe.
-- Abiarazte-mekanismoen aldizkako azterketa: zeregin programatuak, zerbitzuak eta exekuzio automatikoko gakoak.
+- Korporazioko biltegitik edo web ofizialetik bakarrik instalatzea, sinadura egiaztatuta.
+- Eguneroko kontuetan tokiko administratzaile-baimenik ez.
+- Baimendutako aplikazioen zerrenda ekipo kritikoetan.
+- Interneteko makroak lehenetsita blokeatuta, klik bidez gaitzeko aukerarik gabe.
+- Abioaren aldizkako azterketa: zereginak, zerbitzuak eta autoexekuzio-gakoak.
 
 ---
 
@@ -204,33 +202,33 @@ Bigarren osagai horrek ez du ezer ikusgarririk egiten hemezortzi egunez. Epe hor
 
 ### Definizioa
 
-Aurreikusitako autentikazio-kontrolak saihestuz sistema batean sartzeko bidea ematen duen mekanismoa. Erasotzaile batek arrisku baten ondoren uzten duen aztarna izan daiteke, edo fabrikatzaileak berak utzitako sarbide-bide bat. Bere balioa ez dago hasierako sarreran, itzulera bermatzean baizik.
+Aurreikusitako autentikazioa saihesten duen sarbidea: aurreko arrisku baten aztarna edo fabrikatzailearen bidea. Bere balioa ez da sartzea, itzultzea baizik.
 
 ### Nola funtzionatzen duen
 
-1. Hasierako sarbidea lortzea edozein bidetatik: troiar bat, lapurtutako kredentzial bat edo ustiatutako ahultasun bat.
-2. Itzultzeko mekanismoa instalatzea: gehitutako kontu bat, txertatutako gako publiko bat, gutxi zaintzen den ataka batean entzuten duen zerbitzu bat edo kanporako konexioa abiarazten duen zeregin bat.
-3. Kamuflatzea: izen sinesgarri bat ematen zaio eta sistemako elementu legitimoen artean kokatzen da, inork bi aldiz begiratzen ez duen lekuan.
-4. Egiaztatzea: erasotzaileak bideak funtzionatzen duela konprobatzen du, ekipoa jatorrizko sarrera-tresnatik garbituta dagoenean.
-5. Geroko erabilera: atea hilabetez egon daiteke geldirik, berriro sartzea interesatu arte.
+1. Hasierako sarbidea edozein bidetatik: troiarra, lapurtutako kredentziala edo ahultasuna.
+2. Itzulera-mekanismoa: gehitutako kontua, gako publikoa, ezkutuko zerbitzua edo irteerako konexiodun zeregina.
+3. Kamuflajea: izen sinesgarria elementu legitimoen artean, inork bi aldiz begiratzen ez duen lekuan.
+4. Egiaztatzea: erasotzaileak bidea frogatzen du, sarrera-tresnarik gabe jada.
+5. Geroko erabilera: hilabetez lo egin dezake, itzultzea interesatu arte.
 
 ### Eraso-bektorea
 
-- Zerbitzu-kontu baten baimendutako gakoen fitxategian gehitutako SSH gako publikoak.
-- Sistemako kontu legitimo baten izenaren oso antzeko izena duten erabiltzaile-kontu berriak.
-- Idazteko baimenak gaizki doituta dituen web zerbitzari baten direktorio batera igotako webshell bat.
-- Fabrikatzailearen administrazio-interfazeak, inoiz aldatu ez ziren lehenetsitako kredentzialekin.
-- Kanporako aldizkako alderantzizko konexioa, sarrerako atakarik ireki beharra saihesten duena.
+- Zerbitzu-kontuetan gehitutako SSH gakoak.
+- Legitimo baten ia izen bereko kontu berriak.
+- Baimen gaizkiko web direktorio batera igotako webshella.
+- Fabrikatzailearen lehenetsitako kredentzialak, inoiz aldatu gabeak.
+- Aldizkako alderantzizko konexioa, sarrerako atakarik ireki gabe.
 
 ### Adibide argigarria — Harrigain Ingeniaritza
 
 *Ingeniaritza zibila · 2024*
 
-Harrigain Ingeniaritzako sistemen taldeak 2024ko ekainean troiar bat detektatzen du fitxategi-zerbitzari batean, ezabatu egiten du eta gertakaria itxitzat ematen du. Erasotzailearen tresna diskotik desagertzen da eta ondorengo azterketak garbi ateratzen dira.
+2024ko ekainean, sistemen taldeak troiar bat detektatzen du fitxategi-zerbitzari batean, ezabatu eta gertakaria ixten du. Ondorengo azterketak garbi ateratzen dira.
 
-Bost hilabete geroago, konfigurazio-auditoria batek zerbitzari horretan bertan bigarren gako publiko bat aurkitzen du, babeskopien zerbitzu-konturako baimenduta. Etxeko inork ez zuen sortu. Garbiketa baino lau egun lehenago gehitu zen.
+Bost hilabete geroago, auditoria batek bigarren gako publiko bat aurkitzen du babeskopien kontuan, garbiketa baino lau egun lehenago kanpotarren batek gehitua.
 
-Bi data horien artean, erasotzailea hamaika aldiz sartu zen. Bakar batek ere ez zuen alertarik sortu: sarbidea kontu legitimo batekin gertatzen zen, kontu horrek egunero erabiltzen duen atakatik eta babeskopien ordu-tartearen barruan.
+Bi daten artean hamaika sarrera izan ziren, alerta bakar bat gabe: kontu legitimoa, ohiko ataka eta kopien ordutegia.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -238,19 +236,19 @@ Bi data horien artean, erasotzailea hamaika aldiz sartu zen. Bakar batek ere ez 
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Sarbidea sistemak kudeatzen dituen datuen gaineko benetako pribilegioekin lortzen da. |
-| Osotasuna | Bai | Nahi duenean itzul daitekeenak edozer alda dezake, auditoria-erregistroak barne. |
-| Erabilgarritasuna | Ez | Atzeko ateak ez du zerbitzua gelditu nahi; zutik jarraitzea behar du baliagarria izaten jarraitzeko. |
-| Autentikazioa | Bai | Bere definizioa bera da diseinuak aurreikusitako autentikazio-kontrola gainditu gabe sartzea. |
-| Ez-arbuiatzea | Bai | Kontu legitimoak erabiltzean, trazabilitateak ezertan parte hartu ez duen erabiltzaile bat seinalatzen du. |
+| Konfidentzialtasuna | Bai | Sarbideak sistemaren datuen gaineko benetako pribilegioak erabiltzen ditu. |
+| Osotasuna | Bai | Nahi duenean itzultzen denak auditoria-erregistroak ere alda ditzake. |
+| Erabilgarritasuna | Ez | Zutik behar du zerbitzua, baliagarria izaten jarraitzeko. |
+| Autentikazioa | Bai | Definizioz sartzen da autentikazio-kontrola gainditu gabe. |
+| Ez-arbuiatzea | Bai | Trazabilitateak parte hartu ez zuen erabiltzailea seinalatzen du. |
 
 ### Defentsa
 
-- Edozein arriskuren ondoren, iraunkortasuna badagoela suposatzea: kontuak, baimendutako gakoak, zeregin programatuak eta zerbitzuak aztertu ekipoa berriro sartu aurretik.
-- Sistema irudi ezagun batetik berreraikitzea, garbiketa selektiboa egin beharrean, bideragarria den bakoitzean.
-- Kontuen eta gako publikoen inbentario kontrolatua, erregistratu gabeko edozein altaren aurrean alerta automatikoa jotzen duena.
-- Irteerako trafikoaren zaintza, eta ez sarrerakoarena bakarrik: alderantzizko konexio bat kanpora begiratuta bakarrik ikusten da.
-- Edozein ekipo altan ematean lehenetsitako kredentzial guztiak derrigorrez aldatzea, sareko hardwarea barne.
+- Arrisku baten ondoren, kontuak, gakoak, zereginak eta zerbitzuak aztertzea ekipoa itzuli aurretik.
+- Irudi ezagunetik berreraikitzea, garbitu beharrean, bideragarria denean.
+- Kontu eta gakoen inbentarioa, erregistratu gabeko alten alerta automatikoarekin.
+- Irteerako trafikoa zaintzea: alderantzizko konexioa kanpora begiratuta bakarrik ikusten da.
+- Alta orotan lehenetsitako kredentzial guztiak aldatzea.
 
 ---
 
@@ -262,32 +260,32 @@ Bi data horien artean, erasotzailea hamaika aldiz sartu zen. Bakar batek ere ez 
 
 ### Definizioa
 
-Sistema baten edo bere erabiltzailearen jarduerari buruzko informazioa biltzen duen eta hirugarren bati baimen informaturik gabe helarazten dion softwarea. Nabigazio-ohiturak profilatzen dituzten moduluetatik hasi eta teklakatuak erregistratu eta pantaila kapturatzen duten zaintza-tresnetaraino iristen da.
+Sistemaren edo erabiltzailearen jarduera bildu eta hirugarren bati baimenik gabe helarazten dion softwarea: nabigazio-ohituretatik teklakatuetara eta pantaila-kapturetara.
 
 ### Nola funtzionatzen duen
 
-1. Instalazioa: beste programa baten osagai gehigarri gisa, nabigatzaile-luzapen gisa edo troiar baten bidez iristen da.
-2. Bilketa: behatzeko eskatu zaiona erregistratzen du, bisitatutako helbideetatik eta irekitako aplikazioetatik hasi eta teklakatuetaraino eta pantaila-kapturetaraino.
-3. Tokiko biltegiratzea: datuak fitxategi zifratu edo kodetu batean metatzen ditu, azaleko azterketa batek ezer ager ez dezan.
-4. Exfiltrazioa: sortaka bidaltzen ditu tarte zabaletan, HTTPS edo DNS bezalako ohiko protokoloak erabiliz trafiko normalarekin nahasteko.
-5. Iraunkortasuna: eguneratu eta abioan berriro erregistratzen da. Bere helburua ez da jardutea, irautea baizik.
+1. Instalazioa: beste programa baten gehigarria, nabigatzaile-luzapena edo troiarra.
+2. Bilketa: behatutakoa erregistratzen du, bisitatutako webetatik teklakatuetara eta pantailetara.
+3. Biltegiratzea: datuak zifratuta metatzen ditu, azaleko azterketa gainditzeko.
+4. Exfiltrazioa: sortaka bidaltzen ditu, HTTPS edo DNS bidez, trafiko normalarekin nahastuta.
+5. Iraunkortasuna: eguneratu eta abioan irauten du; helburua irautea da, ez jardutea.
 
 ### Eraso-bektorea
 
-- Bisitatutako orrialde guztien edukia irakurri eta aldatzeko baimena duten nabigatzaile-luzapenak.
-- Aukerak dagoeneko markatuta dituen instalatzaile batean onartzen diren hirugarrenen osagaiak dakartzaten doako programak.
-- Iragartzen duten funtziorako neurriz kanpoko baimenak eskatzen dituzten aplikazio mugikorrak.
-- Ekiporako sarbide fisikoarekin egindako instalazioa, pertsona jakin bati zuzendutako zaintza-egoeretan.
+- Orrialde guztiak irakurri eta aldatzen dituzten luzapenak.
+- Aukera aurre-markatuekin onartutako osagaiak dakartzaten doako programak.
+- Funtziorako neurriz kanpoko baimenak eskatzen dituzten mugikor-aplikazioak.
+- Sarbide fisikoarekin instalatzea, pertsona jakinaren zaintzan.
 
 ### Adibide argigarria — Ortzadar Hezkuntza
 
 *Arautua den prestakuntza · 2025*
 
-2025eko urtarrilean, Ortzadar Hezkuntzako koordinatzaile akademikoak matrikula-plataformako formularioen barruan ortografia zuzentzea agintzen duen nabigatzaile-luzapen bat instalatzen du. Luzapenak iragartzen duena betetzen du eta balorazio onak ditu.
+2025eko urtarrilean, koordinatzaile akademikoak matrikula-plataforman ortografia zuzentzen duen luzapen bat instalatzen du. Funtzionatzen du eta balorazio onak ditu.
 
-Eskatzen dituen baimenen artean bisitatutako gune guztien edukia irakurri eta aldatzea dago: hain zuzen ere edozein zuzentzailek behar dituenak, beraz ezer ez da nabarmentzen instalazioan. Hiru aste geroago, eguneratze automatiko batek formularioen edukia bidali aurretik kopiatzen duen modulu bat gehitzen du.
+Gune guztiak irakurri eta aldatzea eskatzen du, zuzentzaile batean normala, eta ezer ez da nabarmentzen. Hiru aste geroago, eguneratze batek formularioak bidali aurretik kopiatzen dituen modulua gehitzen du.
 
-Bi hilabetez, matrikulatutako pertsonen datu pertsonalak ortografia egiaztatzeko eskaera legitimoekin batera atera ziren. Trafikoa luzapenaren fabrikatzailearen beraren dominio batera zuzentzen zen eta ez zuen inoiz saio bakoitzeko kilobyte gutxi batzuk gainditu, exfiltrazio-alerten atalasetik oso azpitik.
+Bi hilabetez, matrikulatuen datuak eskaera legitimoekin batera ateratzen dira luzapenaren fabrikatzailearen domeinura, saio bakoitzeko kilobyte gutxitan, alerten atalasetik oso azpitik.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -295,19 +293,19 @@ Bi hilabetez, matrikulatutako pertsonen datu pertsonalak ortografia egiaztatzeko
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Hori da, hain zuzen, programaren helburua: ezagutzea ez dagokion informazioa ateratzea. |
-| Osotasuna | Ez | Behatzaile tipikoak ez ditu datuak aldatzen; aldatzeak harrapatua izateko arriskua asko handituko luke. |
-| Erabilgarritasuna | Ez | Baliabide gutxi kontsumitzeko eta inolako hondatze nabarmenik ez eragiteko diseinatzen da. |
-| Autentikazioa | Bai | Teklakatuak erregistratzen dituzten moduluek kredentzialak harrapatzen dituzte, eta haiekin erabiltzailearen nortasuna hirugarren baten eskuetan geratzen da. |
-| Ez-arbuiatzea | Ez | Berez ez du biktimari egozteko moduko ekintzarik sortzen; arrisku hori lapurtutako kredentzialak gero erabiltzean agertzen da. |
+| Konfidentzialtasuna | Bai | Hori da programaren helburua: ez dagokion informazioa ateratzea. |
+| Osotasuna | Ez | Behatzaile tipikoak ez ditu datuak aldatzen: salatuko luke. |
+| Erabilgarritasuna | Ez | Baliabide gutxi kontsumitzen du eta ez da nabaritzen. |
+| Autentikazioa | Bai | Teklakatuen erregistroak kredentzialak harrapatzen ditu, eta haiekin nortasuna. |
+| Ez-arbuiatzea | Ez | Ez du ekintza egozgarirrik sortzen; arriskua kredentzialak erabiltzean dator. |
 
 ### Defentsa
 
-- Onartutako luzapenen katalogo itxia eta beste edozein instalatzeko aukera politikaz blokeatzea.
-- Eguneratze bakoitzean eskatzen diren baimenak berrikustea, eta ez hasierako instalazioan bakarrik.
-- Irteerako trafikoa helmugaren eta erregulartasunaren arabera zaintzea, eskaera txiki eta etengabeei arreta jarrita.
-- Diskoaren zifratzea eta saioaren blokeo automatikoa, sarbide fisiko laburrarekin instalatzea eragozten dutenak.
-- Instalatutako softwarearen aldizkako azterketa, onartutako inbentarioarekin alderatuta.
+- Onartutako luzapenen katalogo itxia; gainerakoak politikaz blokeatuta.
+- Baimenak eguneratze orotan berrikustea, ez instalazioan bakarrik.
+- Irteerako trafiko txiki eta etengabea zaintzea, helburuaren eta erregulartasunaren arabera.
+- Diskoaren zifratzea eta saio-blokeo automatikoa, sarbide fisiko laburraren aurka.
+- Instalatutako softwarea onartutako inbentarioarekin alderatzea.
 
 ---
 
@@ -319,32 +317,32 @@ Bi hilabetez, matrikulatutako pertsonen datu pertsonalak ortografia egiaztatzeko
 
 ### Definizioa
 
-Ekipo batean gordetako sekretuak —nabigatzailean gordetako pasahitzak, saioko cookieak, aplikazioen tokenak eta konfigurazio-fitxategiak— aurkitu eta ateratzen espezializatutako malwarea, guztia eragiketa bakar batean bidaltzen duena. Spywarearekiko aldea garbia da: honek ez du irauteko asmorik, exekuzio azkar bakar baterako dago optimizatuta.
+Ekipoaren sekretuak —pasahitzak, cookieak, tokenak eta konfigurazioak— aurkitu eta eragiketa bakarrean bidaltzen dituen malwarea. Ez du geratu nahi: exekuzio azkar bakarra.
 
 ### Nola funtzionatzen duen
 
-1. Exekuzio bakarra: normalean troiar gisa iristen da eta behin bakarrik abiarazten da, ireki duen erabiltzailearen baimenekin.
-2. Inbentarioa: nabigatzaileen, posta-bezeroen, FTP bezeroen eta mezularitza-aplikazioen bide ezagunak zeharkatzen ditu.
-3. Tokiko deszifratzea: sistema eragilearen gako propioak erabiltzen ditu, erabiltzailearen saiotik eskuragarri daudenak, gordetako pasahitzak deszifratzeko.
-4. Paketatzea: multzoa konprimitzen du eta ekipoaren metadatuak eta pantaila-kaptura bat gehitzen ditu, harrapakina baloratzen laguntzen dutenak.
-5. Bidaltzea eta ezabatzea: paketea erasotzailearen kanal batera igortzen du eta, kasu askotan, diskotik ezabatzen da.
+1. Exekuzio bakarra: troiar gisa iritsi eta behin abiarazten da, erabiltzailearen baimenekin.
+2. Inbentarioa: nabigatzaileen, postaren, FTPren eta mezularitzaren bide ezagunak zeharkatzen ditu.
+3. Deszifratzea: saiotik eskuragarri dauden sistemaren gakoekin irekitzen ditu pasahitzak.
+4. Paketatzea: harrapakina konprimitzen du, metadatuekin eta pantaila-kapturarekin.
+5. Bidaltzea eta ezabatzea: paketea igorri eta sarritan diskotik ezabatzen da.
 
 ### Eraso-bektorea
 
 - Ordainpeko programen bertsio aldatu gisa banatutako exekutagarriak.
-- Pasahitzarekin babestutako eranskin konprimituak, posta-atarian azterketa automatikoa eragozten dutenak.
-- Liburutegi legitimoen izenen oso antzeko izenekin kode-biltegietan argitaratutako paketeak.
-- Doako tresna bat eskaintzen duten bideo eta tutorialen deskribapenean kokatutako deskarga-estekak.
+- Pasahitz babestudun konprimituak, atariak aztertu ezin dituenak.
+- Liburutegi legitimoen ia izen bereko paketeak kode-biltegietan.
+- Doako tresna eskaintzen duten bideo eta tutorialetako deskarga-estekak.
 
 ### Adibide argigarria — Zubiarte Finantza
 
 *Finantza aholkularitza · 2025*
 
-Zubiarte Finantzako praktiketako pertsona batek 2025eko apirilean pasahitzarekin babestutako fitxategi konprimitu bat deskargatzen du; postaren arabera, balantze-txantiloi bat dauka barruan. Pasahitza mezuaren gorputzean idatzita dator, eta horrek atariak fitxategia ireki eta aztertzea eragozten du.
+2025eko apirilean, praktiketako pertsona batek pasahitz babestudun konprimitu bat deskargatzen du, balantze-txantiloia omen daramana; pasahitza mezuaren gorputzean dator, eta atariak ezin du ireki.
 
-Exekutagarria abiarazi eta lau segundo baino gutxiagotan amaitzen da. Denbora horretan instalatutako bi nabigatzaileen profilak zeharkatu ditu, gordetako ehun eta hamalau pasahitz deszifratu ditu eta saio aktiboen cookieak kopiatu ditu, korporazioko dokumentu-kudeatzailearena barne.
+Exekutagarria lau segundo baino gutxiagotan amaitzen da: bi nabigatzaileak zeharkatu, gordetako ehun eta hamalau pasahitz deszifratu eta saio aktiboen cookieak kopiatu ditu, dokumentu-kudeatzailearena barne.
 
-Paketea HTTPS eskaera baten bidez ateratzen da biltegiratze-zerbitzu legitimo baterantz, beraz helmuga ez dago blokeo-zerrenda bakar batean ere. Enpresak sarbide anomaloa detektatzen duenerako, bederatzi egun geroago, cookieak hiru helbide desberdinetatik erabili dira dagoeneko.
+Paketea HTTPS bidez ateratzen da biltegiratze legitimo batera, blokeo-zerrendatik kanpo. Enpresak bederatzi egun geroago detektatzen du sarbide anomaloa; cookieak hiru helbidetatik erabili dira dagoeneko.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -352,19 +350,19 @@ Paketea HTTPS eskaera baten bidez ateratzen da biltegiratze-zerbitzu legitimo ba
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Erakundeko gainerako sistema guztietarako sarbidea ematen duten sekretuak blokean ateratzen ditu. |
-| Osotasuna | Ez | Ez du biktimaren ekipoa aldatzen; kaltea gero eta beste leku batean gauzatzen da. |
-| Erabilgarritasuna | Ez | Bere exekuzioa hain da laburra, non erabiltzaileak ez duen sistemaren inolako hondatzerik nabaritzen. |
-| Autentikazioa | Bai | Lapurtutako saioko cookieek pasahitzik gabe eta bigarren faktoretik igaro gabe sartzeko bidea ematen dute. |
-| Ez-arbuiatzea | Bai | Saio horiekin gero egiten den guztia biktimaren izenean geratzen da erregistratuta. |
+| Konfidentzialtasuna | Bai | Gainerako sistemak irekitzen dituzten sekretuak blokean ateratzen ditu. |
+| Osotasuna | Ez | Ez du ekipoa ukitzen; kaltea gero eta beste leku batean gertatzen da. |
+| Erabilgarritasuna | Ez | Hain da laburra exekuzioa, non erabiltzaileak ez duen ezer nabaritzen. |
+| Autentikazioa | Bai | Lapurtutako cookieek pasahitzik eta bigarren faktorerek gabe ematen dute sarbidea. |
+| Ez-arbuiatzea | Bai | Saio horiekin egiten den guztia biktimaren izenean erregistratzen da. |
 
 ### Defentsa
 
-- Nabigatzailea ez erabiltzea pasahitz-kudeatzaile gisa: horretarako kudeatzaile dedikatu bat, kutxa zifratuarekin eta jarduerarik ezagatiko blokeoarekin.
-- Saio laburrak eta gailuaren ezaugarriei lotuak, lapurtutako cookie batek beste ekipo batetik balio ez dezan.
-- Kanpotik datozen eta pasahitzarekin babestuta dauden fitxategi konprimituak posta-atarian blokeatzea.
-- Portaeraren araberako detekzioa: segundo gutxitan hainbat nabigatzaileren profilak irekitzen dituen prozesu bat seinale oso fidagarria da.
-- Kredentzialak txandakatzeko eta saioak baliogabetzeko prozedura entseatua, susmo txikienaren aurrean.
+- Nabigatzailea ez pasahitz-kudeatzaile: kudeatzaile dedikatua, kutxa zifratuarekin eta jarduerarik gabeko blokeoarekin.
+- Saio laburrak gailuari lotuak, beste ekipo batetik baliogabeak.
+- Kanpoko pasahitz babestudun konprimituak posta-atarian blokeatzea.
+- Portaeraren detekzioa: segundotan hainbat nabigatzaile-profil irekitzen dituen prozesua.
+- Kredentzial-txandakatze eta saio-baliogabetze prozedura entseatua, susmo txikienean.
 
 ---
 
@@ -376,32 +374,32 @@ Paketea HTTPS eskaera baten bidez ateratzen da biltegiratze-zerbitzu legitimo ba
 
 ### Definizioa
 
-Biktimaren datuak zifratzen dituen —eta normalean aurretik ateratzen dituen— malwarea, deszifratze-gakoaren eta datuak ez argitaratzeko konpromisoaren truke ordainketa bat eskatzeko. Bere negozio-eredua biktimak erasoa jaso duela erabateko argitasunez jakitearen mende dagoen eraso mota bakarra da.
+Biktimaren datuak —aurretik aterata— zifratzen dituen malwarea, giltzaren eta ez argitaratzearen truke ordaina eskatzeko. Biktimak erasoa jaso duela argi jakitearen mende dagoen eraso bakarra.
 
 ### Nola funtzionatzen duen
 
-1. Hasierako sarbidea: erositako kredentzialak, agerian dagoen urruneko mahaigaineko zerbitzu bat edo perimetroan adabakirik gabeko ahultasun bat.
-2. Barne azterketa: erasotzaileak egunak edo asteak ematen ditu sarearen mapa egiten, babeskopiak non dauden aurkitzen eta pribilegioak eskalatzen.
-3. Aurretiazko exfiltrazioa: informazio kopuru handi bat kanpora kopiatzen du, biktimak leheneratzea lortuta ere estortsioa egin ahal izateko.
-4. Babeskopiak neutralizatzea: argazkiak ezabatzen ditu, eskuragarri dauden babes-biltegiak zifratzen ditu eta kopia-zerbitzuak gelditzen ditu.
-5. Zifratzea eta oharra: zifratzea aldi berean abiarazten da sare osoan, ia beti goizaldean edo jaiegunetan, eta erreskate-oharra agertzen da.
+1. Hasierako sarbidea: erositako kredentzialak, ageriko urruneko mahaigaina edo adabakirik gabeko perimetroa.
+2. Barne azterketa: egunak edo asteak sarea mapatzen, babeskopiak aurkitzen eta pribilegioak eskalatzen.
+3. Aurretiazko exfiltrazioa: bolumen handia kanpora kopiatu, leheneratuta ere estortsionatzeko.
+4. Babeskopien neutralizazioa: argazkiak ezabatu, biltegiak zifratu eta kopiak gelditu.
+5. Zifratzea eta oharra: aldi bereko jaurtiketa goizaldean edo jaiegunetan, eta erreskate-oharra.
 
 ### Eraso-bektorea
 
-- Interneten argitaratutako urruneko mahaigaineko zerbitzuak, bigarren autentikazio-faktorerik gabe.
-- Aurretik stealer baten bidez edo phishing kanpaina baten bidez lortutako VPN kredentzialak.
-- Perimetroko gailuetan ezagunak diren ahultasunak, adabakia argitaratu eta asteak igarota eguneratu gabe jarraitzen dutenak.
-- Bezeroaren sarerako sarbide legitimo eta iraunkorra duen hornitzaile baten arriskua.
+- Bigarren faktorerek gabeko ageriko urruneko mahaigainak.
+- Stealerrez edo phishingez lortutako VPN kredentzialak.
+- Adabakia argitaratu eta asteetara eguneratu gabeko perimetro-ahultasunak.
+- Sarbide legitimo eta iraunkorra duten hornitzaile arriskuan jarriak.
 
 ### Adibide argigarria — Klinika Uribe
 
 *Osasun pribatua · 2026*
 
-2026ko urtarrilaren 3ko goizaldean, Klinika Uriberen sarea osorik zifratuta geratzen da: historia klinikoa, agenda, fakturazioa eta domeinutik eskuragarri zeuden bi babeskopia-zerbitzariak. Oharrak kriptomonetan ordaintzea eskatzen du hirurogeita hamabi orduko epean.
+2026ko urtarrilaren 3ko goizaldean, sarea osorik zifratzen da: historia klinikoa, agenda, fakturazioa eta domeinuko bi babeskopia-zerbitzariak. Oharrak kriptomonetan ordaintzea eskatzen du hirurogeita hamabi ordutan.
 
-Ondorengo berreraikuntzak hasierako sarbidea hemezortzi egun lehenago kokatzen du, bigarren faktorerik ez zuen mantentze-hornitzaile baten VPN kontu baten bidez. Denbora horretan erasotzailea alboka mugitu zen, domeinuaren administrazio-pribilegioak lortu zituen eta berrogei gigabyte dokumentazio kliniko kopiatu zituen kanpora.
+Sarbidea hemezortzi egun lehenagokoa da, bigarren faktorerik gabeko mantentze-hornitzaile baten VPN kontutik. Erasotzailea domeinu-administratzaile bihurtu eta berrogei gigabyte dokumentazio kliniko atera zituen.
 
-Klinikak ez du ordaintzen. Deskonektatutako euskarrian asteroko kopia bat du, beraz erregistratutako sei eguneko jarduera galtzen du eta hamaika behar ditu ohiko funtzionamendua berreskuratzeko. Ateratako informazioa berdin argitaratzen da: zifratzea kopiarekin konpondu zen, argitaratzeagatiko estortsioa ez.
+Klinikak ez du ordaintzen eta deskonektatutako asteko kopiatik leheneratzen du: sei eguneko jarduera galtzen du eta hamaika behar ditu normaltasunera. Ateratako informazioa berdin argitaratzen da: kopiak zifratzea konpondu zuen, ez estortsioa.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -409,19 +407,19 @@ Klinikak ez du ordaintzen. Deskonektatutako euskarrian asteroko kopia bat du, be
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Estortsio bikoitzak datuak aurretik ateratzea dakar, eta erakundetik irteten dira erreskatea inoiz ordaindu gabe ere. |
-| Osotasuna | Bai | Zifratutako fitxategiak baliogabe geratzen dira eta ez dago bermerik gakoak, iristen bada, osorik leheneratuko dituenik. |
-| Erabilgarritasuna | Bai | Erasoaren erdiko efektua da: erakundea bere sistemetarako sarbiderik gabe geratzen da egun batetik bestera. |
-| Autentikazioa | Bai | Azken hedapena aurreko fasean hartutako administrazio-pribilegioak dituzten kontuetatik exekutatzen da. |
-| Ez-arbuiatzea | Bai | Prestaketa-fasean erregistroak eta argazkiak ezabatzeak gertakariaren trazabilitatearen zati handi bat suntsitzen du. |
+| Konfidentzialtasuna | Bai | Estortsio bikoitzak datuak ateratzen ditu, ordaindu gabe ere irteten direnak. |
+| Osotasuna | Bai | Zifratutakoa baliogabe geratzen da, osorik leheneratzeko bermerik gabe. |
+| Erabilgarritasuna | Bai | Efektu nagusia: sistemarik gabe egun batetik bestera. |
+| Autentikazioa | Bai | Azken hedapena hartutako administrazio-pribilegioekin exekutatzen da. |
+| Ez-arbuiatzea | Bai | Erregistro eta argazkien ezabatzeak trazabilitatea suntsitzen du. |
 
 ### Defentsa
 
-- 3-2-1-1-0 araua: hiru kopia, bi euskarritan, bat egoitzatik kanpo, bat deskonektatuta edo aldaezina, eta zero akats probatutako leheneratzean.
-- Bigarren faktorea derrigorrezkoa urruneko sarbide orotan, hornitzaileenak barne, indarraldi mugatua eta berrikusgarria duten kontuekin.
-- Sarearen segmentazioa, arriskuan dagoen ekipo batek ez ditzan zerbitzari kritikoak ez babeskopien biltegia atzitu.
-- Leheneratze-entsegu erreala urtean bitan gutxienez, kronometratuta: inoiz leheneratu ez den kopia bat ez da kopia bat.
-- Alboko mugimenduaren eta argazkien ezabatze masiboaren detekzio goiztiarra, zifratzea egunetan aurreratzen dutenak.
+- 3-2-1-1-0 araua: hiru kopia, bi euskarri, bat kanpoan, bat deskonektatuta edo aldaezina, eta leheneratze probatua.
+- Bigarren faktorea urruneko sarbide orotan, hornitzaileen kontu mugatuekin.
+- Segmentazioa: arriskuan dagoen ekipoak ez ditu zerbitzari kritikoak ez kopiak atzitzen.
+- Leheneratze-entsegu erreala, kronometratua, urtean bitan gutxienez.
+- Alboko mugimenduaren eta argazki-ezabatze masiboaren detekzio goiztiarra, zifratzearen iragarleak.
 
 ---
 
@@ -433,32 +431,32 @@ Klinikak ez du ordaintzen. Deskonektatutako euskarrian asteroko kopia bat du, be
 
 ### Definizioa
 
-Programa baten ahultasun jakin bat aprobetxatzeko eta hark aurreikusi gabeko moduan joka dezan lortzeko diseinatutako kode zati edo datu segida: erasotzailearen aginduak exekutatzea, egiaztapen bat saltatzea edo besteren memoria irakurtzea. Exploita ez da karga maltzurra, hura entregatzea ahalbidetzen duen bidea baizik.
+Programa baten ahultasun jakin bat baliatzen duen kode edo datu sorta, aurreikusi gabeko jokabidea eragiteko: aginduak exekutatu, egiaztapenak saltatu edo memoria irakurri. Ez da karga; hura entregatzen duen bidea baizik.
 
 ### Nola funtzionatzen duen
 
-1. Ahultasuna identifikatzea: balidazio-akats bat, memoria-kudeaketakoa edo baimen-logikakoa, softwarearen bertsio jakin batean.
-2. Sarrera eraikitzea: idatzi zuenak aurreikusi ez zuen egoera batera programa daraman datu bat prestatzen da.
-3. Fluxuaren kontrola: akatsa programak ondoren zer agindu exekutatzen duen kontrolatzeko gaitasun bihurtzen da.
-4. Karga entregatzea: kontrol hori benetan nahi den kodea abiarazteko aprobetxatzen da, ia beti minimoa eta gainerakoa deskargatzeaz arduratzen dena.
-5. Egonkortzea: exploita prozesua martxan uzten saiatzen da, akatsa erasoa salatuko lukeen ustekabeko itxiera gisa ager ez dadin.
+1. Ahultasunaren identifikazioa: balidazio, memoria edo baimen akatsa, bertsio jakin batean.
+2. Sarrera: aurreikusi gabeko egoera batera daraman datua prestatzen da.
+3. Fluxuaren kontrola: akatsak erabakitzen du zer agindu exekutatzen den.
+4. Karga: kontrol horrekin kode minimo bat abiarazten da, gainerakoa deskargatzen duena.
+5. Egonkortzea: prozesua martxan uzten da, ustekabeko itxiera batek salatu ez dezan.
 
 ### Eraso-bektorea
 
-- Interneten argitaratutako zerbitzuak adabakirik gabeko bertsioekin, arakatze automatizatu masiboaren bidez aurki daitezkeenak.
-- Irekitzen dituen aplikazioaren analizatzailea ustiatzen duten dokumentuak eta multimedia fitxategiak.
-- Nabigatzailea eta bere osagarriak, hirugarrenen edukia etengabe eta diseinuz prozesatzen dutenak.
-- Zero eguneko ahultasunak, erabiltzen diren unean adabakirik ez dutenak.
+- Adabakirik gabeko ageriko zerbitzuak, arakatze masiboaz aurkituak.
+- Irekitzen dituen aplikazioaren analizatzailea ustiatzen duten dokumentu eta multimedia fitxategiak.
+- Nabigatzailea eta osagarriak, hirugarrenen edukia diseinuz prozesatzen dutenak.
+- Zero egunekoak, erabiltzean adabakirik gabeak.
 
 ### Adibide argigarria — Oiartzun Datuak
 
 *Datuak prozesatzeko zentroa · 2024*
 
-2024ko urrian, oso hedatuta dagoen suebaki baten sarbide-atarian ahultasun kritiko bat argitaratzen da. Fabrikatzailearen zuzenketa egun berean agertzen da. Oiartzun Datuakek hurrengo mantentze-lanetarako planifikatzen du eguneratzea, hamaika egun geroagorako aurreikusita.
+2024ko urrian, oso hedatuta dagoen suebaki baten sarbide-atarian ahultasun kritiko bat argitaratzen da. Fabrikatzailearen zuzenketa egun berean dator, baina enpresak hamaika egun geroagorako agendatzen du eguneratzea.
 
-Argitaratu eta berrogei ordura, atariaren atakaren aurkako arakatze automatizatuak erregistratzen hasten dira. Exploitak autentikatu gabeko eskaera bakar bat behar du eta pribilegioak dituen saio bat uzten du gailuan, hain zuzen barne sarea Internetetik bereizten duen ekipoan.
+Berrogei ordura, atariaren atakaren aurkako arakatzeak hasten dira: autentikatu gabeko eskaera bakar bat nahikoa da barne sarea Internetetik bereizten duen gailuan pribilegiozko saioa uzteko.
 
-Erasoa ez da osatzera iristen, komunitateak argitaratutako detekzio-arau batek eskaeraren eredua blokeatzen duelako. Gertakariak ondorio deserosoa uzten du: agerian egoteko tartea ez zuen erasotzaileak finkatu, mantentze-egutegiak baizik.
+Erasoa ez da osatzen, komunitatearen detekzio-arau batek eredua blokeatzen duelako. Ondorio deserosoa: ageriko tartea mantentze-egutegiak finkatu zuen, ez erasotzaileak.
 
 > Mekanismoa azaltzeko eraikitako fikziozko egoera. Ez erakundea ez gertaerak ez dira errealak.
 
@@ -466,18 +464,18 @@ Erasoa ez da osatzera iristen, komunitateak argitaratutako detekzio-arau batek e
 
 | Propietatea | Arriskuan geratzen da? | Justifikazioa |
 | --- | :---: | --- |
-| Konfidentzialtasuna | Bai | Exploit askok prozesu ahulak irakur ditzakeen memoria edo fitxategietara ematen dute zuzeneko sarbidea. |
-| Osotasuna | Bai | Kode arbitrarioa exekutatzeak eragindako sistema mugarik gabe aldatzeko bidea ematen du. |
-| Erabilgarritasuna | Bai | Saiakera huts batek ustiatutako zerbitzuaren erorketa eragin ohi du, eta exploit batzuek efektu hori bera bilatzen dute. |
-| Autentikazioa | Bai | Autentikazioaren aurreko exploitak kredentzialik aurkeztu gabe sartzen dira, eta horrek bihurtzen ditu kritiko. |
-| Ez-arbuiatzea | Bai | Jarduera sistemaren prozesu legitimo baten barruan exekutatzen da, beraz erregistroek ez dute erasotzailea bereizten. |
+| Konfidentzialtasuna | Bai | Exploit askok prozesuak irakur dezakeen memoria edo fitxategiak irekitzen dituzte. |
+| Osotasuna | Bai | Kode arbitrarioak sistema mugarik gabe aldatzeko bidea ematen du. |
+| Erabilgarritasuna | Bai | Saiakera hutsak zerbitzua erorarazten du; batzuek hori bera bilatzen dute. |
+| Autentikazioa | Bai | Autentikazio aurrekoak kredentzialik gabe sartzen dira: horregatik dira kritikoak. |
+| Ez-arbuiatzea | Bai | Dena prozesu legitimo baten barruan dabil, erregistroek bereizi ezin dutena. |
 
 ### Defentsa
 
-- Aktiboen eta bertsioen inbentario eguneratua: ezin zaio adabakirik jarri argitaratuta dagoenik jakiten ez denari.
-- Adabakiak jartzeko tarte bereizia, orduetan neurtua perimetralerako eta kritikorako, eta egunetan gainerakorako.
-- Azalera murriztea: agerian egon behar ez duen zerbitzu oro ixtea eta egon behar dutenak jatorriaren arabera mugatzea.
-- Ustiapenaren aurkako neurriak aktibatuta sistema eragilean eta nabigatzailean, ahultasunetik fluxuaren kontrolera igarotzea garestitzen dutenak.
-- Perimetroan detekzio-arauak adabakia jarri arte, zubi-neurri gisa eta inoiz ez ordezko gisa.
+- Aktibo eta bertsioen inbentario eguneratua: ezezaguna ezin da adabakitu.
+- Adabaki-tarte bereizia: orduak perimetro kritikorako, egunak gainerakorako.
+- Azalera txikitzea: beharrezkoa ez dena itxi, agerikoa jatorriaz mugatu.
+- Ustiapenaren aurkako neurriak sisteman eta nabigatzailean, fluxuaren kontrolerako jauzia garestitzen dutenak.
+- Perimetroko detekzio-arauak adabakia bitartean, zubi gisa eta inoiz ez ordezko.
 
 ---
