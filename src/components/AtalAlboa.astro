@@ -1,0 +1,43 @@
+---
+/**
+ * Atalaren gaien zerrenda, alboan (pantaila handietan bakarrik).
+ * Ikasten ari zarenean, atal bereko gaien artean salto egiteko.
+ */
+import type { Atala } from '../data/gida';
+
+interface Props {
+  atala: Atala;
+  oraingoa: string;
+}
+
+const { atala, oraingoa } = Astro.props;
+const elementuak = atala.mota === 'gaiak' ? atala.gaiak : atala.kasuak;
+---
+
+<nav aria-label={`${atala.laburra}: gaiak`} class="sticky top-6">
+  <p class="text-[0.95rem] font-bold">
+    <a href={`/${atala.id}/`} class="hover:underline">{atala.laburra}</a>
+  </p>
+  <p class="mb-3 text-[0.95rem] text-lauso">{atala.izenburua}</p>
+  <ol class="space-y-0.5 border-l border-marra">
+    {
+      elementuak.map((g) => {
+        const oraingoaDa = g.slug === oraingoa;
+        return (
+          <li>
+            <a
+              href={`/${atala.id}/${g.slug}/`}
+              aria-current={oraingoaDa ? 'page' : undefined}
+              class:list={[
+                '-ml-px block border-l-[3px] py-1 pl-4 text-[0.98rem] leading-snug',
+                oraingoaDa ? 'atal-marra font-bold' : 'border-transparent text-lauso hover:text-tinta',
+              ]}
+            >
+              {g.izena}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

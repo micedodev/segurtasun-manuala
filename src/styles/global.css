@@ -1,50 +1,99 @@
-/* Las fuentes se enlazan desde <head> (con preconnect) en Base.astro:
-   un @import aquí retrasa el primer render porque encadena dos descargas. */
-@import './tokens.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  body { @apply bg-[#0e0e10] text-hueso font-sans antialiased; font-weight: 300; text-rendering: optimizeLegibility; }
-  h1, h2, h3 { font-family: 'Roboto', system-ui, sans-serif; }
-  /* Sin el preflight hay que resetear los enlaces a mano: si no, el navegador
-     los pinta en azul/morado y subrayados (incluido el logo, que hereda
-     currentColor del <a>, y los :visited en morado). */
-  a { color: inherit; text-decoration: none; }
-  a:visited { color: inherit; }
-}
-@layer components {
-  .etiqueta { @apply font-mono text-[11px] font-medium uppercase tracking-[0.22em]; }
-  /* Transiciones con las propiedades listadas una a una: `all` obliga al
-     navegador a vigilar cada propiedad animable y dispara cambios no buscados. */
-  .btn-base { @apply inline-flex items-center gap-2 rounded-[2px] px-6 py-3 font-mono text-xs font-medium uppercase tracking-[0.18em] transition-[background-color,border-color,color,transform] duration-300 ease-out; }
-  .btn-rojo { @apply btn-base bg-rojo text-[#0e0e10] hover:-translate-y-0.5 hover:bg-rojovivo; }
-  .btn-hueso { @apply btn-base bg-hueso text-carbon-950 hover:-translate-y-0.5 hover:bg-white; }
-  .btn-line { @apply btn-base border border-white/25 text-hueso hover:border-hueso hover:bg-hueso hover:text-carbon-950; }
-  .btn-line-os { @apply btn-base border border-espresso/30 text-espresso hover:border-espresso hover:bg-espresso hover:text-niebla; }
-  /* botón círculo-flecha ikony: anilla roja */
-  .btn-circle { display: inline-grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 9999px; border: 1px solid #D94848; color: #D94848; font-size: 18px; line-height: 1; transition: background-color 0.3s cubic-bezier(0.22,1,0.36,1), color 0.3s cubic-bezier(0.22,1,0.36,1), transform 0.3s cubic-bezier(0.22,1,0.36,1); }
-  .btn-circle:hover { background: #D94848; color: #0e0e10; transform: translateX(4px); }
-  .chip { @apply inline-flex items-center rounded-[2px] border px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.16em]; }
-  /* Velo de archivo: fondo blanco casi transparente con fibra y trama
-     sutiles, marco hueso y regla roja superior. El texto encima va en
-     hueso/piedra. */
-  .velo {
-    background-color: rgba(236, 233, 226, 0.05);
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.93 0 0 0 0 0.91 0 0 0 0 0.89 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23v)'/%3E%3C/svg%3E"),
-      repeating-linear-gradient(-45deg, rgba(236, 233, 226, 0.045) 0 1px, transparent 1px 7px),
-      repeating-linear-gradient(45deg, rgba(236, 233, 226, 0.03) 0 1px, transparent 1px 7px);
-    border: 1px solid rgba(236, 233, 226, 0.22);
-    box-shadow: inset 0 2px 0 0 rgba(217, 72, 72, 0.9);
+  :root {
+    /* Atal bakoitzak bere kolorea ezartzen du orri bakoitzean (--atal). */
+    --atal: #17201d;
+    color-scheme: light;
   }
-  .epnum { display: inline-grid; place-items: center; border: 1px solid currentColor; border-radius: 9999px; position: relative; font-family: 'Roboto Mono', monospace; font-weight: 500; }
-  .epnum::after { content: ''; position: absolute; inset: 3px; border: 1px solid currentColor; opacity: 0.35; border-radius: inherit; }
-  /* subrayado lápiz rojo */
-  .pencil-u { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 9' preserveAspectRatio='none'%3E%3Cpath d='M1 6 Q 12 2, 25 5 T 50 5 T 75 5 T 99 4' fill='none' stroke='%23D94848' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") bottom / 100% 0.32em no-repeat; padding-bottom: 0.08em; }
-  /* logo GlobeLock: el candado pulsa (eco de la animación "pulse" de MotionIcons) */
-  .logo-lock { transform-box: fill-box; transform-origin: center; animation: logoPulse 2.4s ease-in-out infinite; }
-  @keyframes logoPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.14); opacity: 0.72; } }
-  @media (prefers-reduced-motion: reduce) { .logo-lock { animation: none; } }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 1.5rem;
+  }
+
+  body {
+    @apply bg-white font-sans text-tinta antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 1.125rem;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--atal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--atal) 22%, white);
+  }
+}
+
+@layer components {
+  /* Atalaren kolorea: marka txikietan bakarrik, inoiz ez testu luzean. */
+  .atal-testua {
+    color: var(--atal);
+  }
+  .atal-marra {
+    border-color: var(--atal);
+  }
+  .atal-hondoa {
+    background-color: var(--atal);
+  }
+  .atal-leuna {
+    background-color: color-mix(in srgb, var(--atal) 7%, white);
+  }
+
+  .esteka {
+    @apply font-semibold underline decoration-marra decoration-2 underline-offset-4 transition-colors hover:decoration-current;
+  }
+
+  /* Urratsak benetako sekuentzia dira: zenbakiak informazioa dira. */
+  .urratsak {
+    counter-reset: urratsa;
+  }
+  .urratsak > li {
+    counter-increment: urratsa;
+    @apply relative pl-12;
+  }
+  .urratsak > li::before {
+    content: counter(urratsa);
+    @apply absolute left-0 top-0 grid h-8 w-8 place-items-center rounded-full text-[0.95rem] font-bold text-white;
+    background: var(--atal);
+    line-height: 1;
+  }
+
+  .babesa > li {
+    @apply relative pl-7;
+  }
+  .babesa > li::before {
+    content: '';
+    @apply absolute left-0 top-[0.62em] h-2.5 w-2.5 rounded-sm;
+    background: var(--atal);
+  }
 }

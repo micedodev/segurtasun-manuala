@@ -1,0 +1,167 @@
+---
+import Base from '../../layouts/Base.astro';
+import AtalAlboa from '../../components/AtalAlboa.astro';
+import AldamenNab from '../../components/AldamenNab.astro';
+import { ATALAK, type Atala, type Gaia, type Kasua } from '../../data/gida';
+
+export function getStaticPaths() {
+  return ATALAK.flatMap((atala) => {
+    const elementuak: (Gaia | Kasua)[] = atala.mota === 'gaiak' ? atala.gaiak : atala.kasuak;
+    return elementuak.map((elementua) => ({
+      params: { atala: atala.id, slug: elementua.slug },
+      props: { atala, elementua },
+    }));
+  });
+}
+
+interface Props {
+  atala: Atala;
+  elementua: Gaia | Kasua;
+}
+
+const { atala, elementua } = Astro.props;
+const href = `/${atala.id}/${elementua.slug}/`;
+const gaia = atala.mota === 'gaiak' ? (elementua as Gaia) : null;
+const kasua = atala.mota === 'kasuak' ? (elementua as Kasua) : null;
+
+const h2 = 'text-[1.5rem] font-extrabold tracking-tight md:text-[1.65rem]';
+const atala2 = 'mt-12';
+---
+
+<Base izenburua={elementua.izena} deskribapena={elementua.laburpena} atala={atala.id}>
+  <div class="mx-auto max-w-6xl px-5 md:px-8 lg:grid lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-16">
+    <aside class="hidden pt-[5.25rem] lg:block">
+      <AtalAlboa atala={atala} oraingoa={elementua.slug} />
+    </aside>
+
+    <article class="min-w-0 max-w-testua">
+      <nav aria-label="Ogi-apurrak" class="pt-8 text-[0.95rem] text-lauso">
+        <a href="/" class="hover:text-tinta hover:underline">Hasiera</a>
+        <span aria-hidden="true"> / </span>
+        <a href={`/${atala.id}/`} class="hover:text-tinta hover:underline">
+          {atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua}
+        </a>
+      </nav>
+
+      <header class="atal-marra mt-6 border-l-[6px] pl-5 md:pl-7">
+        <p class="atal-testua text-[1.1rem] font-bold">
+          {elementua.etiketa}{kasua && `, ${kasua.urtea}`}
+        </p>
+        <h1 class="mt-1 break-words text-[clamp(2.75rem,9vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
+          {elementua.izena}
+        </h1>
+        <p class="mt-5 text-[1.25rem] leading-relaxed text-lauso md:text-[1.375rem]">{elementua.laburpena}</p>
+      </header>
+
+      {
+        gaia && (
+          <>
+            <section class={atala2} aria-labelledby="zer-den">
+              <h2 id="zer-den" class={h2}>Zer den</h2>
+              <p class="mt-3">{gaia.zerDen}</p>
+            </section>
+
+            <section class={atala2} aria-labelledby="nola">
+              <h2 id="nola" class={h2}>Nola funtzionatzen du</h2>
+              <ol class="urratsak mt-5 space-y-5">
+                {gaia.urratsak.map((u) => (
+                  <li>{u}</li>
+                ))}
+              </ol>
+            </section>
+
+            <section class={atala2} aria-labelledby="adibidea">
+              <h2 id="adibidea" class={h2}>Adibidea</h2>
+              <figure class="atal-leuna mt-4 rounded-md px-5 py-5 md:px-7 md:py-6">
+                <h3 class="text-[1.2rem] font-bold leading-snug">
+                  {gaia.adibidea.izenburua} <span class="font-normal text-lauso">({gaia.adibidea.urtea})</span>
+                </h3>
+                <p class="mt-2">{gaia.adibidea.testua}</p>
+                <figcaption class="mt-4 text-[0.95rem] text-lauso">
+                  Iturria:{' '}
+                  <a href={gaia.adibidea.iturria.url} class="esteka text-tinta" rel="noopener">
+                    {gaia.adibidea.iturria.izena}
+                  </a>
+                </figcaption>
+              </figure>
+            </section>
+
+            <section class={atala2} aria-labelledby="babestu">
+              <h2 id="babestu" class={h2}>Nola babestu</h2>
+              <ul class="babesa mt-4 space-y-3">
+                {gaia.babesa.map((b) => (
+                  <li>{b}</li>
+                ))}
+              </ul>
+            </section>
+
+            <aside class="atal-marra mt-12 border-t-4 pt-5" aria-labelledby="gogoratu">
+              <h2 id="gogoratu" class="text-[1.05rem] font-bold atal-testua">Gogoratu</h2>
+              <p class="mt-1 text-[1.35rem] font-semibold leading-snug md:text-[1.5rem]">{gaia.gogoratu}</p>
+            </aside>
+          </>
+        )
+      }
+
+      {
+        kasua && (
+          <>
+            <section class={atala2} aria-labelledby="gertatua">
+              <h2 id="gertatua" class={h2}>Zer gertatu zen</h2>
+              <div class="mt-3 space-y-4">
+                {kasua.gertatua.map((p) => (
+                  <p>{p}</p>
+                ))}
+              </div>
+            </section>
+
+            <section class={atala2} aria-labelledby="nola">
+              <h2 id="nola" class={h2}>Nola egin zuten</h2>
+              <ol class="urratsak mt-5 space-y-5">
+                {kasua.urratsak.map((u) => (
+                  <li>{u}</li>
+                ))}
+              </ol>
+            </section>
+
+            <section class={atala2} aria-labelledby="ezaugarriak">
+              <h2 id="ezaugarriak" class={h2}>Erasoaren ezaugarriak</h2>
+              <dl class="mt-4 divide-y divide-marra border-y border-marra">
+                {kasua.ezaugarriak.map((e) => (
+                  <div class="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                    <dt class="font-bold">{e.izena}</dt>
+                    <dd>{e.balioa}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section class={atala2} aria-labelledby="ondorioak">
+              <h2 id="ondorioak" class={h2}>Zergatik da garrantzitsua</h2>
+              <ul class="babesa mt-4 space-y-3">
+                {kasua.ondorioak.map((o) => (
+                  <li>{o}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section class={atala2} aria-labelledby="iturriak">
+              <h2 id="iturriak" class={h2}>Iturriak</h2>
+              <ul class="mt-4 space-y-2">
+                {kasua.iturriak.map((i) => (
+                  <li>
+                    <a href={i.url} class="esteka" rel="noopener">
+                      {i.izena}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </>
+        )
+      }
+
+      <AldamenNab href={href} />
+    </article>
+  </div>
+</Base>

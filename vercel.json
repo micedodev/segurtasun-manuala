@@ -2,5 +2,87 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/:lang(eu|es)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ud1",
+      "destination": "/1ud/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ud1/",
+      "destination": "/1ud/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ud2",
+      "destination": "/2ud/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ud2/",
+      "destination": "/2ud/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ud3",
+      "destination": "/3ud/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ud3/",
+      "destination": "/3ud/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ciberataques",
+      "destination": "/zibererasoak/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/ciberataques/",
+      "destination": "/zibererasoak/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/perimetral",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/perimetral/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/glosario",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/glosario/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/fuentes",
+      "destination": "/iturriak/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(eu|es)/fuentes/",
+      "destination": "/iturriak/",
+      "permanent": true
+    }
+  ]
 }

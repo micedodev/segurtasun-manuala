@@ -1,19 +1,18 @@
 {
-  "name": "segurtasunmanuala",
+  "name": "mehatxu-informatikoen-gida",
   "version": "1.0.0",
-  "description": "SegurtasunManuala — Manual bilingüe ES/EU de Seguridad y Alta Disponibilidad",
+  "description": "Mehatxu informatikoen gida: Segurtasuna eta Erabilgarritasun Handia (euskaraz)",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "keywords": [],
-  "author": "",
+  "author": "Markel Icedo",
   "license": "ISC",
   "type": "module",
   "dependencies": {
     "astro": "^7.3.3",
-    "gsap": "^3.15.0",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {

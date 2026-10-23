@@ -1,93 +1,99 @@
 ---
 import '../styles/global.css';
-import Header from '../components/Header.astro';
-import { T, otherLang, type Lang } from '../lib/i18n';
+import { ATALAK, atalaHref, type AtalId } from '../data/gida';
 
 interface Props {
-  lang: Lang;
-  title: string;
-  description?: string;
-  active?: string;
+  izenburua: string;
+  deskribapena: string;
+  /** Orri honen atala: nabigazioan markatzeko eta kolorea emateko. */
+  atala?: AtalId;
 }
-const { lang, title, description = '', active = '' } = Astro.props;
-const t = T[lang];
 
-// Canonical y alternativas: la misma ruta con el prefijo de idioma cambiado.
-const path = Astro.url.pathname;
-const canonical = new URL(path, Astro.site ?? 'https://segurtasunmanuala.vercel.app');
-const otherPath = /^\/(es|eu)(\/|$)/.test(path) ? `/${otherLang(lang)}${path.slice(3)}` : path;
-const altHref = (p: string) => new URL(p, Astro.site ?? 'https://segurtasunmanuala.vercel.app').href;
-const LOCALE: Record<Lang, string> = { es: 'es_ES', eu: 'eu_ES' };
+const { izenburua, deskribapena, atala } = Astro.props;
+const kolorea = ATALAK.find((a) => a.id === atala)?.kolorea ?? '#17201D';
+const osoa = izenburua === 'Mehatxu informatikoen gida' ? izenburua : `${izenburua} | Mehatxu informatikoen gida`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
+
 <!doctype html>
-<html lang={lang} class="grain">
+<html lang="eu" style={`--atal: ${kolorea}`}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <meta name="theme-color" content="#0e0e10" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230B0B0C'/%3E%3Cg fill='none' stroke='%23ECE9E2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13'/%3E%3Cpath d='M2 12h8.5'/%3E%3Cpath d='M20 6V4a2 2 0 1 0-4 0v2'/%3E%3C/g%3E%3Crect width='8' height='5' x='14' y='6' rx='1' fill='%23D94848'/%3E%3C/svg%3E" />
+    <title>{osoa}</title>
+    <meta name="description" content={deskribapena} />
+    <link rel="canonical" href={canonical.href} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    {/* Tipografías: preconexión a los dos dominios antes de pedir la hoja. */}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="eu_ES" />
+    <meta property="og:site_name" content="Mehatxu informatikoen gida" />
+    <meta property="og:title" content={osoa} />
+    <meta property="og:description" content={deskribapena} />
+    <meta property="og:url" content={canonical.href} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&display=swap"
     />
-
-    <link rel="canonical" href={canonical.href} />
-    <link rel="alternate" hreflang="es-ES" href={altHref(lang === 'es' ? path : otherPath)} />
-    <link rel="alternate" hreflang="eu-ES" href={altHref(lang === 'eu' ? path : otherPath)} />
-    <link rel="alternate" hreflang="x-default" href={altHref(lang === 'es' ? path : otherPath)} />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="SegurtasunManuala" />
-    <meta property="og:title" content={title} />
-    {description && <meta property="og:description" content={description} />}
-    <meta property="og:url" content={canonical.href} />
-    <meta property="og:locale" content={LOCALE[lang]} />
-    <meta property="og:locale:alternate" content={LOCALE[otherLang(lang)]} />
-    <meta name="twitter:card" content="summary" />
   </head>
-  <body class="min-h-screen">
+
+  <body class="flex min-h-screen flex-col">
     <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-[2px] focus:bg-rojo focus:px-4 focus:py-2 focus:font-mono focus:text-[11px] focus:font-medium focus:uppercase focus:tracking-[0.18em] focus:text-carbon-950"
-      >{t.saltar}</a
+      href="#edukia"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-tinta focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
     >
-    <div id="scrollbar-top" class="fixed left-0 top-0 z-[80] h-[2px] w-0 bg-rojo"></div>
-    <Header lang={lang} active={active} />
-    <main id="main"><slot /></main>
-    <div id="drawer-root"></div>
-    <script>
-      // reveal on scroll
-      const io = new IntersectionObserver((es) => {
-        es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-      // barra de progreso global + parallax sutil
-      const bar = document.getElementById('scrollbar-top');
-      const pxEls = Array.from(document.querySelectorAll('[data-parallax]'));
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let ticking = false;
-      function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const y = window.scrollY;
-          const h = document.documentElement.scrollHeight - window.innerHeight;
-          if (bar) bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
-          if (!reduce) pxEls.forEach((el) => {
-            const s = parseFloat(el.getAttribute('data-parallax') || '0.08');
-            el.style.transform = `translateY(${(y * s).toFixed(1)}px)`;
-          });
-          ticking = false;
-        });
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    </script>
+      Jauzi edukira
+    </a>
+
+    <header class="border-b border-marra">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-4 md:px-8">
+        <a href="/" class="group leading-tight">
+          <span class="block text-lg font-extrabold tracking-tight group-hover:underline">Mehatxu informatikoen gida</span>
+          <span class="block text-[0.9rem] text-lauso">Segurtasuna eta Erabilgarritasun Handia</span>
+        </a>
+        <nav aria-label="Atalak">
+          <ul class="flex flex-wrap gap-x-5 gap-y-1 text-[1rem] font-semibold">
+            {
+              ATALAK.map((a) => (
+                <li>
+                  <a
+                    href={atalaHref(a.id)}
+                    aria-current={a.id === atala ? 'page' : undefined}
+                    class:list={[
+                      'inline-block border-b-[3px] py-1 transition-colors',
+                      a.id === atala ? '' : 'border-transparent text-lauso hover:text-tinta',
+                    ]}
+                    style={a.id === atala ? `border-color: ${a.kolorea}` : undefined}
+                  >
+                    {a.laburra}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="edukia" class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="mt-20 border-t border-marra bg-leun">
+      <div class="mx-auto grid max-w-6xl gap-4 px-5 py-8 text-[0.95rem] text-lauso md:grid-cols-[1fr_auto] md:px-8">
+        <div>
+          <p class="font-semibold text-tinta">Egilea: Markel Icedo</p>
+          <p>Segurtasuna eta Erabilgarritasun Handia modulurako lana.</p>
+        </div>
+        <p class="md:text-right">
+          Adibide guztiak benetako kasuak dira.<br />
+          <a href="/iturriak/" class="esteka text-tinta">Ikusi iturriak</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import GaiZerrenda from '../../components/GaiZerrenda.astro';
+import { ATALAK, type Atala } from '../../data/gida';
+
+export function getStaticPaths() {
+  return ATALAK.map((atala) => ({ params: { atala: atala.id }, props: { atala } }));
+}
+
+interface Props {
+  atala: Atala;
+}
+
+const { atala } = Astro.props;
+const izenburua = atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua;
+---
+
+<Base izenburua={izenburua} deskribapena={atala.sarrera} atala={atala.id}>
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <nav aria-label="Ogi-apurrak" class="pt-8 text-[0.95rem] text-lauso">
+      <a href="/" class="hover:text-tinta hover:underline">Hasiera</a>
+      <span aria-hidden="true"> / </span>
+      <span aria-current="page">{atala.laburra}</span>
+    </nav>
+
+    <header class="atal-marra mt-6 border-l-[6px] pl-5 md:pl-7">
+      {atala.mota === 'gaiak' && <p class="atal-testua text-[1.1rem] font-bold">{atala.laburra}</p>}
+      <h1 class="mt-1 text-[clamp(2.4rem,6.5vw,4.25rem)] font-extrabold leading-[1.02] tracking-[-0.025em]">
+        {atala.izenburua}
+      </h1>
+      <p class="mt-4 max-w-testua text-[1.2rem] leading-relaxed text-lauso md:text-[1.3rem]">{atala.sarrera}</p>
+    </header>
+
+    <div class="mt-10">
+      <GaiZerrenda atala={atala} />
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,39 @@
+---
+/**
+ * Atal baten gaien aurkibidea. Hasierako orrian eta atal-orrian erabiltzen da.
+ * Zenbakiak irakasgaiaren ordena dira, beraz zerrenda ordenatua da.
+ */
+import type { Atala } from '../data/gida';
+
+interface Props {
+  atala: Atala;
+}
+
+const { atala } = Astro.props;
+const elementuak = atala.mota === 'gaiak' ? atala.gaiak : atala.kasuak;
+---
+
+<ol class="grid gap-x-10 md:grid-cols-2">
+  {
+    elementuak.map((g, i) => (
+      <li class="border-t border-marra">
+        <a href={`/${atala.id}/${g.slug}/`} class="group flex gap-4 py-4">
+          <span
+            class="mt-0.5 w-6 shrink-0 text-right text-[1rem] font-bold tabular-nums"
+            style={`color: ${atala.kolorea}`}
+            aria-hidden="true"
+          >
+            {i + 1}
+          </span>
+          <span class="min-w-0">
+            <span class="block text-[1.2rem] font-bold leading-snug decoration-2 underline-offset-4 group-hover:underline">
+              {g.izena}
+              {'urtea' in g && <span class="font-normal text-lauso"> ({g.urtea})</span>}
+            </span>
+            <span class="mt-0.5 block text-[0.98rem] leading-snug text-lauso">{g.laburpena}</span>
+          </span>
+        </a>
+      </li>
+    ))
+  }
+</ol>

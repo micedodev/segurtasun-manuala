@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import { ATALAK } from '../data/gida';
+---
+
+<Base
+  izenburua="Iturriak"
+  deskribapena="Gidako adibide eta eraso guztien iturriak, gaika ordenatuta."
+>
+  <div class="mx-auto max-w-6xl px-5 md:px-8">
+    <nav aria-label="Ogi-apurrak" class="pt-8 text-[0.95rem] text-lauso">
+      <a href="/" class="hover:text-tinta hover:underline">Hasiera</a>
+      <span aria-hidden="true"> / </span>
+      <span aria-current="page">Iturriak</span>
+    </nav>
+
+    <h1 class="mt-6 text-[clamp(2.4rem,6.5vw,4.25rem)] font-extrabold leading-[1.02] tracking-[-0.025em]">Iturriak</h1>
+    <p class="mt-4 max-w-testua text-[1.2rem] leading-relaxed text-lauso">
+      Gidako adibide guztiak benetako kasuak dira. Hemen dituzu bakoitzaren iturriak, gaika ordenatuta.
+    </p>
+
+    {
+      ATALAK.map((atala) => (
+        <section class="mt-12 max-w-testua" style={`--atal: ${atala.kolorea}`} aria-labelledby={`it-${atala.id}`}>
+          <h2 id={`it-${atala.id}`} class="atal-marra border-l-[6px] pl-4 text-[1.5rem] font-extrabold tracking-tight">
+            {atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua}
+          </h2>
+          <dl class="mt-4 divide-y divide-marra border-y border-marra">
+            {atala.mota === 'gaiak'
+              ? atala.gaiak.map((g) => (
+                  <div class="py-3">
+                    <dt class="font-bold">
+                      <a href={`/${atala.id}/${g.slug}/`} class="hover:underline">
+                        {g.izena}
+                      </a>
+                      <span class="font-normal text-lauso">: {g.adibidea.izenburua} ({g.adibidea.urtea})</span>
+                    </dt>
+                    <dd class="mt-1">
+                      <a href={g.adibidea.iturria.url} class="esteka break-words" rel="noopener">
+                        {g.adibidea.iturria.izena}
+                      </a>
+                    </dd>
+                  </div>
+                ))
+              : atala.kasuak.map((k) => (
+                  <div class="py-3">
+                    <dt class="font-bold">
+                      <a href={`/${atala.id}/${k.slug}/`} class="hover:underline">
+                        {k.izena}
+                      </a>
+                      <span class="font-normal text-lauso"> ({k.urtea})</span>
+                    </dt>
+                    {k.iturriak.map((i) => (
+                      <dd class="mt-1">
+                        <a href={i.url} class="esteka break-words" rel="noopener">
+                          {i.izena}
+                        </a>
+                      </dd>
+                    ))}
+                  </div>
+                ))}
+          </dl>
+        </section>
+      ))
+    }
+  </div>
+</Base>

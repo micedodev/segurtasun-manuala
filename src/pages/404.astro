@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { ATALAK, atalaHref } from '../data/gida';
+---
+
+<Base izenburua="Orria ez da aurkitu" deskribapena="Bilatzen ari zaren orria ez dago gida honetan.">
+  <div class="mx-auto max-w-6xl px-5 pt-16 md:px-8">
+    <h1 class="text-[clamp(2.4rem,6.5vw,4.25rem)] font-extrabold leading-[1.02] tracking-[-0.025em]">
+      Orri hau ez dago
+    </h1>
+    <p class="mt-4 max-w-testua text-[1.2rem] leading-relaxed text-lauso">
+      Helbidea aldatu egin da edo gaizki idatzita dago. Aukeratu atal bat edo itzuli hasierara.
+    </p>
+    <ul class="mt-8 flex flex-wrap gap-3">
+      <li>
+        <a href="/" class="inline-block rounded-md bg-tinta px-5 py-3 font-bold text-white hover:bg-black">Hasiera</a>
+      </li>
+      {
+        ATALAK.map((a) => (
+          <li>
+            <a href={atalaHref(a.id)} class="inline-block rounded-md border border-marra px-5 py-3 font-bold hover:border-tinta">
+              {a.laburra}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
