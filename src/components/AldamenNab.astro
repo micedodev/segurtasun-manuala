@@ -9,14 +9,18 @@ interface Props {
 const { aurrekoa, hurrengoa } = aldamenak(Astro.props.href);
 ---
 
-<nav aria-label="Gaien artean nabigatu" class="mt-16 grid gap-3 border-t border-marra pt-6 sm:grid-cols-2">
+<nav aria-label="Gaien artean nabigatu" class="mt-16 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2">
   {
     aurrekoa ? (
-      <a href={aurrekoa.href} rel="prev" class="group rounded-md border border-marra px-5 py-4 hover:border-tinta">
-        <span class="block text-[0.95rem] text-lauso">
-          <span aria-hidden="true">← </span>Aurrekoa
+      <a
+        href={aurrekoa.href}
+        rel="prev"
+        class="group rounded-[3px] border border-white/15 px-5 py-4 transition-colors hover:border-rojo"
+      >
+        <span class="etiketa block text-piedra">
+          <span aria-hidden="true" class="text-rojo">← </span>Aurrekoa
         </span>
-        <span class="block font-bold group-hover:underline">{aurrekoa.izena}</span>
+        <span class="mt-1 block text-[1.15rem] transition-colors group-hover:text-rojovivo">{aurrekoa.izena}</span>
       </a>
     ) : (
       <span />
@@ -27,12 +31,12 @@ const { aurrekoa, hurrengoa } = aldamenak(Astro.props.href);
       <a
         href={hurrengoa.href}
         rel="next"
-        class="group rounded-md border border-marra px-5 py-4 text-right hover:border-tinta"
+        class="group rounded-[3px] border border-white/15 px-5 py-4 text-right transition-colors hover:border-rojo"
       >
-        <span class="block text-[0.95rem] text-lauso">
-          Hurrengoa<span aria-hidden="true"> →</span>
+        <span class="etiketa block text-piedra">
+          Hurrengoa<span aria-hidden="true" class="text-rojo"> →</span>
         </span>
-        <span class="block font-bold group-hover:underline">{hurrengoa.izena}</span>
+        <span class="mt-1 block text-[1.15rem] transition-colors group-hover:text-rojovivo">{hurrengoa.izena}</span>
       </a>
     )
   }

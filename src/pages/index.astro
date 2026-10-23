@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import GaiZerrenda from '../components/GaiZerrenda.astro';
+import MoltenHero from '../components/MoltenHero.astro';
 import { ATALAK, ORRIAK, GAI_KOPURUA } from '../data/gida';
 
 const lehena = ORRIAK[0];
@@ -12,43 +13,53 @@ const kasuKopurua = kasuak && kasuak.mota === 'kasuak' ? kasuak.kasuak.length : 
   izenburua="Mehatxu informatikoen gida"
   deskribapena="Segurtasun informatikoko mehatxuak euskaraz: zer diren, nola funtzionatzen duten, benetako adibide bat eta nola babestu."
 >
-  <section class="mx-auto max-w-6xl px-5 pb-6 pt-12 md:px-8 md:pt-20">
-    <h1 class="max-w-[14ch] text-[clamp(2.6rem,7vw,4.75rem)] font-extrabold leading-[1.02] tracking-[-0.025em]">
-      Mehatxu informatikoen gida
-    </h1>
-    <p class="mt-6 max-w-testua text-[1.25rem] leading-relaxed text-lauso md:text-[1.375rem]">
-      {GAI_KOPURUA} mehatxu eta {kasuKopurua} eraso erreal, modu argian azalduta. Gai bakoitzean: zer den, nola
-      funtzionatzen duen, benetako adibide bat eta nola babestu.
-    </p>
-    {
-      lehena && (
-        <a
-          href={lehena.href}
-          class="mt-8 inline-block rounded-md bg-tinta px-6 py-3 text-[1.05rem] font-bold text-white hover:bg-black"
-        >
-          Hasi lehen gaiarekin: {lehena.izena}
-        </a>
-      )
-    }
+  <section class="relative overflow-hidden border-b border-white/10">
+    <div class="hatch pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"></div>
+    <MoltenHero />
+    <div class="relative mx-auto max-w-6xl px-5 pb-16 pt-14 md:px-8 md:pb-20 md:pt-24">
+      <div class="flex flex-wrap gap-2">
+        <span class="chip border-rojo/60 text-rojo">● Eskuliburua</span>
+        <span class="chip border-white/20 text-piedra">{GAI_KOPURUA} mehatxu · {kasuKopurua} eraso erreal</span>
+      </div>
+      <h1 class="mt-6 max-w-4xl break-words text-[clamp(2rem,8.6vw,6rem)] font-extralight uppercase leading-[0.95] tracking-tight">
+        Mehatxu informatikoen gida<span class="text-rojo">.</span>
+      </h1>
+      <p class="mt-8 max-w-testua text-[1.2rem] leading-relaxed text-piedra md:text-[1.3rem]">
+        Gai bakoitzean: zer den, nola funtzionatzen duen, benetako adibide bat, CIA eragina eta nola babestu. Euskaraz eta
+        modu argian.
+      </p>
+      {
+        lehena && (
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href={lehena.href} class="btn-rojo">
+              Hasi: {lehena.izena} <span aria-hidden="true">→</span>
+            </a>
+            <a href="/iturriak/" class="btn-line">Iturriak</a>
+          </div>
+        )
+      }
+    </div>
   </section>
 
   {
-    ATALAK.map((atala) => (
+    ATALAK.map((atala, i) => (
       <section
         id={atala.id}
         aria-labelledby={`${atala.id}-izenburua`}
-        class="mx-auto max-w-6xl scroll-mt-6 px-5 pt-14 md:px-8"
-        style={`--atal: ${atala.kolorea}`}
+        class="mx-auto max-w-6xl px-5 pt-16 md:px-8"
       >
-        <div class="mb-6 flex items-start gap-4">
-          <span class="atal-hondoa mt-2 h-8 w-2 shrink-0 rounded-sm" aria-hidden="true" />
-          <div>
-            <h2 id={`${atala.id}-izenburua`} class="text-[1.75rem] font-extrabold leading-tight tracking-tight">
-              <a href={`/${atala.id}/`} class="hover:underline">
-                {atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua}
+        <div class="mb-6 flex items-start gap-4 border-b border-white/10 pb-6 md:items-center md:gap-5">
+          <span class="epnum mt-1 h-11 w-11 text-[0.85rem] text-rojo md:mt-0 md:h-14 md:w-14 md:text-[1rem]" aria-hidden="true">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <div class="min-w-0">
+            {atala.mota === 'gaiak' && <p class="etiketa text-piedra">{atala.laburra}</p>}
+            <h2 id={`${atala.id}-izenburua`} class="text-[1.9rem] font-light leading-tight tracking-tight md:text-[2.4rem]">
+              <a href={`/${atala.id}/`} class="hover:text-rojovivo">
+                {atala.izenburua}
               </a>
             </h2>
-            <p class="mt-1 max-w-testua text-lauso">{atala.sarrera}</p>
+            <p class="mt-1 max-w-testua text-piedra">{atala.sarrera}</p>
           </div>
         </div>
         <GaiZerrenda atala={atala} />

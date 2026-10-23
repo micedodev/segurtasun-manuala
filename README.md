@@ -24,8 +24,9 @@ Adibide guztien iturriak `/iturriak/` orrian daude.
 ## Teknologia
 
 - [Astro](https://astro.build) (web estatikoa) eta Tailwind CSS.
-- Letra-tipoa: [Atkinson Hyperlegible Next](https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next), Braille Institutek irakurgarritasunerako diseinatua.
-- JavaScript gabe: orri guztiak HTML hutsa dira.
+- Itxura: lehengo webgunearena (ikatz-kolorezko hondoa, hezur-koloreko testua eta gorri bakarra, `#D94848`).
+- Letra-tipoak: [Roboto](https://fonts.google.com/specimen/Roboto) testurako eta Roboto Mono etiketetarako.
+- JavaScript ia gabe: hasierako azaleko "metal urtua" hondoa (canvas) bakarrik; gainerako orriak HTML hutsa dira.
 
 ## Egitura
 

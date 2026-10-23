@@ -14,12 +14,12 @@ const { atala, oraingoa } = Astro.props;
 const elementuak = atala.mota === 'gaiak' ? atala.gaiak : atala.kasuak;
 ---
 
-<nav aria-label={`${atala.laburra}: gaiak`} class="sticky top-6">
-  <p class="text-[0.95rem] font-bold">
-    <a href={`/${atala.id}/`} class="hover:underline">{atala.laburra}</a>
+<nav aria-label={`${atala.laburra}: gaiak`} class="sticky top-24">
+  <p class="etiketa text-rojo">
+    <a href={`/${atala.id}/`} class="hover:text-rojovivo">{atala.laburra}</a>
   </p>
-  <p class="mb-3 text-[0.95rem] text-lauso">{atala.izenburua}</p>
-  <ol class="space-y-0.5 border-l border-marra">
+  <p class="mb-4 mt-1 text-[0.95rem] text-piedra">{atala.izenburua}</p>
+  <ol class="space-y-0.5 border-l border-white/10">
     {
       elementuak.map((g) => {
         const oraingoaDa = g.slug === oraingoa;
@@ -29,8 +29,8 @@ const elementuak = atala.mota === 'gaiak' ? atala.gaiak : atala.kasuak;
               href={`/${atala.id}/${g.slug}/`}
               aria-current={oraingoaDa ? 'page' : undefined}
               class:list={[
-                '-ml-px block border-l-[3px] py-1 pl-4 text-[0.98rem] leading-snug',
-                oraingoaDa ? 'atal-marra font-bold' : 'border-transparent text-lauso hover:text-tinta',
+                '-ml-px block border-l-2 py-1.5 pl-4 text-[0.98rem] leading-snug transition-colors',
+                oraingoaDa ? 'border-rojo text-hueso' : 'border-transparent text-piedra hover:text-hueso',
               ]}
             >
               {g.izena}

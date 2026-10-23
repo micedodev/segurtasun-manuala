@@ -5,30 +5,37 @@ import { ATALAK, atalaHref, type AtalId } from '../data/gida';
 interface Props {
   izenburua: string;
   deskribapena: string;
-  /** Orri honen atala: nabigazioan markatzeko eta kolorea emateko. */
+  /** Orri honen atala: nabigazioan markatzeko. */
   atala?: AtalId;
 }
 
 const { izenburua, deskribapena, atala } = Astro.props;
-const kolorea = ATALAK.find((a) => a.id === atala)?.kolorea ?? '#17201D';
-const osoa = izenburua === 'Mehatxu informatikoen gida' ? izenburua : `${izenburua} | Mehatxu informatikoen gida`;
+const osoa = `${izenburua} | SegurtasunManuala`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// Lehengo webguneko nabigazioa: zenbakia eta izen laburra.
+const NAB: Record<AtalId, string> = {
+  '1ud': 'Sarrera',
+  '2ud': 'Logikoa',
+  '3ud': 'Aktiboa',
+  zibererasoak: 'Zibererasoak',
+};
 ---
 
 <!doctype html>
-<html lang="eu" style={`--atal: ${kolorea}`}>
+<html lang="eu" class="grain">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{osoa}</title>
     <meta name="description" content={deskribapena} />
     <link rel="canonical" href={canonical.href} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0e0e10" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="eu_ES" />
-    <meta property="og:site_name" content="Mehatxu informatikoen gida" />
+    <meta property="og:site_name" content="SegurtasunManuala" />
     <meta property="og:title" content={osoa} />
     <meta property="og:description" content={deskribapena} />
     <meta property="og:url" content={canonical.href} />
@@ -37,39 +44,52 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,200;0,300;0,400;0,500;0,700;1,300;1,400&family=Roboto+Mono:wght@400;500&display=swap"
     />
   </head>
 
   <body class="flex min-h-screen flex-col">
     <a
       href="#edukia"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-tinta focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
+      class="etiketa sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[2px] focus:bg-rojo focus:px-4 focus:py-2 focus:text-carbon-900"
     >
       Jauzi edukira
     </a>
 
-    <header class="border-b border-marra">
-      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-4 md:px-8">
-        <a href="/" class="group leading-tight">
-          <span class="block text-lg font-extrabold tracking-tight group-hover:underline">Mehatxu informatikoen gida</span>
-          <span class="block text-[0.9rem] text-lauso">Segurtasuna eta Erabilgarritasun Handia</span>
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-carbon-950/85 backdrop-blur-md">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-2 px-5 py-3 md:px-8">
+        <a href="/" class="flex items-center gap-3">
+          <span class="grid h-9 w-9 place-items-center rounded-[4px] border border-white/20 bg-carbon-800">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
+              <path d="M2 12h8.5" />
+              <g stroke="#D94848"><path d="M20 6V4a2 2 0 1 0-4 0v2" /><rect width="8" height="5" x="14" y="6" rx="1" /></g>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[1.05rem] font-medium tracking-tight">SegurtasunManuala</span>
+            <span class="etiketa block !text-[0.65rem] text-piedra">Mehatxu informatikoen gida</span>
+          </span>
         </a>
-        <nav aria-label="Atalak">
-          <ul class="flex flex-wrap gap-x-5 gap-y-1 text-[1rem] font-semibold">
+        <nav aria-label="Atalak" class="-mx-5 w-[calc(100%+2.5rem)] overflow-x-auto px-5 [scrollbar-width:none] md:mx-0 md:w-auto md:px-0">
+          <ul class="flex gap-x-6 whitespace-nowrap">
             {
-              ATALAK.map((a) => (
+              ATALAK.map((a, i) => (
                 <li>
                   <a
                     href={atalaHref(a.id)}
                     aria-current={a.id === atala ? 'page' : undefined}
                     class:list={[
-                      'inline-block border-b-[3px] py-1 transition-colors',
-                      a.id === atala ? '' : 'border-transparent text-lauso hover:text-tinta',
+                      'etiketa inline-block py-2 transition-colors',
+                      a.id === atala
+                        ? 'text-hueso underline decoration-rojo decoration-2 underline-offset-8'
+                        : 'text-piedra hover:text-hueso',
                     ]}
-                    style={a.id === atala ? `border-color: ${a.kolorea}` : undefined}
                   >
-                    {a.laburra}
+                    <span class="mr-1 text-humo" aria-hidden="true">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    {NAB[a.id]}
                   </a>
                 </li>
               ))
@@ -83,15 +103,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
 
-    <footer class="mt-20 border-t border-marra bg-leun">
-      <div class="mx-auto grid max-w-6xl gap-4 px-5 py-8 text-[0.95rem] text-lauso md:grid-cols-[1fr_auto] md:px-8">
+    <footer class="mt-24 border-t border-white/10 bg-carbon-950">
+      <div class="mx-auto grid max-w-6xl gap-4 px-5 py-8 text-[0.95rem] text-piedra md:grid-cols-[1fr_auto] md:px-8">
         <div>
-          <p class="font-semibold text-tinta">Egilea: Markel Icedo</p>
+          <p class="font-medium text-hueso">Egilea: Markel Icedo</p>
           <p>Segurtasuna eta Erabilgarritasun Handia modulurako lana.</p>
         </div>
         <p class="md:text-right">
           Adibide guztiak benetako kasuak dira.<br />
-          <a href="/iturriak/" class="esteka text-tinta">Ikusi iturriak</a>
+          <a href="/iturriak/" class="esteka text-hueso">Ikusi iturriak</a>
         </p>
       </div>
     </footer>

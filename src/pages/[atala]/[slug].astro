@@ -29,8 +29,8 @@ const kasua = atala.mota === 'kasuak' ? (elementua as Kasua) : null;
 // Orri bakoitzak bere eragina eta iritzia izan behar ditu; bestela eraikitzeak huts egiten du.
 const { eragina, iritzia } = lortuEragina(atala.id, elementua.slug);
 
-const h2 = 'text-[1.5rem] font-extrabold tracking-tight md:text-[1.65rem]';
-const atala2 = 'mt-12';
+const h2 = 'text-[1.6rem] font-light tracking-tight md:text-[1.85rem]';
+const atala2 = 'mt-14';
 ---
 
 <Base izenburua={elementua.izena} deskribapena={elementua.laburpena} atala={atala.id}>
@@ -40,22 +40,22 @@ const atala2 = 'mt-12';
     </aside>
 
     <article class="min-w-0 max-w-testua">
-      <nav aria-label="Ogi-apurrak" class="pt-8 text-[0.95rem] text-lauso">
-        <a href="/" class="hover:text-tinta hover:underline">Hasiera</a>
-        <span aria-hidden="true"> / </span>
-        <a href={`/${atala.id}/`} class="hover:text-tinta hover:underline">
+      <nav aria-label="Ogi-apurrak" class="etiketa pt-8 text-piedra">
+        <a href="/" class="hover:text-hueso">Hasiera</a>
+        <span aria-hidden="true" class="mx-2 text-rojo">/</span>
+        <a href={`/${atala.id}/`} class="hover:text-hueso">
           {atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua}
         </a>
       </nav>
 
-      <header class="atal-marra mt-6 border-l-[6px] pl-5 md:pl-7">
-        <p class="atal-testua text-[1.1rem] font-bold">
-          {elementua.etiketa}{kasua && `, ${kasua.urtea}`}
+      <header class="mt-7 border-l-2 border-rojo pl-5 md:pl-7">
+        <p class="etiketa text-rojo">
+          {elementua.etiketa}{kasua && ` · ${kasua.urtea}`}
         </p>
-        <h1 class="mt-1 break-words text-[clamp(2.75rem,9vw,5.5rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
-          {elementua.izena}
+        <h1 class="mt-3 break-words text-[clamp(2.75rem,9vw,5.25rem)] font-light leading-[0.98] tracking-[-0.02em]">
+          {elementua.izena}<span class="text-rojo">.</span>
         </h1>
-        <p class="mt-5 text-[1.25rem] leading-relaxed text-lauso md:text-[1.375rem]">{elementua.laburpena}</p>
+        <p class="mt-5 text-[1.2rem] leading-relaxed text-piedra md:text-[1.3rem]">{elementua.laburpena}</p>
       </header>
 
       {
@@ -77,14 +77,13 @@ const atala2 = 'mt-12';
 
             <section class={atala2} aria-labelledby="adibidea">
               <h2 id="adibidea" class={h2}>Adibidea</h2>
-              <figure class="atal-leuna mt-4 rounded-md px-5 py-5 md:px-7 md:py-6">
-                <h3 class="text-[1.2rem] font-bold leading-snug">
-                  {gaia.adibidea.izenburua} <span class="font-normal text-lauso">({gaia.adibidea.urtea})</span>
-                </h3>
-                <p class="mt-2">{gaia.adibidea.testua}</p>
-                <figcaption class="mt-4 text-[0.95rem] text-lauso">
+              <figure class="velo mt-5 rounded-[3px] px-5 py-6 md:px-7">
+                <p class="etiketa text-rojo">◉ Benetako kasua · {gaia.adibidea.urtea}</p>
+                <h3 class="mt-2 text-[1.3rem] font-normal leading-snug tracking-tight">{gaia.adibidea.izenburua}</h3>
+                <p class="mt-2 text-hueso/90">{gaia.adibidea.testua}</p>
+                <figcaption class="mt-4 text-[0.95rem] text-piedra">
                   Iturria:{' '}
-                  <a href={gaia.adibidea.iturria.url} class="esteka text-tinta" rel="noopener">
+                  <a href={gaia.adibidea.iturria.url} class="esteka text-hueso" rel="noopener">
                     {gaia.adibidea.iturria.izena}
                   </a>
                 </figcaption>
@@ -102,9 +101,9 @@ const atala2 = 'mt-12';
               </ul>
             </section>
 
-            <aside class="atal-marra mt-12 border-t-4 pt-5" aria-labelledby="gogoratu">
-              <h2 id="gogoratu" class="text-[1.05rem] font-bold atal-testua">Gogoratu</h2>
-              <p class="mt-1 text-[1.35rem] font-semibold leading-snug md:text-[1.5rem]">{gaia.gogoratu}</p>
+            <aside class="mt-14 border-y border-white/10 py-6" aria-labelledby="gogoratu">
+              <h2 id="gogoratu" class="etiketa text-rojo">Gogoratu</h2>
+              <p class="mt-2 text-[1.4rem] font-light leading-snug md:text-[1.6rem]">{gaia.gogoratu}</p>
             </aside>
 
             <Iritzia iritzia={iritzia} />
@@ -135,10 +134,10 @@ const atala2 = 'mt-12';
 
             <section class={atala2} aria-labelledby="ezaugarriak">
               <h2 id="ezaugarriak" class={h2}>Erasoaren ezaugarriak</h2>
-              <dl class="mt-4 divide-y divide-marra border-y border-marra">
+              <dl class="mt-4 divide-y divide-white/10 border-y border-white/10">
                 {kasua.ezaugarriak.map((e) => (
                   <div class="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                    <dt class="font-bold">{e.izena}</dt>
+                    <dt class="etiketa pt-1 text-piedra">{e.izena}</dt>
                     <dd>{e.balioa}</dd>
                   </div>
                 ))}

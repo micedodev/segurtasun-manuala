@@ -58,8 +58,6 @@ interface AtalOinarria {
   laburra: string;
   izenburua: string;
   sarrera: string;
-  /** Atalaren kolorea: kokapena adierazten du, ez apaingarria. */
-  kolorea: string;
 }
 
 export interface GaiAtala extends AtalOinarria {
@@ -85,7 +83,6 @@ const ud1: GaiAtala = {
   izenburua: 'Segurtasunaren sarrera',
   sarrera:
     'Erasotzaileek gehien erabiltzen dituzten tresnak: zu engainatzeko, zure ekipoan sartzeko eta zure datuak eramateko.',
-  kolorea: '#2F5D9E',
   gaiak: [
     {
       slug: 'phishinga',
@@ -283,7 +280,6 @@ const ud2: GaiAtala = {
   izenburua: 'Segurtasun logikoa',
   sarrera:
     'Eraso batzuk ez dira ekipo bakarrean geratzen: milaka gailu eta kontutara zabaltzen dira, edo pasahitzak indarrez irekitzen dituzte.',
-  kolorea: '#9A5B00',
   gaiak: [
     {
       slug: 'koobface',
@@ -391,7 +387,6 @@ const ud3: GaiAtala = {
   izenburua: 'Segurtasun aktiboa',
   sarrera:
     'Mehatxu batzuk ezkutatzeko eta irauteko diseinatuta daude. Unitate honetan ikusiko duzu nola jokatzen duten eta, batez ere, nola detektatzen eta geldiarazten diren.',
-  kolorea: '#2E7D4F',
   gaiak: [
     {
       slug: 'atzeko-ateak',
@@ -557,7 +552,6 @@ const zibererasoak: KasuAtala = {
   izenburua: 'Zibererasoak',
   sarrera:
     'Mundua aldatu zuten bi eraso erreal: zer gertatu zen, nola egin zuten eta zer ezaugarri zituzten.',
-  kolorea: '#B3261E',
   kasuak: [
     {
       slug: 'stuxnet',

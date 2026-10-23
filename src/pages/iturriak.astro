@@ -8,32 +8,34 @@ import { ATALAK } from '../data/gida';
   deskribapena="Gidako adibide eta eraso guztien iturriak, gaika ordenatuta."
 >
   <div class="mx-auto max-w-6xl px-5 md:px-8">
-    <nav aria-label="Ogi-apurrak" class="pt-8 text-[0.95rem] text-lauso">
-      <a href="/" class="hover:text-tinta hover:underline">Hasiera</a>
-      <span aria-hidden="true"> / </span>
-      <span aria-current="page">Iturriak</span>
+    <nav aria-label="Ogi-apurrak" class="etiketa pt-8 text-piedra">
+      <a href="/" class="hover:text-hueso">Hasiera</a>
+      <span aria-hidden="true" class="mx-2 text-rojo">/</span>
+      <span aria-current="page" class="text-hueso">Iturriak</span>
     </nav>
 
-    <h1 class="mt-6 text-[clamp(2.4rem,6.5vw,4.25rem)] font-extrabold leading-[1.02] tracking-[-0.025em]">Iturriak</h1>
-    <p class="mt-4 max-w-testua text-[1.2rem] leading-relaxed text-lauso">
+    <h1 class="mt-8 text-[clamp(2.4rem,6.5vw,4.5rem)] font-extralight uppercase leading-[0.98] tracking-tight">
+      Iturriak<span class="text-rojo">.</span>
+    </h1>
+    <p class="mt-5 max-w-testua text-[1.2rem] leading-relaxed text-piedra">
       Gidako adibide guztiak benetako kasuak dira. Hemen dituzu bakoitzaren iturriak, gaika ordenatuta.
     </p>
 
     {
       ATALAK.map((atala) => (
-        <section class="mt-12 max-w-testua" style={`--atal: ${atala.kolorea}`} aria-labelledby={`it-${atala.id}`}>
-          <h2 id={`it-${atala.id}`} class="atal-marra border-l-[6px] pl-4 text-[1.5rem] font-extrabold tracking-tight">
+        <section class="mt-14 max-w-testua" aria-labelledby={`it-${atala.id}`}>
+          <h2 id={`it-${atala.id}`} class="border-l-2 border-rojo pl-4 text-[1.6rem] font-light tracking-tight">
             {atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua}
           </h2>
-          <dl class="mt-4 divide-y divide-marra border-y border-marra">
+          <dl class="mt-4 divide-y divide-white/10 border-y border-white/10">
             {atala.mota === 'gaiak'
               ? atala.gaiak.map((g) => (
                   <div class="py-3">
-                    <dt class="font-bold">
-                      <a href={`/${atala.id}/${g.slug}/`} class="hover:underline">
+                    <dt class="font-medium">
+                      <a href={`/${atala.id}/${g.slug}/`} class="hover:text-rojovivo">
                         {g.izena}
                       </a>
-                      <span class="font-normal text-lauso">: {g.adibidea.izenburua} ({g.adibidea.urtea})</span>
+                      <span class="font-normal text-piedra">: {g.adibidea.izenburua} ({g.adibidea.urtea})</span>
                     </dt>
                     <dd class="mt-1">
                       <a href={g.adibidea.iturria.url} class="esteka break-words" rel="noopener">
@@ -44,11 +46,11 @@ import { ATALAK } from '../data/gida';
                 ))
               : atala.kasuak.map((k) => (
                   <div class="py-3">
-                    <dt class="font-bold">
-                      <a href={`/${atala.id}/${k.slug}/`} class="hover:underline">
+                    <dt class="font-medium">
+                      <a href={`/${atala.id}/${k.slug}/`} class="hover:text-rojovivo">
                         {k.izena}
                       </a>
-                      <span class="font-normal text-lauso"> ({k.urtea})</span>
+                      <span class="font-normal text-piedra"> ({k.urtea})</span>
                     </dt>
                     {k.iturriak.map((i) => (
                       <dd class="mt-1">

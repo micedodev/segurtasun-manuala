@@ -16,21 +16,23 @@ const elementuak = atala.mota === 'gaiak' ? atala.gaiak : atala.kasuak;
 <ol class="grid gap-x-10 md:grid-cols-2">
   {
     elementuak.map((g, i) => (
-      <li class="border-t border-marra">
-        <a href={`/${atala.id}/${g.slug}/`} class="group flex gap-4 py-4">
+      <li class="border-b border-white/10">
+        <a href={`/${atala.id}/${g.slug}/`} class="group flex items-start gap-4 py-5">
+          <span class="mt-1 w-7 shrink-0 font-mono text-[0.85rem] font-medium tabular-nums text-rojo" aria-hidden="true">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <span class="min-w-0 flex-1">
+            <span class="block text-[1.3rem] font-normal leading-snug tracking-tight transition-colors group-hover:text-rojovivo">
+              {g.izena}
+              {'urtea' in g && <span class="text-piedra"> ({g.urtea})</span>}
+            </span>
+            <span class="mt-1 block text-[0.98rem] leading-snug text-piedra">{g.laburpena}</span>
+          </span>
           <span
-            class="mt-0.5 w-6 shrink-0 text-right text-[1rem] font-bold tabular-nums"
-            style={`color: ${atala.kolorea}`}
+            class="mt-0.5 hidden h-9 w-9 shrink-0 place-items-center rounded-full border border-rojo/70 text-rojo transition group-hover:translate-x-1 group-hover:bg-rojo group-hover:text-carbon-900 sm:grid"
             aria-hidden="true"
           >
-            {i + 1}
-          </span>
-          <span class="min-w-0">
-            <span class="block text-[1.2rem] font-bold leading-snug decoration-2 underline-offset-4 group-hover:underline">
-              {g.izena}
-              {'urtea' in g && <span class="font-normal text-lauso"> ({g.urtea})</span>}
-            </span>
-            <span class="mt-0.5 block text-[0.98rem] leading-snug text-lauso">{g.laburpena}</span>
+            →
           </span>
         </a>
       </li>

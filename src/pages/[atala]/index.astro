@@ -13,25 +13,31 @@ interface Props {
 
 const { atala } = Astro.props;
 const izenburua = atala.mota === 'gaiak' ? `${atala.laburra}: ${atala.izenburua}` : atala.izenburua;
+const zenbakia = String(ATALAK.indexOf(atala) + 1).padStart(2, '0');
 ---
 
 <Base izenburua={izenburua} deskribapena={atala.sarrera} atala={atala.id}>
   <div class="mx-auto max-w-6xl px-5 md:px-8">
-    <nav aria-label="Ogi-apurrak" class="pt-8 text-[0.95rem] text-lauso">
-      <a href="/" class="hover:text-tinta hover:underline">Hasiera</a>
-      <span aria-hidden="true"> / </span>
-      <span aria-current="page">{atala.laburra}</span>
+    <nav aria-label="Ogi-apurrak" class="etiketa pt-8 text-piedra">
+      <a href="/" class="hover:text-hueso">Hasiera</a>
+      <span aria-hidden="true" class="mx-2 text-rojo">/</span>
+      <span aria-current="page" class="text-hueso">{atala.laburra}</span>
     </nav>
 
-    <header class="atal-marra mt-6 border-l-[6px] pl-5 md:pl-7">
-      {atala.mota === 'gaiak' && <p class="atal-testua text-[1.1rem] font-bold">{atala.laburra}</p>}
-      <h1 class="mt-1 text-[clamp(2.4rem,6.5vw,4.25rem)] font-extrabold leading-[1.02] tracking-[-0.025em]">
-        {atala.izenburua}
-      </h1>
-      <p class="mt-4 max-w-testua text-[1.2rem] leading-relaxed text-lauso md:text-[1.3rem]">{atala.sarrera}</p>
+    <header class="mt-8 flex items-start gap-5 md:gap-7">
+      <span class="epnum mt-1 h-11 w-11 text-[0.85rem] text-rojo md:h-20 md:w-20 md:text-[1.35rem]" aria-hidden="true">
+        {zenbakia}
+      </span>
+      <div class="min-w-0">
+        {atala.mota === 'gaiak' && <p class="etiketa text-rojo">{atala.laburra}</p>}
+        <h1 class="mt-1 break-words text-[clamp(1.9rem,8vw,4.5rem)] font-extralight uppercase leading-[0.98] tracking-tight">
+          {atala.izenburua}
+        </h1>
+        <p class="mt-5 max-w-testua text-[1.2rem] leading-relaxed text-piedra md:text-[1.3rem]">{atala.sarrera}</p>
+      </div>
     </header>
 
-    <div class="mt-10">
+    <div class="mt-12 border-t border-white/10">
       <GaiZerrenda atala={atala} />
     </div>
   </div>
