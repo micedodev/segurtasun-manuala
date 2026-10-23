@@ -1,0 +1,57 @@
+---
+/**
+ * Eragina: bost segurtasun-propietateak, eta zein jartzen diren arriskuan.
+ * Gorria eta × = arriskuan; puntu grisa = ez dago arriskuan.
+ * Ikurrak bisualak dira; irakurgailuentzat testuz ere esaten da.
+ */
+import { PROPIETATEAK, type OrriarenEragina } from '../data/eragina';
+
+interface Props {
+  eragina: OrriarenEragina['eragina'];
+}
+
+const { eragina } = Astro.props;
+const kopurua = PROPIETATEAK.filter((p) => eragina[p.id].arriskuan).length;
+---
+
+<section class="mt-12" aria-labelledby="eragina">
+  <h2 id="eragina" class="text-[1.5rem] font-extrabold tracking-tight md:text-[1.65rem]">Eragina</h2>
+  <p class="mt-2 text-lauso">
+    CIA, autentikazioa eta ez-arbuiatzea. Gorriz markatutakoak arriskuan geratzen dira:{' '}
+    <strong class="font-semibold text-tinta">{kopurua} bostetik</strong>.
+  </p>
+
+  <ul class="mt-5 border-b border-marra">
+    {
+      PROPIETATEAK.map((p) => {
+        const a = eragina[p.id];
+        return (
+          <li class="grid grid-cols-[1fr_auto] items-start gap-x-4 gap-y-1 border-t border-marra py-4 sm:grid-cols-[11.5rem_2.25rem_1fr] sm:gap-x-5">
+            <span class="font-bold sm:pt-0.5">{p.izena}</span>
+            <span class="row-start-1 col-start-2 sm:col-start-2">
+              {a.arriskuan ? (
+                <span
+                  class="grid h-7 w-7 place-items-center rounded-full bg-[#B3261E] text-[1rem] font-bold leading-none text-white"
+                  title="Arriskuan"
+                >
+                  <span aria-hidden="true">×</span>
+                </span>
+              ) : (
+                <span
+                  class="grid h-7 w-7 place-items-center rounded-full border border-marra"
+                  title="Ez dago arriskuan"
+                >
+                  <span class="h-1.5 w-1.5 rounded-full bg-lauso" aria-hidden="true" />
+                </span>
+              )}
+              <span class="sr-only">{a.arriskuan ? 'Arriskuan.' : 'Ez dago arriskuan.'}</span>
+            </span>
+            <span class="col-span-2 text-[1rem] leading-relaxed text-lauso sm:col-span-1 sm:col-start-3">
+              {a.zergatik}
+            </span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>

@@ -12,10 +12,12 @@ Segurtasun informatikoko mehatxuak euskaraz, modu argian azalduta.
 | 3. unitatea: Segurtasun aktiboa | Atzeko ateak, Botnetak, Harrak, Mamuak, Troiarrak |
 | Zibererasoak | Stuxnet (2010), SolarWinds (2020) |
 
-Gai bakoitzak bost bloke ditu, beti ordena berean:
-**Zer den**, **Nola funtzionatzen du** (urrats zenbakituak), **Adibidea** (benetako kasua, iturriarekin), **Nola babestu** eta **Gogoratu**.
+Gai bakoitzak bloke hauek ditu, beti ordena berean:
+**Zer den**, **Nola funtzionatzen du** (urrats zenbakituak), **Adibidea** (benetako kasua, iturriarekin), **Eragina**, **Nola babestu**, **Gogoratu** eta **Nire iritzia**.
 
-Zibererasoek beste egitura bat dute: **Zer gertatu zen**, **Nola egin zuten**, **Erasoaren ezaugarriak**, **Zergatik da garrantzitsua** eta **Iturriak**.
+Zibererasoek beste egitura bat dute: **Zer gertatu zen**, **Nola egin zuten**, **Erasoaren ezaugarriak**, **Eragina**, **Zergatik da garrantzitsua**, **Nire iritzia** eta **Iturriak**.
+
+**Eragina** taulak bost propietate erakusten ditu (konfidentzialtasuna, osotasuna, erabilgarritasuna, autentikazioa eta ez-arbuiatzea), zein geratzen diren arriskuan eta zergatik. Datuak `src/data/eragina.ts` fitxategian daude, iritziekin batera.
 
 Adibide guztien iturriak `/iturriak/` orrian daude.
 
@@ -30,6 +32,7 @@ Adibide guztien iturriak `/iturriak/` orrian daude.
 ```
 src/
 ├── data/gida.ts            ← eduki guztia (testuak, urratsak, adibideak, iturriak)
+├── data/eragina.ts         ← eragin-taula eta iritzia, orri bakoitzeko
 ├── layouts/Base.astro      ← goiburua, oina eta metadatuak
 ├── components/             ← gaien zerrenda, alboko menua, aurrekoa/hurrengoa
 └── pages/

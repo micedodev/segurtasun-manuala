@@ -2,6 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import AtalAlboa from '../../components/AtalAlboa.astro';
 import AldamenNab from '../../components/AldamenNab.astro';
+import EraginTaula from '../../components/EraginTaula.astro';
+import Iritzia from '../../components/Iritzia.astro';
+import { lortuEragina } from '../../data/eragina';
 import { ATALAK, type Atala, type Gaia, type Kasua } from '../../data/gida';
 
 export function getStaticPaths() {
@@ -23,6 +26,8 @@ const { atala, elementua } = Astro.props;
 const href = `/${atala.id}/${elementua.slug}/`;
 const gaia = atala.mota === 'gaiak' ? (elementua as Gaia) : null;
 const kasua = atala.mota === 'kasuak' ? (elementua as Kasua) : null;
+// Orri bakoitzak bere eragina eta iritzia izan behar ditu; bestela eraikitzeak huts egiten du.
+const { eragina, iritzia } = lortuEragina(atala.id, elementua.slug);
 
 const h2 = 'text-[1.5rem] font-extrabold tracking-tight md:text-[1.65rem]';
 const atala2 = 'mt-12';
@@ -86,6 +91,8 @@ const atala2 = 'mt-12';
               </figure>
             </section>
 
+            <EraginTaula eragina={eragina} />
+
             <section class={atala2} aria-labelledby="babestu">
               <h2 id="babestu" class={h2}>Nola babestu</h2>
               <ul class="babesa mt-4 space-y-3">
@@ -99,6 +106,8 @@ const atala2 = 'mt-12';
               <h2 id="gogoratu" class="text-[1.05rem] font-bold atal-testua">Gogoratu</h2>
               <p class="mt-1 text-[1.35rem] font-semibold leading-snug md:text-[1.5rem]">{gaia.gogoratu}</p>
             </aside>
+
+            <Iritzia iritzia={iritzia} />
           </>
         )
       }
@@ -136,6 +145,8 @@ const atala2 = 'mt-12';
               </dl>
             </section>
 
+            <EraginTaula eragina={eragina} />
+
             <section class={atala2} aria-labelledby="ondorioak">
               <h2 id="ondorioak" class={h2}>Zergatik da garrantzitsua</h2>
               <ul class="babesa mt-4 space-y-3">
@@ -144,6 +155,8 @@ const atala2 = 'mt-12';
                 ))}
               </ul>
             </section>
+
+            <Iritzia iritzia={iritzia} />
 
             <section class={atala2} aria-labelledby="iturriak">
               <h2 id="iturriak" class={h2}>Iturriak</h2>
