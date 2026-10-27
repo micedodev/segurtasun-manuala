@@ -116,6 +116,38 @@ const ud1: GaiAtala = {
         'Presa eta beldurra dira phishingaren armak. Mezu batek larrialdia badakar, gelditu eta egiaztatu.',
     },
     {
+      slug: 'mitm',
+      izena: 'MITM (Biren erasoa)',
+      etiketa: 'Erdiko gizonaren erasoa',
+      laburpena: 'Erasotzailea bi aldeen artean jartzen da eta haien komunikazioa irakurri edo aldatzen du.',
+      zerDen:
+        'Man-in-the-Middle (MITM) edo biren erasoa: erasotzailea bi aldeen artean kokatzen da (zu eta zure bankua, adibidez), biek elkarrekin zuzenean ari direla uste duten bitartean. Bidean doan guztia irakur dezake, eta nahi badu aldatu ere bai.',
+      urratsak: [
+        'Erasotzaileak bien arteko bidean sartzeko modua bilatzen du: wifi publiko faltsu bat, router kutsatu bat edo DNS erantzun faltsuak.',
+        'Biktimaren trafikoa erasotzailearen ekipotik pasatzen da, biktimak ezer nabaritu gabe.',
+        'Konexioa zifratua bada, ziurtagiri faltsu bat aurkezten du benetako webgunea dela sinestarazteko.',
+        'Pasahitzak, saio-cookieak eta mezuak jasotzen ditu, eta datuak bidean alda ditzake (banku-kontu zenbaki bat, esaterako).',
+      ],
+      adibidea: {
+        izenburua: 'DigiNotar eta google.com-en ziurtagiri faltsua',
+        urtea: '2011',
+        testua:
+          'DigiNotar ziurtagiri-agintaritza holandarra zen. 2011ko uztailaren 10ean, erasotzaileek haren sistemetan sartu eta google.com-erako ziurtagiri faltsu bat sortu zuten. Horrekin, Gmailera konektatzen zirenen trafikoa atzeman zitekeen, nabigatzaileak abisurik eman gabe. Fox-ITren ikerketaren arabera, 300.000 IP helbide inguruk erabili zuten ziurtagiri hori, eta % 99 baino gehiago Irangoak ziren. Abuztuaren 29an baliogabetu zuten, eta DigiNotarrek porrot egin zuen hilabete hartan bertan.',
+        iturria: {
+          izena: 'CSO Online, «Google contacts Iranian users to secure Gmail accounts»',
+          url: 'https://www.csoonline.com/article/532542/data-protection-google-contacts-iranian-users-to-secure-gmail-accounts.html',
+        },
+      },
+      babesa: [
+        'Ez sartu bankuan edo zure kontuetan wifi publiko ireki batetik; erabili datu mugikorrak edo VPN bat.',
+        'Nabigatzaileak ziurtagiriaren abisua ematen badu, ez jarraitu: atzera egin.',
+        'Begiratu helbideak https erabiltzen duela eta domeinua zuzena dela.',
+        'Aktibatu bi urratseko egiaztapena, pasahitza atzemanez gero ere babestuta egoteko.',
+      ],
+      gogoratu:
+        'MITMan ez duzu ezer arraroa ikusten: dena normal dabil. Horregatik, sare ezezagunetan ez fidatu eta ziurtagiri-abisuei kasu egin.',
+    },
+    {
       slug: 'birusak',
       izena: 'Birusak',
       etiketa: 'Malware klasikoa',

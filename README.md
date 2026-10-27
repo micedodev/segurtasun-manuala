@@ -7,7 +7,7 @@ Segurtasun informatikoko mehatxuak euskaraz, modu argian azalduta.
 
 | Atala | Gaiak |
 | --- | --- |
-| 1. unitatea: Segurtasunaren sarrera | Phishinga, Birusak, Troiarrak, Backdoorrak, Spywarea, Stealerrak |
+| 1. unitatea: Segurtasunaren sarrera | Phishinga, MITM (Biren erasoa), Birusak, Troiarrak, Backdoorrak, Spywarea, Stealerrak |
 | 2. unitatea: Segurtasun logikoa | Koobface, Botnet, Indar gordineko erasoa |
 | 3. unitatea: Segurtasun aktiboa | Atzeko ateak, Botnetak, Harrak, Mamuak, Troiarrak |
 | Zibererasoak | Stuxnet (2010), SolarWinds (2020) |

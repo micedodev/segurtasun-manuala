@@ -44,6 +44,19 @@ const DATUAK: Record<string, OrriarenEragina> = {
       'Orduan konturatu nintzen ez dela tontoa izatearen kontua: presaka zaudenean, edonork egiten du klik. Orain etxean arau bat dugu: mezu batek dirua eskatzen badu, lehenik deitu eta galdetu.',
     ],
   },
+  '1ud/mitm': {
+    eragina: {
+      konfidentzialtasuna: B('Bi aldeen artean doan guztia irakurtzen du: pasahitzak, saio-cookieak eta mezuak.'),
+      osotasuna: B('Mezuak bidean alda ditzake, eta jasotzaileak ez du jakingo jatorrizkoa ez dela.'),
+      erabilgarritasuna: E('Komunikazioak normal funtzionatu behar du; bestela, biktimak zerbait arraroa dagoela susmatuko luke.'),
+      autentikazioa: B('Ziurtagiri faltsuarekin, nabigatzaileak benetako webgunea dela uste du. DigiNotarren kasuan, Google zela.'),
+      ezArbuiatzea: B('Aldatutako mezu batek bidaltzailearena dirudi, eta gero zaila da frogatzea nork idatzi zuen benetan.'),
+    },
+    iritzia: [
+      'Gai honek beldur pixka bat eman dit, ez delako ezer ikusten. Lehen, edozein kafetegitako wifira konektatzen nintzen pentsatu gabe, eta Instagramen edo posta irekitzen nuen bertatik.',
+      'DigiNotarren kasuak harritu ninduen gehien: giltzarrapoa ere gezurra izan daiteke, ziurtagiria ematen duena erasotzen badute. Orain, kanpoan nagoenean, mugikorreko datuak erabiltzen ditut garrantzitsua den guztirako.',
+    ],
+  },
   '1ud/birusak': {
     eragina: {
       konfidentzialtasuna: E('Birus klasiko baten helburua kaltea egitea da, ez datuak lapurtzea; batzuek, hala ere, karga gehigarria eraman dezakete.'),
